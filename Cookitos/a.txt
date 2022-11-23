@@ -1,2 +1,6 @@
+<<<<<<< HEAD
+holaadioss
+=======
 hola
 adios
+>>>>>>> 3790b12208980a4fb1d3f099dd71c474c67dc7a3
