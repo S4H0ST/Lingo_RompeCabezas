@@ -10,7 +10,13 @@ public class Cookitos {
                 //Muy buenas a todos
                 //esto es otra prueba de nuevo
                 //todo correcto
+<<<<<<< HEAD
                 //cambio1
+=======
+                
+                
+                //cambio 2
+>>>>>>> 9e39a206fbc19828951bd484c0123dfd3ba249b0
         System.out.println("Hola mundo");
       
 
