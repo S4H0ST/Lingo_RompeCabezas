@@ -10,9 +10,4 @@ public class Cookitos {
         System.out.println("Hola mundo");
         //fdfdsffsfsdcdsfsdf
         }
-
-        System.out.println("Hola tierra");
     }
-    
-
-}
