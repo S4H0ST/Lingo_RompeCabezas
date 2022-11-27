@@ -11,8 +11,5 @@ public class Cookitos {
         //fdfdsffsfsdcdsfsdf
         }
 
-        System.out.println("Hola tierra");
     }
-    
-
 }
