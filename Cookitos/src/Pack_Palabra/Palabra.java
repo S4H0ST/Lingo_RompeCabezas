@@ -26,10 +26,14 @@ public class Palabra {
         return this.palabra.length;
     }
     
-    // Metodo Comprobar_colocadas
+    //METODO COMPROBAR COLOCADAS
     private void comprobar_colocadas(){
-    
-    
+     for(int i =0; i<numLetras.size();i++){
+        if(palabra[i]!=){
+            
+            
+            
+        }
     }
     
     
