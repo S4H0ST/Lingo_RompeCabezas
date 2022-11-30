@@ -23,6 +23,15 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        jLabel1.setText("COOKITOS GAME");
+        jLabel1.setToolTipText("");
+=======
         nombre = new javax.swing.JLabel();
         contrasena = new javax.swing.JLabel();
         areaNombre = new javax.swing.JTextField();
@@ -42,12 +51,22 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         botonIniciar.setText("Iniciar sesión");
+>>>>>>> 62aa386038fba8e9966be78130c9bcc0003d736f
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                .addGap(177, 177, 177)
+                .addComponent(jLabel1)
+                .addContainerGap(184, Short.MAX_VALUE))
+=======
+                .addGap(93, 93, 93)
+>>>>>>> 09690cfbcbfe40eda98ea7aed9d049af319505f6
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
@@ -62,11 +81,28 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGap(152, 152, 152)
                         .addComponent(botonIniciar)))
                 .addContainerGap(108, Short.MAX_VALUE))
+<<<<<<< HEAD
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonIniciar)
+                .addGap(149, 149, 149))
+>>>>>>> 62aa386038fba8e9966be78130c9bcc0003d736f
+>>>>>>> 09690cfbcbfe40eda98ea7aed9d049af319505f6
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(48, 48, 48)
+=======
+<<<<<<< HEAD
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(366, Short.MAX_VALUE))
+=======
+                .addGap(85, 85, 85)
+>>>>>>> 09690cfbcbfe40eda98ea7aed9d049af319505f6
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre)
                     .addComponent(areaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -76,7 +112,12 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(areaContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(botonIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(124, Short.MAX_VALUE))
+=======
+                .addContainerGap(98, Short.MAX_VALUE))
+>>>>>>> 62aa386038fba8e9966be78130c9bcc0003d736f
+>>>>>>> 09690cfbcbfe40eda98ea7aed9d049af319505f6
         );
 
         pack();
@@ -122,11 +163,15 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
+    private javax.swing.JLabel jLabel1;
+=======
     private javax.swing.JTextField areaContrasena;
     private javax.swing.JTextField areaNombre;
     private javax.swing.JButton botonIniciar;
     private javax.swing.JLabel contrasena;
     private javax.swing.JLabel nombre;
+>>>>>>> 62aa386038fba8e9966be78130c9bcc0003d736f
     // End of variables declaration//GEN-END:variables
 
 }
