@@ -5,7 +5,7 @@
 
 /**
  *
- * @author sohaib
+ * @author sohaib, Jose, Laura
  */
 public class Interfaz extends javax.swing.JFrame {
 
