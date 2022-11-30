@@ -1,8 +1,7 @@
-package cookitos;
 /**
- *
- * @author sohaib, Jose, Laura
+ * @author Jose
  */
+package cookitos;
 public class Partida {
     private static int numPalabras;
     private boolean regalo_de_palabra;
