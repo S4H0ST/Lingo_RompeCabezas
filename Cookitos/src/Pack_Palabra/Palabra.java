@@ -29,7 +29,7 @@ public class Palabra {
     //METODO COMPROBAR COLOCADAS
     private void comprobar_colocadas(){
      for(int i =0; i<numLetras.size();i++){
-        if(palabra[i]!=){
+      //  if(palabra[i]!=){
             
             
             
