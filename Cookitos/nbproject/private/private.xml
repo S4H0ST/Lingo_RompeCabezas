@@ -3,7 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/laura/Desktop/urjc/Cuarto%20curso/POO/Cookitos_G/Cookitos/src/Interfaz2.java</file>
+=======
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/cookitos/Partida.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Pack_Palabra/Pista_de_Letra.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Pack_Palabra/Almacen_de_palabra.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/cookitos/Almacen_de_jugadores.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/cookitos/Cookitos.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/cookitos/Jugador.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Pack_Partida/Partida.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz2.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Pack_Palabra/Palabra.java</file>
+>>>>>>> fe5e5fc573f920e56ab58d6b2fcdc21ebc70fb57
         </group>
     </open-files>
 </project-private>
