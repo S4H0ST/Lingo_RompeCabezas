@@ -1,4 +1,4 @@
-package cookitos;
+package Pack_Jugador;
 
 /**
  *
