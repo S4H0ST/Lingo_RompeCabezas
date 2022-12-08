@@ -10,5 +10,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+Cookitos/nbproject/private/private.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/netbeans
