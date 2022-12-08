@@ -1,4 +1,7 @@
+package Pack_Interfaz;
 
+
+import Pack_Interfaz.InicioSesion;
 import javax.swing.ImageIcon;
 
 /*
@@ -10,12 +13,12 @@ import javax.swing.ImageIcon;
  *
  * @author sohaib
  */
-public class Panel extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Panel
      */
-    public Panel() {
+    public Menu() {
         initComponents();
         setLocationRelativeTo(null);  // con esto se centra la ventana en el centro
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Yoshi.png")).getImage()); // Imagen en la esquina de la ventana
@@ -32,16 +35,33 @@ public class Panel extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BotonIniSesion = new javax.swing.JButton();
+        BotonPractica = new javax.swing.JButton();
+        BotonSalirMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Cookitos");
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setText("Menu");
 
-        jButton1.setText("Volver para atras");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotonIniSesion.setText("Iniciar sesion");
+        BotonIniSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotonIniSesionActionPerformed(evt);
+            }
+        });
+
+        BotonPractica.setText("Practica");
+        BotonPractica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPracticaActionPerformed(evt);
+            }
+        });
+
+        BotonSalirMenu.setText("Salir");
+        BotonSalirMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSalirMenuActionPerformed(evt);
             }
         });
 
@@ -52,21 +72,30 @@ public class Panel extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                        .addGap(159, 159, 159)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                        .addGap(129, 129, 129)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BotonPractica, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonIniSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BotonSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addGap(101, 101, 101)
-                .addComponent(jButton1)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(BotonIniSesion)
+                .addGap(28, 28, 28)
+                .addComponent(BotonPractica)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(BotonSalirMenu)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -83,13 +112,21 @@ public class Panel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    //PESTAÑA PARA INICIAR SESION
+    private void BotonIniSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIniSesionActionPerformed
+       
+        InicioSesion vuelta= new InicioSesion(); // SE CREA UNA PESTAÑA QUE SE ACCIONA AL DAR AL BOTON
+        vuelta.setVisible(true); //ES VISIBLE ESTA PESATAÑA AL DAR EL BOTON
+    }//GEN-LAST:event_BotonIniSesionActionPerformed
+   //PESTAÑA PARA JUGAR PARTIDA DE PRACTICA
+    private void BotonPracticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPracticaActionPerformed
+       PruebaDeBloques prueba= new PruebaDeBloques(); // SE CREA UNA PESTAÑA QUE SE ACCIONA AL DAR AL BOTON
+        prueba.setVisible(true); //ES VISIBLE ESTA PESATAÑA AL DAR EL BOTON
+    }//GEN-LAST:event_BotonPracticaActionPerformed
+
+    private void BotonSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirMenuActionPerformed
         // TODO add your handling code here:
-        
-        Interfaz2 vuelta= new Interfaz2();
-        
-        vuelta.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BotonSalirMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,26 +145,29 @@ public class Panel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Panel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Panel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Panel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Panel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Panel().setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton BotonIniSesion;
+    private javax.swing.JButton BotonPractica;
+    private javax.swing.JButton BotonSalirMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

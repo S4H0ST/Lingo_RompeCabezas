@@ -17,7 +17,7 @@ public class Cookitos {
         boolean regalo_de_letra=false;
         
        Palabra l1;
-       l1=new Palabra(numLetras,palabra,regalo_de_letra);
+      // l1=new Palabra(numLetras,palabra,regalo_de_letra);
 
 
         
