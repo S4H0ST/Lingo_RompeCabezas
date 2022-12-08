@@ -1,11 +1,10 @@
 package cookitos;
-<<<<<<< HEAD
+
 import Pack_Palabra.Palabra;
 import java.util.ArrayList;
-=======
 
 import java.util.Scanner;
->>>>>>> 62aa386038fba8e9966be78130c9bcc0003d736f
+
 
 /**
  * @author sohaib, Jose, Laura
@@ -13,7 +12,6 @@ import java.util.Scanner;
 public class Cookitos {
 
     public static void main(String[] args) {
-<<<<<<< HEAD
         ArrayList<Enum> numLetras=null;
         char palabra[]=new char[6];
         boolean regalo_de_letra=false;
@@ -21,8 +19,7 @@ public class Cookitos {
        Palabra l1;
        l1=new Palabra(numLetras,palabra,regalo_de_letra);
 
-       
-=======
+
         
 
 
@@ -41,8 +38,7 @@ public class Cookitos {
             
         }
         
-        
->>>>>>> 62aa386038fba8e9966be78130c9bcc0003d736f
+      
     }
 }    
 

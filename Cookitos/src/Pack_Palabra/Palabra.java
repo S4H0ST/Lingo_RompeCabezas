@@ -4,7 +4,7 @@
 package Pack_Palabra;
 import java.util.ArrayList;
 
-public class Palabra {
+public abstract class Palabra {
     private ArrayList <Enum> numLetras; // Contiene 5 o 6 elementos
     private char palabra[];
     private boolean regalo_de_letra;
@@ -26,10 +26,26 @@ public class Palabra {
         return this.palabra.length;
     }
     
-    // Metodo Comprobar_colocadas
+    //METODO COMPROBAR COLOCADAS
     private void comprobar_colocadas(){
+       
+    // for(int i =0; i<numLetras.size();i++){
+       /* if(caracter de la palabra entrada != caracter de la palabra origen_){
+              boolean=true;
+     }else{
+              boolean =false;
+         }*/
+       
+            
+     }
+    //METODO COMPROBAR Distinta posicion
     
-    
+    public 
+       
+       
+       
+            
+        }
     }
     
     
