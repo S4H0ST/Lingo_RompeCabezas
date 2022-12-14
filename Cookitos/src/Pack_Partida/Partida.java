@@ -8,7 +8,7 @@ import Pack_Palabra.*;
 
 
 public class Partida {
-    //private int identificador;
+    private int identificador;
     private int numPalabras;
     private boolean regalo_de_palabra;
     private boolean primeraLetra;
@@ -60,3 +60,4 @@ public class Partida {
     
     public void info_Partida(){}
 }
+
