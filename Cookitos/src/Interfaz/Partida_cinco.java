@@ -51,6 +51,7 @@ public class Partida_cinco extends javax.swing.JPanel {
         bloque23 = new javax.swing.JLabel();
         bloque24 = new javax.swing.JLabel();
         bloque25 = new javax.swing.JLabel();
+        verPalabras = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -66,55 +67,79 @@ public class Partida_cinco extends javax.swing.JPanel {
             }
         });
 
-        bloque1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bloque1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque17.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque19.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque20.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque22.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque23.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        bloque25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
@@ -227,21 +252,35 @@ public class Partida_cinco extends javax.swing.JPanel {
                     .addComponent(bloque25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        verPalabras.setText("VER PALABRAS");
+        verPalabras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verPalabrasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(verPalabras)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(42, 42, 42)
                 .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(verPalabras)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -389,9 +428,36 @@ public class Partida_cinco extends javax.swing.JPanel {
           }
           ++contTeclado;//contamos cuantas veces tecleamos para ir colocando cada vez que se hace
     }
-       
     }//GEN-LAST:event_formKeyTyped
 
+    public char[] getFila1() {
+        return fila1;
+    }
+
+    public char[] getFila2() {
+        return fila2;
+    }
+
+    public char[] getFila3() {
+        return fila3;
+    }
+
+    public char[] getFila4() {
+        return fila4;
+    }
+
+    public char[] getFila5() {
+        return fila5;
+    }
+
+    private void verPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPalabrasActionPerformed
+       System.out.println(fila1);
+       System.out.println(fila2);
+       System.out.println(fila3);
+       System.out.println(fila4);
+       System.out.println(fila5);
+       
+    }//GEN-LAST:event_verPalabrasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel1;
@@ -420,5 +486,6 @@ public class Partida_cinco extends javax.swing.JPanel {
     private javax.swing.JLabel bloque7;
     private javax.swing.JLabel bloque8;
     private javax.swing.JLabel bloque9;
+    private javax.swing.JButton verPalabras;
     // End of variables declaration//GEN-END:variables
 }

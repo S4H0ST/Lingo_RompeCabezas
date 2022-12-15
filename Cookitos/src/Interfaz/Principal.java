@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 //PRINCIPAL ES NUESTRA JFRAME MAIN, ES DECIR LA PESTAÑA PRINCIPAL-----------------------------------
 public class Principal extends javax.swing.JFrame {
-
+   
     
     public Principal() {
         initComponents();
@@ -22,10 +22,11 @@ public class Principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);  //COLOCAR PESTAÑA EN EL CENTRO DE LA PANTALLA
         
         
+        
     }
     
       //METODO PARA MOSTRAR LOS PANELES (LOS INTERFACES QUE HAY)
-   private void MostrarPanel(JPanel p){ 
+   public void MostrarPanel(JPanel p){ 
        p.setSize(500, 380);
        p.setLocation(0,0);
        PanelDeCambio.removeAll();
@@ -53,7 +54,6 @@ public class Principal extends javax.swing.JFrame {
         Background = new javax.swing.JPanel();
         BarraDeConfig = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        BotonMarcador = new javax.swing.JLabel();
         PanelBotonPartida = new javax.swing.JPanel();
         DemoBoton = new javax.swing.JLabel();
         VolverPanel = new javax.swing.JPanel();
@@ -89,11 +89,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("OPCIONES ");
 
-        BotonMarcador.setBackground(new java.awt.Color(0, 0, 0));
-        BotonMarcador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BotonMarcador.setForeground(new java.awt.Color(255, 255, 255));
-        BotonMarcador.setText("Marcador");
-
         PanelBotonPartida.setBackground(new java.awt.Color(0, 0, 0));
         PanelBotonPartida.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -120,16 +115,15 @@ public class Principal extends javax.swing.JFrame {
         PanelBotonPartidaLayout.setHorizontalGroup(
             PanelBotonPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBotonPartidaLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
+                .addGap(68, 68, 68)
                 .addComponent(DemoBoton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBotonPartidaLayout.setVerticalGroup(
             PanelBotonPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBotonPartidaLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(DemoBoton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         VolverPanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -173,13 +167,9 @@ public class Principal extends javax.swing.JFrame {
         BarraDeConfig.setLayout(BarraDeConfigLayout);
         BarraDeConfigLayout.setHorizontalGroup(
             BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BarraDeConfigLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(BotonMarcador)
-                .addGap(0, 53, Short.MAX_VALUE))
             .addComponent(PanelBotonPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraDeConfigLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraDeConfigLayout.createSequentialGroup()
@@ -192,11 +182,9 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(BarraDeConfigLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(58, 58, 58)
+                .addGap(70, 70, 70)
                 .addComponent(PanelBotonPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(BotonMarcador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
                 .addComponent(VolverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -263,9 +251,9 @@ public class Principal extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 577, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 566, Short.MAX_VALUE)
                 .addComponent(ExitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -318,8 +306,10 @@ public class Principal extends javax.swing.JFrame {
     private void BotonVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonVolverMouseClicked
         Inicio_Sesion inicio=new Inicio_Sesion(); // CREO UN OBEJTO PANEL DE INICIO_SESION
        MostrarPanel(inicio); //MUESTRO POR PANTALLA AL PULSAR EL BOTON DEL INICIO SESION
+       
+       
     }//GEN-LAST:event_BotonVolverMouseClicked
-
+   
     private void ExitBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitBotonMouseClicked
         System.exit(0);
     }//GEN-LAST:event_ExitBotonMouseClicked
@@ -379,6 +369,8 @@ public class Principal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Principal().setVisible(true);
+                
+                
             }
         });
     }
@@ -386,7 +378,6 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
     private javax.swing.JPanel BarraDeConfig;
-    private javax.swing.JLabel BotonMarcador;
     private javax.swing.JLabel BotonVolver;
     private javax.swing.JLabel DemoBoton;
     private javax.swing.JLabel ExitBoton;

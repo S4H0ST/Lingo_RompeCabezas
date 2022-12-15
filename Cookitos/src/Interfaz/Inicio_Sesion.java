@@ -1,7 +1,9 @@
 
 package Interfaz;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,12 +21,26 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         this.contrasena="12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
     }
 
+    public void MuestraPanel(JPanel p){ 
+       p.setLocation(0,0);
+       p.setSize(500,380);
+       PanelDiferente.removeAll();
+       PanelDiferente.add(p);
+       PanelDiferente.revalidate();
+       PanelDiferente.repaint();
+       p.setFocusable(true); //mirar
+       p.grabFocus();
+    }
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        PanelDiferente = new javax.swing.JPanel();
         IniciarSesion = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Contrasena = new javax.swing.JPasswordField();
         jSeparator3 = new javax.swing.JSeparator();
@@ -34,9 +50,7 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("INICIAR SESIÓN");
+        PanelDiferente.setBackground(new java.awt.Color(255, 255, 255));
 
         IniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
         IniciarSesion.setForeground(new java.awt.Color(102, 102, 102));
@@ -52,6 +66,10 @@ public class Inicio_Sesion extends javax.swing.JPanel {
                 IniciarSesionActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("INICIAR SESIÓN");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -90,45 +108,55 @@ public class Inicio_Sesion extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout PanelDiferenteLayout = new javax.swing.GroupLayout(PanelDiferente);
+        PanelDiferente.setLayout(PanelDiferenteLayout);
+        PanelDiferenteLayout.setHorizontalGroup(
+            PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelDiferenteLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelDiferenteLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(144, Short.MAX_VALUE))
+        );
+        PanelDiferenteLayout.setVerticalGroup(
+            PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelDiferenteLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                                .addComponent(IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator4))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(147, Short.MAX_VALUE))
+            .addComponent(PanelDiferente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addComponent(PanelDiferente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -167,17 +195,17 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     }//GEN-LAST:event_ContrasenaActionPerformed
 
     private void EntrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EntrarSesionMousePressed
-      //COMPARA SI ADMINISTRADOR CONCIDIE CON EL QUE EXISTE
-        if(IniciarSesion.getText().equals(this.administrador)&&(Contrasena.getText().equals(this.contrasena))){
-       javax.swing.JOptionPane.showMessageDialog(this,"Se inicio sesion con:"+ "\n"+ "Administrador : "+IniciarSesion.getText()+ "\n"+"Contraseña : "+ String.valueOf(Contrasena.getPassword()));
-       }else{
-           javax.swing.JOptionPane.showMessageDialog(this,"ERROR");
-       
-       }
+     
     }//GEN-LAST:event_EntrarSesionMousePressed
 
     private void EntrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarSesionActionPerformed
-        
+//COMPARA SI ADMINISTRADOR CONCIDIE CON EL QUE EXISTE
+        if(IniciarSesion.getText().equals(this.administrador)&&(Contrasena.getText().equals(this.contrasena))){
+       Config menuConfig=new Config();
+       this.MuestraPanel(menuConfig); //MUESTRO EL PANEL DE CONFIGURACION SI EL ADMIN ES CORRECTO
+        }else{
+           javax.swing.JOptionPane.showMessageDialog(this,"ERROR"); //si los datos incorrectos salta pestaña de error
+       }        
         
         
     }//GEN-LAST:event_EntrarSesionActionPerformed
@@ -187,6 +215,7 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     private javax.swing.JPasswordField Contrasena;
     private javax.swing.JButton EntrarSesion;
     private javax.swing.JTextField IniciarSesion;
+    private javax.swing.JPanel PanelDiferente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator3;
