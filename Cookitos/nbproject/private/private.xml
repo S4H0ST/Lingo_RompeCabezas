@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/josem/OneDrive/Documentos/Universidad/Programación_Orientada_Objetos/Cookitos_G/Cookitos/src/Interfaz/Partida_cinco.java</file>
             <file>file:/C:/Users/josem/OneDrive/Documentos/Universidad/Programación_Orientada_Objetos/Cookitos_G/Cookitos/src/Interfaz/Principal.java</file>
             <file>file:/C:/Users/josem/OneDrive/Documentos/Universidad/Programación_Orientada_Objetos/Cookitos_G/Cookitos/src/Pack_Partida/Almacen_de_Partidas.java</file>
@@ -13,6 +14,15 @@
             <file>file:/C:/Users/josem/OneDrive/Documentos/Universidad/Programación_Orientada_Objetos/Cookitos_G/Cookitos/src/Pack_Partida/Marcador.java</file>
             <file>file:/C:/Users/josem/OneDrive/Documentos/Universidad/Programación_Orientada_Objetos/Cookitos_G/Cookitos/src/Interfaz/Inicio_Sesion.java</file>
             <file>file:/C:/Users/josem/OneDrive/Documentos/Universidad/Programación_Orientada_Objetos/Cookitos_G/Cookitos/src/Pack_Jugador/Jugador.java</file>
+=======
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz/Principal.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz/VerPerfil.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz/DarDeAlta.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz/Inicio_Sesion.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz/Partida_cinco.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz/Config.java</file>
+            <file>file:/C:/Users/sohai/Documents/URJC/2_Grado/1_Cuatri/POO/Cookitos_G/Cookitos/src/Interfaz/DarDeBaja.java</file>
+>>>>>>> 0f9036d8e46c5de6ea61ab4748d90424037d4b2b
         </group>
     </open-files>
 </project-private>
