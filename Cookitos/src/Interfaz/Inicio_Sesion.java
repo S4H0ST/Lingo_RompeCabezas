@@ -17,6 +17,7 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     //CONSTRUCTOR
     public Inicio_Sesion() {
         initComponents();
+        this.setSize(500,380);
         this.administrador="Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
         this.contrasena="12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
     }
@@ -51,6 +52,8 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         setForeground(new java.awt.Color(0, 0, 0));
 
         PanelDiferente.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDiferente.setMaximumSize(new java.awt.Dimension(500, 380));
+        PanelDiferente.setMinimumSize(new java.awt.Dimension(500, 380));
 
         IniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
         IniciarSesion.setForeground(new java.awt.Color(102, 102, 102));
@@ -154,9 +157,7 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelDiferente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(PanelDiferente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -201,7 +202,7 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     private void EntrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarSesionActionPerformed
 //COMPARA SI ADMINISTRADOR CONCIDIE CON EL QUE EXISTE
         if(IniciarSesion.getText().equals(this.administrador)&&(Contrasena.getText().equals(this.contrasena))){
-       Config menuConfig=new Config();
+       Config_ menuConfig=new Config_();
        this.MuestraPanel(menuConfig); //MUESTRO EL PANEL DE CONFIGURACION SI EL ADMIN ES CORRECTO
         }else{
            javax.swing.JOptionPane.showMessageDialog(this,"ERROR"); //si los datos incorrectos salta pestaña de error
