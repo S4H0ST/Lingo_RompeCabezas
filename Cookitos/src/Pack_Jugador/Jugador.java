@@ -49,6 +49,11 @@ public class Jugador {
         return(this.admin);
     }
     
+    public String[] getJugador() {
+            String[] temp = {this.nombre,this.contraseña};
+            return(temp);
+	}
+    
     //METODOS
 //    public class partidas_contra_otro(Jugador j){
 //        
