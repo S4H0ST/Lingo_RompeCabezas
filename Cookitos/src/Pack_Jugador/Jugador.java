@@ -11,7 +11,7 @@ public class Jugador {
     public Jugador(String nom, String pass){
         this.nombre = nom;
         this.contraseña = pass;
-        
+         
     }
     
     public String getNombre(){
