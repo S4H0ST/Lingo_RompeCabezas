@@ -3,7 +3,6 @@ package Pack_Jugador;
 import java.util.ArrayList;
 
 /**
- *
  * @author sohaib, Jose, Laura
  */
 public class Almacen_de_jugadores {
