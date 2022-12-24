@@ -18,7 +18,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     private ArrayList <String> palabras_partida1; //las palabras que hay 
     private ArrayList <String> palabras_partida2; //las palabras que hay 
     private Almacen_Configuracion infoConfig;
-    private int contador; //nos servira para limitar el ingreso de palabras en el arraylist
+    private int contador=0; //nos servira para limitar el ingreso de palabras en el arraylist
 
 //CONSTRUCTOR--------------------
     public Config_() {
@@ -29,9 +29,9 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         this.setSize(500,380);
         this.setLocation(0, 0);
         
-       this.palabras_partida1=new ArrayList <String>();  //las palabras que hay 
-       this.palabras_partida2=new ArrayList <String>(); //las palabras que hay 
-       this.contador=0;
+       this.palabras_partida1=new ArrayList <String>();  //las palabras que hay jugador 1
+       this.palabras_partida2=new ArrayList <String>(); //las palabras que hay  jugador 2
+       this.contador=0;  //contador de palabras que se van metiendo
     }
 
     
@@ -43,19 +43,21 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
        PanelPartida.add(p);
        PanelPartida.revalidate();
        PanelPartida.repaint();
-       p.setFocusable(true); //mirar
+       p.setFocusable(true); 
        p.grabFocus();
     }
    
-    //METODO COMPROBAR SELECCIONADO
-    public void selectBoton(int letras){
+    
+    
+    //METODO COMPROBAR SELECCIONADO PARA ENVIAR POR PANTALLA 
+    public void selectBoton(){
         if(SelectCinco.isSelected()){
-            letras=5;
-            System.out.println("-> TIENE "+letras+" letras");
+            this.letras1=5;
+            System.out.println("-> TIENE "+this.letras1+" letras");
             
         }else if(SelectSeis.isSelected()){
-            letras=6;
-            System.out.println("-> TIENE "+letras+" letras");
+            this.letras2=6;
+            System.out.println("-> TIENE "+this.letras2+" letras");
             
         }else{
         javax.swing.JOptionPane.showMessageDialog(this,"FALTAN CAMPOS POR RELLENAR"); //si los datos incorrectos salta pestaña de error
@@ -71,8 +73,6 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     
     //METODO PARA VER EL CONTENIDO DE LOS ARRAYSLIST
     public void getPalabrasCompletas(ArrayList <String> partida){
-    
-     //BORRAR ES DE PRUEBA PARA VER EL ARRAY POR DENTRO
         for(String palabra:partida){
            System.out.println(palabra);
         }
@@ -81,28 +81,40 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         
     //METODO PARA METER PALABRAS EN LA ARRAYLIST
     
-         public void setPalabras(int ampliar,ArrayList <String> palabras_partida){ //ampliar sirve para hacer hueco, por ejemplo para poner las del jugador 2 hay que ampliar el doble
-         if(this.contador<=this.getnumPalabras()*ampliar){        //sirve para solo añadir las palabras necesarias el contador se incrementa cada vez que se apreta el boton
+         public void setPalabras(ArrayList <String> palabras_partida){ //ampliar sirve para hacer hueco, por ejemplo para poner las del jugador 2 hay que ampliar el doble
+        
+             if(this.contador<this.getnumPalabras()){        //sirve para solo añadir las palabras necesarias el contador se incrementa cada vez que se apreta el boton
         if(SelectCinco.isSelected()){                //si se presiona el 5 
             if(lasPalabras.getText().length()==5){   //si el tamaño de la palabra es 5
-                palabras_partida.add(String.valueOf(lasPalabras.getText())); 
+                palabras_partida.add(String.valueOf(lasPalabras.getText()).toUpperCase()); 
             }else{
-                javax.swing.JOptionPane.showMessageDialog(this,"La palabra no tiene 5 letras"); //si los datos incorrectos salta pestaña de error   
-            }
-            
+                --this.contador;
+                javax.swing.JOptionPane.showMessageDialog(this,"LA PALABRA INTRODUCIDA NO TIENE 5 LETRAS"); //si los datos incorrectos salta pestaña de error
+            }  
         }else if(SelectSeis.isSelected()){//sirve para solo añadir las palabras necesarias el contador se incrementa cada vez que se apreta el boton
             if(lasPalabras.getText().length()==6){//si se presiona el 6 
-                palabras_partida.add(String.valueOf(lasPalabras.getText())); //si el tamaño de la palabra es 6    
+                palabras_partida.add(String.valueOf(lasPalabras.getText()).toUpperCase()); //si el tamaño de la palabra es 6    
             }else{
-               javax.swing.JOptionPane.showMessageDialog(this,"La palabra no tiene 6 letras"); //si los datos incorrectos salta pestaña de error
+                --this.contador;
+               javax.swing.JOptionPane.showMessageDialog(this,"LA PALABRA INTRODUCIDA NO TIENE 6 LETRAS"); //si los datos incorrectos salta pestaña de error
             }
         }else{
-        javax.swing.JOptionPane.showMessageDialog(this,"Selecciona numero de letras"); //si los datos incorrectos salta pestaña de error
+        javax.swing.JOptionPane.showMessageDialog(this,"SELECCIONA EL NÚMERO DE LETRAS"); //si los datos incorrectos salta pestaña de error
          }
         } 
-        ++contador;
+        ++this.contador; //se incrementa cada vez que ingresamos una palabra
+        
          }
-    
+        //METODO PARA AVISAR DE QUE SOLO SE RECOGEN TANTAS PALABRAS COMO NUMEROS INGRESADOS
+         public void avisoPalabras(){
+          //CONDICION DE VER SI SE HAN METIDO LAS LETRAS SUFICIENTES
+            if(palabras_partida1.size()!=this.numPalabras){
+             javax.swing.JOptionPane.showMessageDialog(this,"NOTA:  SOLO SE HAN RECOGIDO EL NÚMERO DE PALABRAS INDICADAS "); //si los datos incorrectos salta pestaña de error
+            }
+            if(palabras_partida2.size()!=this.numPalabras){
+         javax.swing.JOptionPane.showMessageDialog(this,"NOTA: SOLO SE HAN RECOGIDO EL NÚMERO DE PALABRAS INDICADAS "); //si los datos incorrectos salta pestaña de error
+            }
+        }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -203,7 +215,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("[0 -10]");
+        jLabel6.setText("  [0 -10]");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -287,19 +299,9 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(SelectSeis)
-                                    .addGroup(PanelPartidaLayout.createSequentialGroup()
-                                        .addGap(262, 262, 262)
-                                        .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(SelectSi, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(SelectNo))
-                                            .addGroup(PanelPartidaLayout.createSequentialGroup()
-                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(NumPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPartidaLayout.createSequentialGroup()
+                                    .addGap(323, 323, 323)
+                                    .addComponent(SelectSeis))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPartidaLayout.createSequentialGroup()
                                     .addGap(12, 12, 12)
                                     .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,7 +319,16 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
                                                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(59, 59, 59)
                                                         .addComponent(jButton3)))
-                                                .addGap(0, 0, Short.MAX_VALUE)))))))
+                                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(SelectSi, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(SelectNo))
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(PanelPartidaLayout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(NumPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(33, Short.MAX_VALUE))
                     .addGroup(PanelPartidaLayout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -379,7 +390,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPartida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+            .addComponent(PanelPartida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,37 +416,30 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
 //--> CONDICION PARA SELECCIONAR UNO U OTRO (LETRAS)
 
       //1º PARTE DEL FICHERO----------------------------------- 
-       this.selectBoton(this.letras1);
+       this.selectBoton();
        //2º PARTE DEL FICHERO----------------------------------- 
-       //--> IMPRIMIR Y GUARDAR NUMERO DE PALABRAS
-      this.getnumPalabras();
+       //-IMPRIMIR Y GUARDAR NUMERO DE PALABRAS
       if(this.numPalabras<=10){
      System.out.println("-> Habra: "+this.numPalabras+" palabras"); //mientras este en el rango se podra hacer normal
      }else{
-          this.numPalabras=10; //si se nos pasa del rango de palabras maximas hacemos que use el maximo de palabras permitidas
+          this.numPalabras=10; //si se pasa del rango de palabras maximas hacemos que use el maximo de palabras permitidas
      System.out.println("-> Habra: "+this.numPalabras+" palabras");
      }
       
       //3º PARTE DEL FICHERO----------------------------------- 
       //CONDICION PARA SELECCIONAR UNO U OTRO (PISTAS)
-         if(SelectSi.isSelected()){
+         if(SelectSi.isSelected()){  //si la opcion de Si es seleccionada
             System.out.println("-> SE CONCEDE LA PISTA");
             this.pista="SI";
-        }else if(SelectNo.isSelected()){
+        }else if(SelectNo.isSelected()){ //si la opcion de No es seleccionada
             System.out.println("-> NO SE CONCEDE LA PISTA");
             this.pista="NO";
         }else{
         javax.swing.JOptionPane.showMessageDialog(this,"FALTAN CAMPOS POR RELLENAR"); //si los datos incorrectos salta pestaña de error
         }
-        this.getPalabrasCompletas(this.palabras_partida1);
-         
-         //CONDICION DE VER SI SE HAN METIDO LAS LETRAS SUFICIENTES
-        if(palabras_partida1.size()!=this.numPalabras){
-             javax.swing.JOptionPane.showMessageDialog(this,"NOTA:  SOLO SE HAN RECOGIDO EL NUMERO DE PALABRAS INDICADAS "); //si los datos incorrectos salta pestaña de error
-        }
-        if(palabras_partida2.size()!=this.numPalabras){
-         javax.swing.JOptionPane.showMessageDialog(this,"NOTA: SOLO SE HAN RECOGIDO EL NUMERO DE PALABRAS INDICADAS "); //si los datos incorrectos salta pestaña de error
-        }
+        this.getPalabrasCompletas(this.palabras_partida1); //vemos todas las palabras que hay del jugador 1
+         this.avisoPalabras();  //es el aviso de que solo se recogen tantas palabras como numeros se hayan ingresado
+        
         
         //vamos a esconder las opciones que sobren para el 2º jugador (SOLO NECESITAMOS LAS PALABRAS QUE SE VAN A METER Y EL NUMERO DE LETRAS)
          TitJugador1.setVisible(false);  //se esconde titulo jugador 1
@@ -449,8 +453,8 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
          BotonGu2.setVisible(true);     //se muestra el boton guardar 2
          jButton1.setVisible(false);     //se esconde boton para meter palabras jugador 1
          jButton3.setVisible(true);   //se muestra el boton para escribir en el jugador 2
-         
-         
+         GrupoLetras.clearSelection();     //borramos la seleccion para permitir nueva seleccion
+         this.contador=0;                 //reiniciamos contador para el jugador 2
         
          
     }//GEN-LAST:event_BotonGuardarActionPerformed
@@ -490,32 +494,28 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
-       this.setPalabras(1,this.palabras_partida1); //mandamos 1 para que no se amplie el espacio para el jugador 1
+       this.setPalabras(this.palabras_partida1); 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotonGu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonGu2ActionPerformed
-         //4º parte del fichero
-        this.selectBoton(this.letras2); //para ver cuantas letras tendra las palabras del 2º jugador
+        //4º parte del fichero
+        this.selectBoton(); //para ver cuantas letras tendra las palabras del 2º jugador
+        
         //5º parte del fichero
          this.getPalabrasCompletas(this.palabras_partida2); //para ver las palabras del 2º jugador
+         this.avisoPalabras(); //es el aviso de que solo se recogen tantas palabras como numeros se hayan ingresado
          
-         //vamos a meter todos los datos en el objeto de configuracion
-          infoConfig=new Almacen_Configuracion(this.letras1,this.numPalabras,this.pista,this.palabras_partida1,this.letras2,this.palabras_partida2);
+         //VAMOS A METER TODOS LOS DATOS GENERADOS EN EL FICHERO
+        
+         infoConfig=new Almacen_Configuracion(this.letras1,this.numPalabras,this.pista,this.palabras_partida1,this.letras2,this.palabras_partida2);
   //---------------------------------------------------------------CREACION DEL FICHERO----------------------------------------------------
         try {
-
             ObjectOutputStream configFichero = new ObjectOutputStream(new FileOutputStream("Fichero_Configuracion.txt"));
             configFichero.writeObject( infoConfig);
-            configFichero.close();
-            
-        } catch (IOException e) {
-            
-        } 
-         
-         
-         
-         
+            configFichero.close();   
+        } catch (IOException e) {            
+        }   
     }//GEN-LAST:event_BotonGu2ActionPerformed
 
     private void lasPalabrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lasPalabrasMouseClicked
@@ -523,8 +523,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     }//GEN-LAST:event_lasPalabrasMouseClicked
 
     private void lasPalabrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lasPalabrasKeyTyped
-      
-        //para limitar que solo se use caracteres alfabeticos 
+      //para limitar que solo se use caracteres alfabeticos 
         int key = evt.getKeyChar();
     boolean mayusculas = key >= 65 && key <= 90;
     boolean minusculas = key >= 97 && key <= 122;
@@ -537,7 +536,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     }//GEN-LAST:event_lasPalabrasKeyTyped
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.setPalabras(2,this.palabras_partida2);//ampliamos el espacio para las palabras del jugador 2
+       this.setPalabras(this.palabras_partida2);//metemos las palabras del jugador 2
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
