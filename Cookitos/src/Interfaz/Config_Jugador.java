@@ -6,13 +6,17 @@ package Interfaz;
 
 
 
+import Pack_Config.Almacen_Configuracion;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
  *
  * @author sohaib
  */
-public class Config_Jugador extends javax.swing.JPanel  {
+public class Config_Jugador extends javax.swing.JPanel implements Serializable  {
 
     public Config_Jugador() {
         initComponents();
@@ -147,7 +151,20 @@ public class Config_Jugador extends javax.swing.JPanel  {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+        
+        //CON ESTO PODEMOS VER LO QUE HAY EN EL FICHERO DE CONFIGURACION Y PODEMOS VER COSAS ESPECIFICAS----------------------------
+        try {       
+            ObjectInputStream cargaFichero = new ObjectInputStream(new FileInputStream("Fichero_Configuracion.txt"));
+            Almacen_Configuracion infoConfig;
+            
+            infoConfig = (Almacen_Configuracion)cargaFichero.readObject(); //COMO EL FICHERO TIENE CONTANIDO DE TIPO ALMACEN DE CONFIGURACION HACEMOS UN CASTING PARA METERLO EN OTRO OBJETO Y SACARLO
+            System.out.println(infoConfig.toString()); //USAMOS EL METODO TO STRING DE LA CLASE ALMACEN PARA SACAR LO QUE QUEREMOS VER
+            cargaFichero.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Config_Jugador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Config_Jugador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
         
        

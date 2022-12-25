@@ -52,8 +52,6 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         TituloPartida = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        ExitPanel = new javax.swing.JPanel();
-        ExitBoton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         PanelDeCambio = new javax.swing.JPanel();
 
@@ -69,7 +67,6 @@ public class Principal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         setResizable(false);
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
@@ -210,40 +207,6 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 0, 51));
 
-        ExitPanel.setBackground(new java.awt.Color(255, 0, 51));
-        ExitPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ExitPanelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ExitPanelMouseExited(evt);
-            }
-        });
-
-        ExitBoton.setBackground(new java.awt.Color(255, 0, 51));
-        ExitBoton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        ExitBoton.setForeground(new java.awt.Color(255, 255, 255));
-        ExitBoton.setText("X");
-        ExitBoton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ExitBotonMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ExitPanelLayout = new javax.swing.GroupLayout(ExitPanel);
-        ExitPanel.setLayout(ExitPanelLayout);
-        ExitPanelLayout.setHorizontalGroup(
-            ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ExitPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ExitBoton)
-                .addContainerGap())
-        );
-        ExitPanelLayout.setVerticalGroup(
-            ExitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ExitBoton)
-        );
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("LINGO");
@@ -255,14 +218,10 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 566, Short.MAX_VALUE)
-                .addComponent(ExitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(600, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(ExitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
@@ -314,18 +273,6 @@ public class Principal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_BotonVolverMouseClicked
    
-    private void ExitBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitBotonMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_ExitBotonMouseClicked
-
-    private void ExitPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitPanelMouseEntered
-        ExitPanel.setBackground(Color.black);
-    }//GEN-LAST:event_ExitPanelMouseEntered
-
-    private void ExitPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitPanelMouseExited
-        ExitPanel.setBackground(Color.red);
-    }//GEN-LAST:event_ExitPanelMouseExited
-
     private void PanelBotonPartidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonPartidaMouseEntered
         PanelBotonPartida.setBackground(Color.GRAY);
     }//GEN-LAST:event_PanelBotonPartidaMouseEntered
@@ -384,8 +331,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel BarraDeConfig;
     private javax.swing.JLabel BotonVolver;
     private javax.swing.JLabel DemoBoton;
-    private javax.swing.JLabel ExitBoton;
-    private javax.swing.JPanel ExitPanel;
     private javax.swing.JPanel PanelBotonPartida;
     private javax.swing.JPanel PanelDeCambio;
     private javax.swing.JLabel TituloPartida;
