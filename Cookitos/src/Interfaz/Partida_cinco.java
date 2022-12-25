@@ -1,5 +1,7 @@
-
 package Interfaz;
+
+import Pack_Palabra.Almacen_de_palabra;
+import Pack_Palabra.Palabra;
 import java.util.ArrayList;
 
 /*
@@ -9,17 +11,21 @@ public class Partida_cinco extends javax.swing.JPanel {
 
     private int contTeclado;
     //las filas de los bloques donde se va a escribir
-    private char[] fila1=new char[5]; //array para la fila 1
-    private char[] fila2=new char[5]; //array para la fila 2
-    private char[] fila3=new char[5]; //array para la fila 3
-    private char[] fila4=new char[5]; //array para la fila 4
-    private char[] fila5=new char[5]; //array para la fila 5
+    private char[] fila1 = new char[5]; //array para la fila 1
+    private char[] fila2 = new char[5]; //array para la fila 2
+    private char[] fila3 = new char[5]; //array para la fila 3
+    private char[] fila4 = new char[5]; //array para la fila 4
+    private char[] fila5 = new char[5]; //array para la fila 5
+    
+    Palabra clase_palabra = new Palabra();
+    
     
     public Partida_cinco() {
         initComponents();
-        this.contTeclado=0;
+        this.contTeclado = 0;
+        
+       
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -285,149 +291,151 @@ public class Partida_cinco extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Panel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Panel1KeyTyped
-       
+
     }//GEN-LAST:event_Panel1KeyTyped
 
     private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
 
         int key = evt.getKeyChar(); //key recibe lo que se ha escrito por teclado
-    boolean mayusculas = key >= 65 && key <= 90; //LIMITAMOS  PARA QUE SALGAN MAYUSCULAS
-    boolean minusculas = key >= 97 && key <= 122; //LIMITAMOS  PARA QUE SALGAN MINUSCULAS
-    
-    //OBLIGAR A QUE SOLO SE PUEDE INGRESAR MINUSCULAR O MAYUSCULAS (CARACTERES)    
-     if ((minusculas || mayusculas))
-    {
-          evt.consume(); //lo que hace es que cumple con la funcion de forma estricta 
-          
-          switch(contTeclado){
-              case 0 -> {    
-                  char c1= evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C1
-                  fila1[0]= c1;                     //C1 LO METEMOS EN UN ARRAY[0]
-                  bloque1.setText(String.valueOf(c1).toUpperCase());  //colocamos c1 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+        boolean mayusculas = key >= 65 && key <= 90; //LIMITAMOS  PARA QUE SALGAN MAYUSCULAS
+        boolean minusculas = key >= 97 && key <= 122; //LIMITAMOS  PARA QUE SALGAN MINUSCULAS
+
+        //OBLIGAR A QUE SOLO SE PUEDE INGRESAR MINUSCULAR O MAYUSCULAS (CARACTERES)    
+        if ((minusculas || mayusculas)) {
+            evt.consume(); //lo que hace es que cumple con la funcion de forma estricta 
+            
+            //clase_palabra.comprobar_colocadas(String.valueOf(fila1));
+            
+            
+            switch (contTeclado) {
+                case 0 -> {
+                    char c1 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C1
+                    fila1[0] = c1;                     //C1 LO METEMOS EN UN ARRAY[0]
+                    bloque1.setText(String.valueOf(c1).toUpperCase());  //colocamos c1 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-              case 1 -> {
-                  char c2=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C2
-                  fila1[1]=c2 ;                     //C2 LO METEMOS EN UN ARRAY[1]
-                  bloque2.setText(String.valueOf(c2).toUpperCase()); //colocamos c2 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 1 -> {
+                    char c2 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C2
+                    fila1[1] = c2;                     //C2 LO METEMOS EN UN ARRAY[1]
+                    bloque2.setText(String.valueOf(c2).toUpperCase()); //colocamos c2 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 2 -> {
-                   char c3= evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C3
-                   fila1[2]= c3;                     //C3 LO METEMOS EN UN ARRAY[2]
-                   bloque3.setText(String.valueOf(c3).toUpperCase());  //colocamos c3 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 2 -> {
+                    char c3 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C3
+                    fila1[2] = c3;                     //C3 LO METEMOS EN UN ARRAY[2]
+                    bloque3.setText(String.valueOf(c3).toUpperCase());  //colocamos c3 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-              case 3 -> {
-                  char c4=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C4
-                  fila1[3]=c4 ;                     //C4 LO METEMOS EN UN ARRAY[3]
-                  bloque4.setText(String.valueOf(c4).toUpperCase()); //colocamos c4 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 3 -> {
+                    char c4 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C4
+                    fila1[3] = c4;                     //C4 LO METEMOS EN UN ARRAY[3]
+                    bloque4.setText(String.valueOf(c4).toUpperCase()); //colocamos c4 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-              case 4 -> {    
-                  char c5= evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C5
-                  fila1[4]= c5;                     //C5 LO METEMOS EN UN ARRAY[4]
-                  bloque5.setText(String.valueOf(c5).toUpperCase());  //colocamos c5 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 4 -> {
+                    char c5 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C5
+                    fila1[4] = c5;                     //C5 LO METEMOS EN UN ARRAY[4]
+                    bloque5.setText(String.valueOf(c5).toUpperCase());  //colocamos c5 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-              case 5 -> {
-                  char c6=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C6
-                  fila2[0]=c6 ;                     //C6 LO METEMOS EN UN ARRAY2[0]
-                  bloque6.setText(String.valueOf(c6).toUpperCase()); //colocamos c6 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 5 -> {
+                    char c6 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C6
+                    fila2[0] = c6;                     //C6 LO METEMOS EN UN ARRAY2[0]
+                    bloque6.setText(String.valueOf(c6).toUpperCase()); //colocamos c6 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 6 -> {
-                   char c7=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C7
-                   fila2[1]=c7 ;                     //C7 LO METEMOS EN UN ARRAY2[1]
-                   bloque7.setText(String.valueOf(c7).toUpperCase()); //colocamos c7 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 6 -> {
+                    char c7 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C7
+                    fila2[1] = c7;                     //C7 LO METEMOS EN UN ARRAY2[1]
+                    bloque7.setText(String.valueOf(c7).toUpperCase()); //colocamos c7 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 7 -> {
-                   char c07=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C07
-                   fila2[3]=c07 ;                     //C07 LO METEMOS EN UN ARRAY2[0]
-                   bloque8.setText(String.valueOf(c07).toUpperCase()); //colocamos c07 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 7 -> {
+                    char c07 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C07
+                    fila2[3] = c07;                     //C07 LO METEMOS EN UN ARRAY2[0]
+                    bloque8.setText(String.valueOf(c07).toUpperCase()); //colocamos c07 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 8 -> {
-                   char c8=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C8
-                   fila2[2]=c8 ;                     //C8 LO METEMOS EN UN ARRAY2[0]
-                   bloque9.setText(String.valueOf(c8).toUpperCase()); //colocamos c8 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 8 -> {
+                    char c8 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C8
+                    fila2[2] = c8;                     //C8 LO METEMOS EN UN ARRAY2[0]
+                    bloque9.setText(String.valueOf(c8).toUpperCase()); //colocamos c8 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 9 -> {
-                   char c9=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C9
-                   fila2[4]=c9 ;                     //C9 LO METEMOS EN UN ARRAY2[1]
-                   bloque10.setText(String.valueOf(c9).toUpperCase()); //colocamos c9 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 9 -> {
+                    char c9 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C9
+                    fila2[4] = c9;                     //C9 LO METEMOS EN UN ARRAY2[1]
+                    bloque10.setText(String.valueOf(c9).toUpperCase()); //colocamos c9 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 10 -> {
-                   char c10=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C10
-                   fila3[0]=c10 ;                     //C10 LO METEMOS EN UN ARRAY2[1]
-                   bloque11.setText(String.valueOf(c10).toUpperCase()); //colocamos c10 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 10 -> {
+                    char c10 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C10
+                    fila3[0] = c10;                     //C10 LO METEMOS EN UN ARRAY2[1]
+                    bloque11.setText(String.valueOf(c10).toUpperCase()); //colocamos c10 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 11 -> {
-                   char c11=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C11
-                   fila3[1]=c11 ;                     //C11 LO METEMOS EN UN ARRAY2[0]
-                   bloque12.setText(String.valueOf(c11).toUpperCase()); //colocamos c11 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 11 -> {
+                    char c11 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C11
+                    fila3[1] = c11;                     //C11 LO METEMOS EN UN ARRAY2[0]
+                    bloque12.setText(String.valueOf(c11).toUpperCase()); //colocamos c11 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 12 -> {
-                   char c12=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C12
-                   fila3[2]=c12 ;                     //C12 LO METEMOS EN UN ARRAY2[1]
-                   bloque13.setText(String.valueOf(c12).toUpperCase()); //colocamos c12 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 12 -> {
+                    char c12 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C12
+                    fila3[2] = c12;                     //C12 LO METEMOS EN UN ARRAY2[1]
+                    bloque13.setText(String.valueOf(c12).toUpperCase()); //colocamos c12 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-              case 13 -> {
-                  char c13=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C13
-                  fila3[3]=c13 ;                     //C13 LO METEMOS EN UN ARRAY2[0]
-                  bloque14.setText(String.valueOf(c13).toUpperCase()); //colocamos c13 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 13 -> {
+                    char c13 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C13
+                    fila3[3] = c13;                     //C13 LO METEMOS EN UN ARRAY2[0]
+                    bloque14.setText(String.valueOf(c13).toUpperCase()); //colocamos c13 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 14 -> {
-                   char c14=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C14
-                   fila3[4]=c14 ;                     //C14 LO METEMOS EN UN ARRAY2[1]
-                   bloque15.setText(String.valueOf(c14).toUpperCase()); //colocamos c14 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 14 -> {
+                    char c14 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C14
+                    fila3[4] = c14;                     //C14 LO METEMOS EN UN ARRAY2[1]
+                    bloque15.setText(String.valueOf(c14).toUpperCase()); //colocamos c14 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 15 -> {
-                   char c15=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C15
-                   fila4[0]=c15 ;                     //C15  LO METEMOS EN UN ARRAY2[0]
-                   bloque16.setText(String.valueOf(c15).toUpperCase()); //colocamos c15  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 15 -> {
+                    char c15 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C15
+                    fila4[0] = c15;                     //C15  LO METEMOS EN UN ARRAY2[0]
+                    bloque16.setText(String.valueOf(c15).toUpperCase()); //colocamos c15  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 16 -> {
-                   char c16=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C16
-                   fila4[1]=c16 ;                     //C16  LO METEMOS EN UN ARRAY2[1]
-                   bloque17.setText(String.valueOf(c16).toUpperCase()); //colocamos c16  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 16 -> {
+                    char c16 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C16
+                    fila4[1] = c16;                     //C16  LO METEMOS EN UN ARRAY2[1]
+                    bloque17.setText(String.valueOf(c16).toUpperCase()); //colocamos c16  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 17 -> {
-                   char c17=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C17
-                   fila4[2]=c17 ;                     //C17 LO METEMOS EN UN ARRAY2[1]
-                   bloque18.setText(String.valueOf(c17).toUpperCase()); //colocamos c17 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 17 -> {
+                    char c17 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C17
+                    fila4[2] = c17;                     //C17 LO METEMOS EN UN ARRAY2[1]
+                    bloque18.setText(String.valueOf(c17).toUpperCase()); //colocamos c17 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 18 -> {
-                   char c18=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C18
-                   fila4[3]=c18 ;                     //C18 LO METEMOS EN UN ARRAY2[0]
-                   bloque19.setText(String.valueOf(c18).toUpperCase()); //colocamos c18 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 18 -> {
+                    char c18 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C18
+                    fila4[3] = c18;                     //C18 LO METEMOS EN UN ARRAY2[0]
+                    bloque19.setText(String.valueOf(c18).toUpperCase()); //colocamos c18 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 19 -> {
-                   char c19=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C19
-                   fila4[4]=c19 ;                     //C19 LO METEMOS EN UN ARRAY2[1]
-                   bloque20.setText(String.valueOf(c19).toUpperCase()); //colocamos c19 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 19 -> {
+                    char c19 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C19
+                    fila4[4] = c19;                     //C19 LO METEMOS EN UN ARRAY2[1]
+                    bloque20.setText(String.valueOf(c19).toUpperCase()); //colocamos c19 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
                 case 20 -> {
-                    char c20=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C20
-                    fila5[0]=c20 ;                     //C20 LO METEMOS EN UN ARRAY2[0]
+                    char c20 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C20
+                    fila5[0] = c20;                     //C20 LO METEMOS EN UN ARRAY2[0]
                     bloque21.setText(String.valueOf(c20).toUpperCase()); //colocamos c20 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 21 -> {
-                   char c21=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C21
-                   fila5[1]=c21 ;                     //C21 LO METEMOS EN UN ARRAY2[1]
-                   bloque22.setText(String.valueOf(c21).toUpperCase()); //colocamos c21 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 21 -> {
+                    char c21 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C21
+                    fila5[1] = c21;                     //C21 LO METEMOS EN UN ARRAY2[1]
+                    bloque22.setText(String.valueOf(c21).toUpperCase()); //colocamos c21 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 22 -> {
-                   char c22=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C22
-                   fila5[2]=c22 ;                     //C22 LO METEMOS EN UN ARRAY2[0]
-                   bloque23.setText(String.valueOf(c22).toUpperCase()); //colocamos c22 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 22 -> {
+                    char c22 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C22
+                    fila5[2] = c22;                     //C22 LO METEMOS EN UN ARRAY2[0]
+                    bloque23.setText(String.valueOf(c22).toUpperCase()); //colocamos c22 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 23 -> {
-                   char c23=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C23
-                   fila5[3]=c23 ;                     //C23 LO METEMOS EN UN ARRAY2[1]
-                   bloque24.setText(String.valueOf(c23).toUpperCase()); //colocamos c23 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                case 23 -> {
+                    char c23 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C23
+                    fila5[3] = c23;                     //C23 LO METEMOS EN UN ARRAY2[1]
+                    bloque24.setText(String.valueOf(c23).toUpperCase()); //colocamos c23 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                 }
-               case 24 -> {
-                   char c24=evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C24
-                   fila5[4]=c24 ;                     //C24 LO METEMOS EN UN ARRAY2[1]
-                   bloque25.setText(String.valueOf(c24).toUpperCase()); //colocamos c24 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-                }     
-          }
-          ++contTeclado;//contamos cuantas veces tecleamos para ir colocando cada vez que se hace
-    }
+                case 24 -> {
+                    char c24 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C24
+                    fila5[4] = c24;                     //C24 LO METEMOS EN UN ARRAY2[1]
+                    bloque25.setText(String.valueOf(c24).toUpperCase()); //colocamos c24 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                }
+            }
+            ++contTeclado;//contamos cuantas veces tecleamos para ir colocando cada vez que se hace
+        }
     }//GEN-LAST:event_formKeyTyped
 
     public char[] getFila1() {
@@ -451,12 +459,12 @@ public class Partida_cinco extends javax.swing.JPanel {
     }
 
     private void verPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPalabrasActionPerformed
-       System.out.println(fila1);
-       System.out.println(fila2);
-       System.out.println(fila3);
-       System.out.println(fila4);
-       System.out.println(fila5);
-       
+        System.out.println(fila1);
+        System.out.println(fila2);
+        System.out.println(fila3);
+        System.out.println(fila4);
+        System.out.println(fila5);
+
     }//GEN-LAST:event_verPalabrasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
