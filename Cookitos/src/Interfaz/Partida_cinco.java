@@ -16,8 +16,7 @@ public class Partida_cinco extends javax.swing.JPanel {
     private char[] fila3 = new char[5]; //array para la fila 3
     private char[] fila4 = new char[5]; //array para la fila 4
     private char[] fila5 = new char[5]; //array para la fila 5
-    
-    Palabra clase_palabra = new Palabra();
+    private Palabra clase_palabra = new Palabra();
     
     
     public Partida_cinco() {

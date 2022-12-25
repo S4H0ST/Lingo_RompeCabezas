@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator; //Para mas tarde
 
-<<<<<<< HEAD
-/**
-=======
 /** 
  *
 >>>>>>> 53e6b756e3a94cd1995c89c9370438fd37044f57

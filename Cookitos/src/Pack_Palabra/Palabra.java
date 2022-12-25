@@ -11,8 +11,8 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     private int numLetras;
     private char palabra[]; //palabra que metemos
     private boolean regalo_de_letra; // comprobar si se va a dar la pista o no
-    private ArrayList <String> palabras_jugador1;
-    Almacen_de_palabra almacen = new Almacen_de_palabra();
+    private ArrayList <String> palabras_jugador1=new ArrayList <String> ();
+    private Almacen_de_palabra almacen = new Almacen_de_palabra();
 
     
     
@@ -22,12 +22,12 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
         this.palabra = palabra;
         this.regalo_de_letra = regalo_de_letra;
         
-        
+    
     }
     
     public Palabra(){
         almacen.cargar_Fichero();
-        palabras_jugador1 = almacen.getPalabras_de_cinco();
+        this.palabras_jugador1 = almacen.getPalabras_de_cinco();
     }
 
     //-----------------------------------METODOS DE LA CLASE------------------------------------------------------------------

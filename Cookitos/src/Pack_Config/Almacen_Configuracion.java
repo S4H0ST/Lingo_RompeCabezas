@@ -11,10 +11,13 @@ public class Almacen_Configuracion implements Serializable {
     private int letras_jugador2; //5 o 6
     private int numPalabras; //numero de palabras por partida
     private String pista; //si hay pista o no
-    private ArrayList <String> palabras_partida1=new ArrayList <String>(); //las palabras que hay 
-    private ArrayList <String> palabras_partida2=new ArrayList <String>(); //las palabras que hay 
+    private ArrayList <String> palabras_partida1; //las palabras que hay 
+    private ArrayList <String> palabras_partida2; //las palabras que hay 
 
-    
+    public Almacen_Configuracion(){
+        this.palabras_partida1=new ArrayList <String>();
+        this.palabras_partida2=new ArrayList <String>();
+    }
 
     //CONSTRUCTOR COMPLETO 
     public Almacen_Configuracion(int letras1,int numPalabras, String pista, ArrayList palabras_partida1,int letras2 , ArrayList palabras_partida2) {
@@ -24,18 +27,10 @@ public class Almacen_Configuracion implements Serializable {
         this.palabras_partida1 = palabras_partida1 ;
         this.numPalabras = numPalabras;
         this.palabras_partida2=palabras_partida2;
+        palabras_partida2=new ArrayList <String>();
+        palabras_partida1=new ArrayList <String>();
     }
     
-    //METODOS GET DE LAS VARIABLES
-    public  int getLetras() {
-        return letras_jugador1;
-    }
-    
-   //METODOS SET DE LAS VARIABLES
-    public void setLetras(int letras) {
-        this.letras_jugador1 = letras;
-    }
-
     //METODOS GET DE LAS VARIABLES
     public int getLetras_jugador2() {
         return letras_jugador2;
