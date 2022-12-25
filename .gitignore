@@ -12,4 +12,6 @@ nbdist/
 .nb-gradle/
 Cookitos/nbproject/private/private.xml
 Cookitos/Fichero_Configuracion.txt
+Cookitos/nbproject/private/private.xml
+Cookitos/nbproject/private/private.properties
 # End of https://www.toptal.com/developers/gitignore/api/netbeans
