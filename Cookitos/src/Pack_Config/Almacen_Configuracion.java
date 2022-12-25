@@ -55,17 +55,7 @@ public class Almacen_Configuracion implements Serializable {
     public void setPista(String pista) {
         this.pista = pista;
     }
-    
-   //METODOS GET DE LAS VARIABLES
-    public ArrayList<String> getPalabras_partida() {
-        return palabras_partida1;
-    }
-    
-     //METODOS SET DE LAS VARIABLES
-    public void setPalabras_partida(ArrayList palabras_partida) {
-        this.palabras_partida1 = palabras_partida;
-    }
-    
+
     //METODOS GET DE LAS VARIABLES
     public int getNumPalabras() {
         return numPalabras;
@@ -105,15 +95,11 @@ public class Almacen_Configuracion implements Serializable {
     public void setPalabras_partida2(ArrayList<String> palabras_partida2) {
         this.palabras_partida2 = palabras_partida2;
     }
-    
-    
-    
-    //METODOS toString DE LAS VARIABLES
+
+    //METODO toString DE LAS VARIABLES (este es importante)
     @Override
     public String toString() {
         return this.letras_jugador1 +" "+this.numPalabras  +" "+ this.pista + "\n" + palabras_partida1 + "\n"+this.letras_jugador2 +"\n"+ palabras_partida2 ;
     }
-
-
-    
+  
 }

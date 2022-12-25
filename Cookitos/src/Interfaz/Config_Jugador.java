@@ -50,8 +50,10 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
         BDarDeBaja = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        VolverOpPar = new javax.swing.JButton();
+        VerFichero = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pizarra = new javax.swing.JTextArea();
 
         PanelJugador.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -67,6 +69,11 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
         BDarDeBaja.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BDarDeBaja.setForeground(new java.awt.Color(0, 0, 0));
         BDarDeBaja.setText("Dar de baja");
+        BDarDeBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BDarDeBajaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -74,19 +81,23 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        VolverOpPar.setText("Volver");
+        VolverOpPar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                VolverOpParActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Ver Fichero");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        VerFichero.setText("Ver Fichero");
+        VerFichero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                VerFicheroActionPerformed(evt);
             }
         });
+
+        pizarra.setColumns(20);
+        pizarra.setRows(5);
+        jScrollPane1.setViewportView(pizarra);
 
         javax.swing.GroupLayout PanelJugadorLayout = new javax.swing.GroupLayout(PanelJugador);
         PanelJugador.setLayout(PanelJugadorLayout);
@@ -98,17 +109,18 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
                         .addGap(38, 38, 38)
                         .addGroup(PanelJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addGroup(PanelJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelJugadorLayout.createSequentialGroup()
-                                    .addGap(304, 304, 304)
+                            .addGroup(PanelJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSeparator1)
+                                .addGroup(PanelJugadorLayout.createSequentialGroup()
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
                                     .addGroup(PanelJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(BDarDeBaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(BDarDeAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addComponent(VerFichero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(PanelJugadorLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)))
+                        .addComponent(VolverOpPar)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         PanelJugadorLayout.setVerticalGroup(
@@ -119,13 +131,16 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BDarDeAlta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BDarDeBaja)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(PanelJugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelJugadorLayout.createSequentialGroup()
+                        .addComponent(BDarDeAlta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BDarDeBaja)
+                        .addGap(18, 18, 18)
+                        .addComponent(VerFichero))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(VolverOpPar)
                 .addContainerGap())
         );
 
@@ -142,15 +157,16 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
     }// </editor-fold>//GEN-END:initComponents
 
     private void BDarDeAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BDarDeAltaActionPerformed
-        // TODO add your handling code here:
+       DarDeAlta Alta=new DarDeAlta();
+        this.MuestraPanel(Alta);            
     }//GEN-LAST:event_BDarDeAltaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void VolverOpParActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverOpParActionPerformed
         Config_ partida=new Config_();
         this.MuestraPanel(partida);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_VolverOpParActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void VerFicheroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerFicheroActionPerformed
         
         //CON ESTO PODEMOS VER LO QUE HAY EN EL FICHERO DE CONFIGURACION Y PODEMOS VER COSAS ESPECIFICAS----------------------------
         try {       
@@ -158,7 +174,8 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
             Almacen_Configuracion infoConfig;
             
             infoConfig = (Almacen_Configuracion)cargaFichero.readObject(); //COMO EL FICHERO TIENE CONTANIDO DE TIPO ALMACEN DE CONFIGURACION HACEMOS UN CASTING PARA METERLO EN OTRO OBJETO Y SACARLO
-            System.out.println(infoConfig.toString()); //USAMOS EL METODO TO STRING DE LA CLASE ALMACEN PARA SACAR LO QUE QUEREMOS VER
+            pizarra.setText(infoConfig.toString()); //USAMOS EL METODO TO STRING DE LA CLASE ALMACEN PARA SACAR LO QUE QUEREMOS VER
+            System.out.println("\n"+infoConfig.toString());
             cargaFichero.close();
         } catch (IOException ex) {
             Logger.getLogger(Config_Jugador.class.getName()).log(Level.SEVERE, null, ex);
@@ -168,16 +185,23 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
     
         
        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_VerFicheroActionPerformed
+
+    private void BDarDeBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BDarDeBajaActionPerformed
+        DarDeBaja baja=new DarDeBaja();
+        this.MuestraPanel(baja);     
+    }//GEN-LAST:event_BDarDeBajaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BDarDeAlta;
     private javax.swing.JButton BDarDeBaja;
     private javax.swing.JPanel PanelJugador;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton VerFichero;
+    private javax.swing.JButton VolverOpPar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea pizarra;
     // End of variables declaration//GEN-END:variables
 }
