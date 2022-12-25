@@ -1,4 +1,3 @@
-
 package Pack_Palabra;
 
 import java.io.*;
@@ -7,16 +6,20 @@ import Pack_Config.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+public class Almacen_de_palabra implements Serializable {
 
-public class  Almacen_de_palabra implements Serializable{
-    private ArrayList <Palabra> palabras_de_cinco;
-    private ArrayList <Palabra> palabras_de_Seis;
+    
     private Almacen_Configuracion almacen;
+
     public Almacen_de_palabra() {
-        this.palabras_de_cinco=new ArrayList <Palabra>();
-         this.palabras_de_Seis=new ArrayList <Palabra>();
+       
+    }
+
+    public ArrayList<String> getPalabras_de_cinco() {
+        return almacen.getPalabras_partida1();
     }
     
+
     public void cargar_Fichero(){
         try {       
             ObjectInputStream cargaFichero = new ObjectInputStream(new FileInputStream("Fichero_Configuracion.txt")); //para ver el contenido del fichero
@@ -32,8 +35,7 @@ public class  Almacen_de_palabra implements Serializable{
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Almacen_de_palabra.class.getName()).log(Level.SEVERE, null, ex);
         }
- 
-    
+
     }
-    
+
 }
