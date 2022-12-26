@@ -33,9 +33,19 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     //-----------------------------------METODOS DE LA CLASE------------------------------------------------------------------
     //METODO GET NUMERO DE ELEMENTOS
     //METODO COMPROBAR COLOCADAS
-    public boolean comprobar_colocadas(String palabra_introducida) {
+    public boolean comprobar_colocadas(int posicion,String palabra_introducida) {
+        String palabra_original = palabras_jugador1.get(posicion);
+        System.out.println(palabra_introducida);
+        if(palabra_original.equals(palabra_introducida)){
+            //System.out.println("Son iguales");
+            return true;
+        }
+        else{
+            //System.out.println("No son iguales");
+            return false;
+        }
+            
         
-        return false; // si son todas colocadas es verde true
     }
 
     //METODO COMPROBAR Distinta posicion
