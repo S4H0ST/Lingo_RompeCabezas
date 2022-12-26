@@ -1,69 +1,66 @@
 package Pack_Palabra;
-import Pack_Interfaz.*;
+
+import Interfaz.*; // por si acaso
+import java.io.*; // para usar serializable
+import java.util.*; //no se para que lo he puesto
 /*
  * @author sohaib
  */
-public abstract class Palabra {
-    private int num;           // Contiene 5 o 6 elementos,
-    private char numLetras[]; //  palabra adivinar
+public class Palabra extends Almacen_de_palabra implements Serializable {
+
+    private int numLetras;
     private char palabra[]; //palabra que metemos
-    private  boolean regalo_de_letra;
+    private boolean regalo_de_letra; // comprobar si se va a dar la pista o no
+    private ArrayList <String> palabras_jugador1=new ArrayList <String> ();
+    private Almacen_de_palabra almacen = new Almacen_de_palabra();
 
+    
+    
     //INICIALIZACION DE ATRIBUTOS-------------------------------------------------------
-    public Palabra(char numLetras[], char[] palabra, boolean regalo_de_letra) {
-        numLetras=new char[num];
-        this.numLetras = numLetras;                                 // array DE LETRAS 
-        if(palabra.length==numLetras.length){                      // PALABRA DEL TAMAÑO DEL NUMERO DE LETRAS
-            
-         this.palabra = palabra;                                  //PALABRA QUE SE VA A USAR
-        }else{
-            //exit(0) o repetir la palabra
-        }             
-       this.regalo_de_letra = regalo_de_letra;                //COMPROBAR SI SE VA A DAR REGALO DE LETRA O NO 
-    }
-    
-   //METODOS DE LA CLASE------------------------------------------------------------------
-    //METODO GET NUMERO DE ELEMENTOS
-     public int getNum() {
-        return num;
-    }
-    //Metodo SET NUM (para saber cuantas letras tiene la palabra
-    public int setNum(int numero){
-        if(numero==6 || numero==5){
-        this.num=numero;
-        }else{
-           //inserta otra vez el numero o salir
-        }
-    return num;
-    }
-    
-    //METODO COMPROBAR COLOCADAS
-    private boolean comprobar_colocadas(){
-       boolean iguales;
-       
-    for(int i =0; i<numLetras.length;i++){ //comprobar si cada caracter de la palabra que hemos metido es diferente o igual
-        if(numLetras[i] != palabra[i]){
-              iguales=false;
-     }else{
-              iguales =true;
-         }
-       return iguales;   
-    }
-    
-    
-    //METODO COMPROBAR Distinta posicion
-    /*    private boolean DistinaPos(){
-    for(int i=0;i<num;i++){
+    public Palabra(int numLetras, char[] palabra, boolean regalo_de_letra) {
+        this.numLetras = numLetras;
+        this.palabra = palabra;
+        this.regalo_de_letra = regalo_de_letra;
         
+    
     }
-        return false;
+    
+    public Palabra(){
+        almacen.cargar_Fichero();
+        this.palabras_jugador1 = almacen.getPalabras_de_cinco();
+    }
 
-    }*/
+    //-----------------------------------METODOS DE LA CLASE------------------------------------------------------------------
+    //METODO GET NUMERO DE ELEMENTOS
+    //METODO COMPROBAR COLOCADAS
+    public boolean comprobar_colocadas(String palabra_introducida) {
+        
+        return false; // si son todas colocadas es verde true
+    }
 
-   
-   
-    
-    
-    
-    
-    
+    //METODO COMPROBAR Distinta posicion
+    private boolean comprobar_distinta_posicion() {
+
+        return false; // devuelve verdadero y se pone amarillo en la posicion
+    }
+
+    //METODO MOSTRAR INTENTO RESUELTO
+    public String intento_resuelto() {
+        //devolver el numero del intento y la palabra del intento
+        return "El intento número" + "nºintento" + "nombre palabra";
+    }
+
+    //METODO PUNTOS_OBTENIDOS
+    public int puntos_Obtenidos() {
+
+        return 0; //devuelve los puntos obtenidos
+    }
+
+    //SACAR PALABRA ALEATORIA DEL FICHERO
+    public String sacar_palabra_aleatoria() {
+
+        return "palabra aleatoria"; //devuelve una palabra aleatoria del fichero
+    }
+
+    //SECUENCIA DE RESULTADOS
+}

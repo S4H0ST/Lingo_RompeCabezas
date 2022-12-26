@@ -10,5 +10,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
+Cookitos\nbproject\private\private.xml
+C:/Users/josem/OneDrive/Documentos/Universidad/Programación_Orientada_Objetos/Cookitos_G/Cookitos/nbproject/private/private.xml
+Cookitos/Fichero_Configuracion.txt
 # End of https://www.toptal.com/developers/gitignore/api/netbeans

@@ -7,6 +7,7 @@ import java.util.Comparator; //Para mas tarde
 
 /** 
  *
+>>>>>>> 53e6b756e3a94cd1995c89c9370438fd37044f57
  * @author sohaib, Jose, Laura
  */
 
