@@ -136,7 +136,7 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
                         .addComponent(BDarDeAlta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BDarDeBaja)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(VerFichero))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
@@ -159,6 +159,10 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
     private void BDarDeAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BDarDeAltaActionPerformed
        DarDeAlta Alta=new DarDeAlta();
         this.MuestraPanel(Alta);            
+        
+        
+        
+        
     }//GEN-LAST:event_BDarDeAltaActionPerformed
 
     private void VolverOpParActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverOpParActionPerformed

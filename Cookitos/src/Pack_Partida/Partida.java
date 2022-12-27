@@ -49,9 +49,12 @@ public class Partida {
     
     public boolean usar_Pista_de_Letra(boolean pistaL){
         
+        return false;
+        
     }
     
     public boolean usar_Pista_de_Palabra(boolean pistaP){
+        return false;
     }
     public void actualizarMarcador(){
         Marcador m = new Marcador(puntosJ1, puntosJ2);

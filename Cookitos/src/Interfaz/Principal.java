@@ -104,8 +104,8 @@ public class Principal extends javax.swing.JFrame {
         PanelBotonPartidaLayout.setHorizontalGroup(
             PanelBotonPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBotonPartidaLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(DemoBoton)
+                .addGap(48, 48, 48)
+                .addComponent(DemoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBotonPartidaLayout.setVerticalGroup(
@@ -139,10 +139,10 @@ public class Principal extends javax.swing.JFrame {
         VolverPanel.setLayout(VolverPanelLayout);
         VolverPanelLayout.setHorizontalGroup(
             VolverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VolverPanelLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(BotonVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VolverPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         VolverPanelLayout.setVerticalGroup(
             VolverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

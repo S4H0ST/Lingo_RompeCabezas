@@ -466,7 +466,7 @@ public class Partida_cinco extends javax.swing.JPanel {
     }
 
     private void verPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPalabrasActionPerformed
-        System.out.println(fila1);
+        System.out.println(String.valueOf(fila1).toUpperCase());
         System.out.println(fila2);
         System.out.println(fila3);
         System.out.println(fila4);

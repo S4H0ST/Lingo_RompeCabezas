@@ -29,6 +29,11 @@ public class VerPerfil extends javax.swing.JPanel {
         PerfilPanel = new javax.swing.JPanel();
 
         PerfilPanel.setBackground(new java.awt.Color(255, 255, 255));
+        PerfilPanel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PerfilPanelKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout PerfilPanelLayout = new javax.swing.GroupLayout(PerfilPanel);
         PerfilPanel.setLayout(PerfilPanelLayout);
@@ -52,6 +57,11 @@ public class VerPerfil extends javax.swing.JPanel {
             .addComponent(PerfilPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PerfilPanelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PerfilPanelKeyTyped
+      
+        
+    }//GEN-LAST:event_PerfilPanelKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
