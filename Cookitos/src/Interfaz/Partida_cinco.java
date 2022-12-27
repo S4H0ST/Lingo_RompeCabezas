@@ -18,6 +18,7 @@ public class Partida_cinco extends javax.swing.JPanel {
     private char[] fila5 = new char[5]; //array para la fila 5
     private Palabra clase_palabra = new Palabra();
     boolean comprobar_palabra = false;
+
     public Partida_cinco() {
         initComponents();
         this.contTeclado = 0;
@@ -331,40 +332,50 @@ public class Partida_cinco extends javax.swing.JPanel {
                         comprobar_palabra = true;
                     }
                 }
-                if(comprobar_palabra){
-                    
-                    clase_palabra.comprobar_colocadas(0,String.valueOf(fila1).toUpperCase());
+                if (comprobar_palabra) {
+                    clase_palabra.comprobar_colocadas(0, String.valueOf(fila1).toUpperCase());
+                    comprobar_palabra = false;
                 }
-                
-                
+
+            }
+
+            if (contTeclado > 4 && contTeclado <= 9) {
+                switch (contTeclado) {
+                    case 5 -> {
+                        char c6 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C6
+                        fila2[0] = c6;                     //C6 LO METEMOS EN UN ARRAY2[0]
+                        bloque6.setText(String.valueOf(c6).toUpperCase()); //colocamos c6 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 6 -> {
+                        char c7 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C7
+                        fila2[1] = c7;                     //C7 LO METEMOS EN UN ARRAY2[1]
+                        bloque7.setText(String.valueOf(c7).toUpperCase()); //colocamos c7 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 7 -> {
+                        char c07 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C07
+                        fila2[3] = c07;                     //C07 LO METEMOS EN UN ARRAY2[0]
+                        bloque8.setText(String.valueOf(c07).toUpperCase()); //colocamos c07 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 8 -> {
+                        char c8 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C8
+                        fila2[2] = c8;                     //C8 LO METEMOS EN UN ARRAY2[0]
+                        bloque9.setText(String.valueOf(c8).toUpperCase()); //colocamos c8 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 9 -> {
+                        char c9 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C9
+                        fila2[4] = c9;                     //C9 LO METEMOS EN UN ARRAY2[1]
+                        bloque10.setText(String.valueOf(c9).toUpperCase()); //colocamos c9 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                        comprobar_palabra = true;
+                    }
+                }
+                if (comprobar_palabra) {
+                    clase_palabra.comprobar_colocadas(1, String.valueOf(fila1).toUpperCase());
+                    comprobar_palabra = false;
+                }
             }
 //            switch (contTeclado) {
 //
-//                case 5 -> {
-//                    char c6 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C6
-//                    fila2[0] = c6;                     //C6 LO METEMOS EN UN ARRAY2[0]
-//                    bloque6.setText(String.valueOf(c6).toUpperCase()); //colocamos c6 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 6 -> {
-//                    char c7 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C7
-//                    fila2[1] = c7;                     //C7 LO METEMOS EN UN ARRAY2[1]
-//                    bloque7.setText(String.valueOf(c7).toUpperCase()); //colocamos c7 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 7 -> {
-//                    char c07 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C07
-//                    fila2[3] = c07;                     //C07 LO METEMOS EN UN ARRAY2[0]
-//                    bloque8.setText(String.valueOf(c07).toUpperCase()); //colocamos c07 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 8 -> {
-//                    char c8 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C8
-//                    fila2[2] = c8;                     //C8 LO METEMOS EN UN ARRAY2[0]
-//                    bloque9.setText(String.valueOf(c8).toUpperCase()); //colocamos c8 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 9 -> {
-//                    char c9 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C9
-//                    fila2[4] = c9;                     //C9 LO METEMOS EN UN ARRAY2[1]
-//                    bloque10.setText(String.valueOf(c9).toUpperCase()); //colocamos c9 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
+//                
 //                case 10 -> {
 //                    char c10 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C10
 //                    fila3[0] = c10;                     //C10 LO METEMOS EN UN ARRAY2[1]

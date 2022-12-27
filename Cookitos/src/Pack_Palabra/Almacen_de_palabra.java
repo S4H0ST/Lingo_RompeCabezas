@@ -14,9 +14,14 @@ public class Almacen_de_palabra implements Serializable {
        
     }
 
-    public ArrayList<String> getPalabras_de_cinco() {
+    public ArrayList<String> getPalabras_de_array(int jugador) {
+        if(jugador == 1){
+            return this.infoConfig.getPalabras_partida1();
+        }
+        else{
+            return this.infoConfig.getPalabras_partida2();
+        }
         
-        return this.infoConfig.getPalabras_partida1();
     }
     
 
