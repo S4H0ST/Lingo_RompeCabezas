@@ -14,8 +14,9 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     private ArrayList <String> palabras_jugador1=new ArrayList <String> ();
     private ArrayList <String> palabras_jugador2=new ArrayList <String> ();
     private Almacen_de_palabra almacen = new Almacen_de_palabra();
+    private int[] palabra_enviar;
     
-    
+    private String palabra_original;
     
     //INICIALIZACION DE ATRIBUTOS-------------------------------------------------------
     public Palabra(int numLetras, char[] palabra, boolean regalo_de_letra) {
@@ -35,8 +36,8 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     //-----------------------------------METODOS DE LA CLASE------------------------------------------------------------------
     //METODO GET NUMERO DE ELEMENTOS
     //METODO COMPROBAR COLOCADAS
-    public boolean comprobar_colocadas(int posicion, String palabra_introducida) {
-        String palabra_original = palabras_jugador1.get(posicion);
+    public boolean comprobar_colocadas(int posicion, String palabra_introducida, int turno) {
+        palabra_original = palabras_jugador1.get(posicion);
         System.out.println(palabra_introducida);
         
         if(palabra_original.equals(palabra_introducida)){
@@ -45,22 +46,42 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
             //que se termine la partida
             return true;
         }
+       
         else{
             System.out.println("No son iguales");
-            comprobar_distinta_posicion(posicion, palabra_introducida);
+            palabra_enviar = comprobar_distinta_posicion(posicion, palabra_introducida,turno);
             return false;
         }
-            
-        
     }
 
     //METODO COMPROBAR Distinta posicion
-    private boolean comprobar_distinta_posicion(int posicion,String palabra_introducida) {
+    private int[]comprobar_distinta_posicion(int posicion,String palabra_introducida,int turno) {
+        char[] array_palabra_original = palabra_original.toCharArray();
+        int[] nuevo_array_letras = new int[palabra_introducida.length()];
         
-        palabras_jugador1.get(posicion).charAt(1);
-        return false; // devuelve verdadero y se pone amarillo en la posicion
+        for(int ii = 0;  ii<nuevo_array_letras.length;ii++){
+            nuevo_array_letras[ii]=0;
+        }
+        //if(palabra_original.contains(palabra_introducida)){
+            for(int i=0; i<palabra_introducida.length();i++){
+                for(int j=0;j<palabra_introducida.length();j++){
+                    if(array_palabra_original[i]==palabra_introducida.charAt(j)) {
+                        if(i==j){
+                            nuevo_array_letras[j]= 1;
+                        }
+                        else{
+                            nuevo_array_letras[j]=2;
+                        }
+                    }
+                }
+            }
+        
+        return nuevo_array_letras; // devuelve verdadero y se pone amarillo en la posicion
     }
 
+    public int[] getArrayPalabra(){
+        return palabra_enviar;
+    }
     //METODO MOSTRAR INTENTO RESUELTO
     public String intento_resuelto() {
         //devolver el numero del intento y la palabra del intento
