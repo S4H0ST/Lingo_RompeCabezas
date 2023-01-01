@@ -369,6 +369,7 @@ public class Partida_cinco extends javax.swing.JPanel {
                         comprobar_palabra = true;
                     }
                 }
+                //Cuando se introduce la quinta letra, entra en este método. Si devuelve true la palabra es correcta, en caso contrario será inválida.
                 if (comprobar_palabra) {
                     boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila1).toUpperCase(),turno);
                     if(aciertas){
@@ -380,13 +381,11 @@ public class Partida_cinco extends javax.swing.JPanel {
                         int[]colorear_palabra = clase_palabra.getArrayPalabra();
                         for(int i = 0;i<colorear_palabra.length;i++){
                             if(colorear_palabra[i]==0){
-                               // System.out.println("no hay coincidencias");
                                array_casillas[i].setForeground(Color.RED);
                             }
                             else if(colorear_palabra[i]==1){
                                 array_casillas[i].setForeground(Color.GREEN);
                                 
-                                //System.out.println("oooooooooooooooooooooS");
                             }
                             else{
                                 // System.out.println("al menos una coincidencia");
@@ -431,7 +430,30 @@ public class Partida_cinco extends javax.swing.JPanel {
                     }
                 }
                 if (comprobar_palabra) {
-                    clase_palabra.comprobar_colocadas(1, String.valueOf(fila2).toUpperCase(),turno);
+                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila2).toUpperCase(),turno);
+                    if(aciertas){
+                        for(int i = 5; i<10;i++){
+                            array_casillas[i].setForeground(Color.GREEN);   
+                        }
+                    }
+                    else{
+                        int[]colorear_palabra = clase_palabra.getArrayPalabra();
+                        for(int i = 5;i<(colorear_palabra.length+5);i++){
+                            if(colorear_palabra[i]==0){
+                               array_casillas[i].setForeground(Color.RED);
+                            }
+                            else if(colorear_palabra[i]==1){
+                                array_casillas[i].setForeground(Color.GREEN);
+                                
+                            }
+                            else{
+                                // System.out.println("al menos una coincidencia");
+                                array_casillas[i].setForeground(Color.ORANGE);
+                            }
+                            
+                        }
+                        
+                    }
                     comprobar_palabra = false;
                 }
             }
@@ -464,7 +486,30 @@ public class Partida_cinco extends javax.swing.JPanel {
                     }
                 }
                 if (comprobar_palabra) {
-                    clase_palabra.comprobar_colocadas(2, String.valueOf(fila3).toUpperCase(),turno);
+                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila3).toUpperCase(),turno);
+                    if(aciertas){
+                        for(int i = 0; i<5;i++){
+                            array_casillas[i].setForeground(Color.GREEN);   
+                        }
+                    }
+                    else{
+                        int[]colorear_palabra = clase_palabra.getArrayPalabra();
+                        for(int i = 0;i<colorear_palabra.length;i++){
+                            if(colorear_palabra[i]==0){
+                               array_casillas[i].setForeground(Color.RED);
+                            }
+                            else if(colorear_palabra[i]==1){
+                                array_casillas[i].setForeground(Color.GREEN);
+                                
+                            }
+                            else{
+                                // System.out.println("al menos una coincidencia");
+                                array_casillas[i].setForeground(Color.ORANGE);
+                            }
+                            
+                        }
+                        
+                    }
                     comprobar_palabra = false;
                 }
             }

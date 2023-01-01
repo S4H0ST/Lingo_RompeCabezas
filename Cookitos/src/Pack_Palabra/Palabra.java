@@ -70,7 +70,9 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
                             nuevo_array_letras[j]= 1;
                         }
                         else{
-                            nuevo_array_letras[j]=2;
+                            if(nuevo_array_letras[j]!=1){
+                                nuevo_array_letras[j]=2;
+                            }
                         }
                     }
                 }
