@@ -21,7 +21,7 @@ public class Partida_cinco extends javax.swing.JPanel {
     //private char[][] matriz_filas = new char[5][5];
     private int turno;
     private JLabel[] array_casillas = new JLabel[25];
-    
+
     private Palabra clase_palabra = new Palabra();
     boolean comprobar_palabra = false;
 
@@ -29,36 +29,36 @@ public class Partida_cinco extends javax.swing.JPanel {
         initComponents();
         this.contTeclado = 0;
         this.turno = 0;
-            array_casillas[0]=bloque1;
-            array_casillas[1]=bloque2;
-            array_casillas[2]=bloque3;
-            array_casillas[3]=bloque4;
-            array_casillas[4]=bloque5;
-            
-            array_casillas[5]=bloque6;
-            array_casillas[6]=bloque7;
-            array_casillas[7]=bloque8;
-            array_casillas[8]=bloque9;
-            array_casillas[9]=bloque10;
-            
-            array_casillas[10]=bloque11;
-            array_casillas[11]=bloque12;
-            array_casillas[12]=bloque13;
-            array_casillas[13]=bloque14;
-            array_casillas[14]=bloque15;
-            
-            array_casillas[15]=bloque16;
-            array_casillas[16]=bloque17;
-            array_casillas[17]=bloque18;
-            array_casillas[18]=bloque19;
-            array_casillas[19]=bloque20;
-            
-            array_casillas[20]=bloque21;
-            array_casillas[21]=bloque22;
-            array_casillas[22]=bloque23;
-            array_casillas[23]=bloque24;
-            array_casillas[24]=bloque25;
- 
+        array_casillas[0] = bloque1;
+        array_casillas[1] = bloque2;
+        array_casillas[2] = bloque3;
+        array_casillas[3] = bloque4;
+        array_casillas[4] = bloque5;
+
+        array_casillas[5] = bloque6;
+        array_casillas[6] = bloque7;
+        array_casillas[7] = bloque8;
+        array_casillas[8] = bloque9;
+        array_casillas[9] = bloque10;
+
+        array_casillas[10] = bloque11;
+        array_casillas[11] = bloque12;
+        array_casillas[12] = bloque13;
+        array_casillas[13] = bloque14;
+        array_casillas[14] = bloque15;
+
+        array_casillas[15] = bloque16;
+        array_casillas[16] = bloque17;
+        array_casillas[17] = bloque18;
+        array_casillas[18] = bloque19;
+        array_casillas[19] = bloque20;
+
+        array_casillas[20] = bloque21;
+        array_casillas[21] = bloque22;
+        array_casillas[22] = bloque23;
+        array_casillas[23] = bloque24;
+        array_casillas[24] = bloque25;
+
     }
 
     @SuppressWarnings("unchecked")
@@ -342,8 +342,7 @@ public class Partida_cinco extends javax.swing.JPanel {
         //OBLIGAR A QUE SOLO SE PUEDE INGRESAR MINUSCULAR O MAYUSCULAS (CARACTERES)    
         if ((minusculas || mayusculas)) {
             evt.consume(); //lo que hace es que cumple con la funcion de forma estricta 
-            
-            
+
             //clase_palabra.comprobar_colocadas(String.valueOf(fila1));
             if (contTeclado <= 4) {
                 switch (contTeclado) {
@@ -376,27 +375,8 @@ public class Partida_cinco extends javax.swing.JPanel {
                 }
                 //Cuando se introduce la quinta letra, entra en este método. Si devuelve true la palabra es correcta, en caso contrario será inválida.
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila1).toUpperCase(),turno);
-                    if(aciertas){
-                        for(int i = 0; i<5;i++){
-                            array_casillas[i].setForeground(Color.GREEN);   
-                        }
-                    }
-                    else{
-                        int[]colorear_palabra = clase_palabra.getArrayPalabra();
-                        for(int i = 0;i<colorear_palabra.length;i++){
-                            if(colorear_palabra[i]==0){
-                               array_casillas[i].setForeground(Color.RED);
-                            }
-                            else if(colorear_palabra[i]==1){
-                                array_casillas[i].setForeground(Color.GREEN);
-                            }
-                            else{
-                                // System.out.println("al menos una coincidencia");
-                                array_casillas[i].setForeground(Color.ORANGE);
-                            }
-                        }
-                    }
+                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila1).toUpperCase(), turno);
+                    this.colorearLetras(aciertas, 0);
                     comprobar_palabra = false;
                 }
             }
@@ -414,44 +394,25 @@ public class Partida_cinco extends javax.swing.JPanel {
                         bloque7.setText(String.valueOf(c7).toUpperCase()); //colocamos c7 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                     }
                     case 7 -> {
-                        char c07 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C07
-                        fila2[3] = c07;                     //C07 LO METEMOS EN UN ARRAY2[0]
-                        bloque8.setText(String.valueOf(c07).toUpperCase()); //colocamos c07 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                        char c8 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C07
+                        fila2[3] = c8;                     //C07 LO METEMOS EN UN ARRAY2[0]
+                        bloque8.setText(String.valueOf(c8).toUpperCase()); //colocamos c07 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                     }
                     case 8 -> {
-                        char c8 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C8
-                        fila2[2] = c8;                     //C8 LO METEMOS EN UN ARRAY2[0]
-                        bloque9.setText(String.valueOf(c8).toUpperCase()); //colocamos c8 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                        char c9 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C8
+                        fila2[2] = c9;                     //C8 LO METEMOS EN UN ARRAY2[0]
+                        bloque9.setText(String.valueOf(c9).toUpperCase()); //colocamos c8 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                     }
                     case 9 -> {
-                        char c9 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C9
-                        fila2[4] = c9;                     //C9 LO METEMOS EN UN ARRAY2[1]
-                        bloque10.setText(String.valueOf(c9).toUpperCase()); //colocamos c9 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                        char c10 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C9
+                        fila2[4] = c10;                     //C9 LO METEMOS EN UN ARRAY2[1]
+                        bloque10.setText(String.valueOf(c10).toUpperCase()); //colocamos c9 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
                         comprobar_palabra = true;
                     }
                 }
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila2).toUpperCase(),turno);
-                    if(aciertas){
-                        for(int i = 5; i<10;i++){
-                            array_casillas[i].setForeground(Color.GREEN);   
-                        }
-                    }
-                    else{
-                        int[]colorear_palabra = clase_palabra.getArrayPalabra();
-                        for(int i = 5;i<(colorear_palabra.length+5);i++){
-                            if(colorear_palabra[i]==0){
-                               array_casillas[i].setForeground(Color.RED);
-                            }
-                            else if(colorear_palabra[i]==1){
-                                array_casillas[i].setForeground(Color.GREEN);
-                            }
-                            else{
-                                // System.out.println("al menos una coincidencia");
-                                array_casillas[i].setForeground(Color.ORANGE);
-                            }
-                        }
-                    }
+                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila2).toUpperCase(), turno);
+                    this.colorearLetras(aciertas, 5);
                     comprobar_palabra = false;
                 }
             }
@@ -481,89 +442,109 @@ public class Partida_cinco extends javax.swing.JPanel {
                         char c14 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C14
                         fila3[4] = c14;                     //C14 LO METEMOS EN UN ARRAY2[1]
                         bloque15.setText(String.valueOf(c14).toUpperCase()); //colocamos c14 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                        comprobar_palabra = true;
                     }
                 }
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila3).toUpperCase(),turno);
-                    if(aciertas){
-                        for(int i = 0; i<5;i++){
-                            array_casillas[i].setForeground(Color.GREEN);   
-                        }
-                    }
-                    else{
-                        int[]colorear_palabra = clase_palabra.getArrayPalabra();
-                        for(int i = 0;i<colorear_palabra.length;i++){
-                            if(colorear_palabra[i]==0){
-                               array_casillas[i].setForeground(Color.RED);
-                            }
-                            else if(colorear_palabra[i]==1){
-                                array_casillas[i].setForeground(Color.GREEN);
-                                
-                            }
-                            else{
-                                // System.out.println("al menos una coincidencia");
-                                array_casillas[i].setForeground(Color.ORANGE);
-                            }
-                        }
-                    }
+                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila3).toUpperCase(), turno);
+                    this.colorearLetras(aciertas, 10);
                     comprobar_palabra = false;
                 }
             }
-
-//                case 15 -> {
-//                    char c15 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C15
-//                    fila4[0] = c15;                     //C15  LO METEMOS EN UN ARRAY2[0]
-//                    bloque16.setText(String.valueOf(c15).toUpperCase()); //colocamos c15  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 16 -> {
-//                    char c16 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C16
-//                    fila4[1] = c16;                     //C16  LO METEMOS EN UN ARRAY2[1]
-//                    bloque17.setText(String.valueOf(c16).toUpperCase()); //colocamos c16  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 17 -> {
-//                    char c17 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C17
-//                    fila4[2] = c17;                     //C17 LO METEMOS EN UN ARRAY2[1]
-//                    bloque18.setText(String.valueOf(c17).toUpperCase()); //colocamos c17 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 18 -> {
-//                    char c18 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C18
-//                    fila4[3] = c18;                     //C18 LO METEMOS EN UN ARRAY2[0]
-//                    bloque19.setText(String.valueOf(c18).toUpperCase()); //colocamos c18 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 19 -> {
-//                    char c19 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C19
-//                    fila4[4] = c19;                     //C19 LO METEMOS EN UN ARRAY2[1]
-//                    bloque20.setText(String.valueOf(c19).toUpperCase()); //colocamos c19 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 20 -> {
-//                    char c20 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C20
-//                    fila5[0] = c20;                     //C20 LO METEMOS EN UN ARRAY2[0]
-//                    bloque21.setText(String.valueOf(c20).toUpperCase()); //colocamos c20 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 21 -> {
-//                    char c21 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C21
-//                    fila5[1] = c21;                     //C21 LO METEMOS EN UN ARRAY2[1]
-//                    bloque22.setText(String.valueOf(c21).toUpperCase()); //colocamos c21 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 22 -> {
-//                    char c22 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C22
-//                    fila5[2] = c22;                     //C22 LO METEMOS EN UN ARRAY2[0]
-//                    bloque23.setText(String.valueOf(c22).toUpperCase()); //colocamos c22 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 23 -> {
-//                    char c23 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C23
-//                    fila5[3] = c23;                     //C23 LO METEMOS EN UN ARRAY2[1]
-//                    bloque24.setText(String.valueOf(c23).toUpperCase()); //colocamos c23 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//                case 24 -> {
-//                    char c24 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C24
-//                    fila5[4] = c24;                     //C24 LO METEMOS EN UN ARRAY2[1]
-//                    bloque25.setText(String.valueOf(c24).toUpperCase()); //colocamos c24 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
-//                }
-//            }
+            if (contTeclado > 14 && contTeclado <= 19) {
+                switch (contTeclado) {
+                    case 15 -> {
+                        char c15 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C15
+                        fila4[0] = c15;                     //C15  LO METEMOS EN UN ARRAY2[0]
+                        bloque16.setText(String.valueOf(c15).toUpperCase()); //colocamos c15  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 16 -> {
+                        char c16 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C16
+                        fila4[1] = c16;                     //C16  LO METEMOS EN UN ARRAY2[1]
+                        bloque17.setText(String.valueOf(c16).toUpperCase()); //colocamos c16  en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 17 -> {
+                        char c17 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C17
+                        fila4[2] = c17;                     //C17 LO METEMOS EN UN ARRAY2[1]
+                        bloque18.setText(String.valueOf(c17).toUpperCase()); //colocamos c17 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 18 -> {
+                        char c18 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C18
+                        fila4[3] = c18;                     //C18 LO METEMOS EN UN ARRAY2[0]
+                        bloque19.setText(String.valueOf(c18).toUpperCase()); //colocamos c18 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 19 -> {
+                        char c19 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C19
+                        fila4[4] = c19;                     //C19 LO METEMOS EN UN ARRAY2[1]
+                        bloque20.setText(String.valueOf(c19).toUpperCase()); //colocamos c19 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                        comprobar_palabra = true;
+                    }
+                }
+                if (comprobar_palabra) {
+                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila4).toUpperCase(), turno);
+                    this.colorearLetras(aciertas, 15);
+                    comprobar_palabra = false;
+                }
+            }
+            if (contTeclado > 19 && contTeclado <= 24) {
+                switch (contTeclado) {
+                    case 20 -> {
+                        char c20 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C20
+                        fila5[0] = c20;                     //C20 LO METEMOS EN UN ARRAY2[0]
+                        bloque21.setText(String.valueOf(c20).toUpperCase()); //colocamos c20 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 21 -> {
+                        char c21 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C21
+                        fila5[1] = c21;                     //C21 LO METEMOS EN UN ARRAY2[1]
+                        bloque22.setText(String.valueOf(c21).toUpperCase()); //colocamos c21 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 22 -> {
+                        char c22 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C22
+                        fila5[2] = c22;                     //C22 LO METEMOS EN UN ARRAY2[0]
+                        bloque23.setText(String.valueOf(c22).toUpperCase()); //colocamos c22 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 23 -> {
+                        char c23 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C23
+                        fila5[3] = c23;                     //C23 LO METEMOS EN UN ARRAY2[1]
+                        bloque24.setText(String.valueOf(c23).toUpperCase()); //colocamos c23 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                    }
+                    case 24 -> {
+                        char c24 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C24
+                        fila5[4] = c24;                     //C24 LO METEMOS EN UN ARRAY2[1]
+                        bloque25.setText(String.valueOf(c24).toUpperCase()); //colocamos c24 en el bloque1, String.ValueOf = char--> String , toUpperCase() --> mayuscula siempre
+                        comprobar_palabra = true;
+                    }
+                }
+                if (comprobar_palabra) {
+                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila5).toUpperCase(), turno);
+                    this.colorearLetras(aciertas, 20);
+                    comprobar_palabra = false;
+                }
+            }
             ++contTeclado;//contamos cuantas veces tecleamos para ir colocando cada vez que se hace
         }
     }//GEN-LAST:event_formKeyTyped
+
+    public void colorearLetras(boolean aciertas, int comienzo) {
+        int aux = comienzo + 5;
+        if (aciertas) {
+            for (int i = comienzo; i < aux; i++) {
+                array_casillas[i].setForeground(Color.GREEN);
+            }
+        } else {
+            int[] colorear_palabra = clase_palabra.getArrayPalabra();
+            for (int i = 0; i < (colorear_palabra.length); i++) {
+                if (colorear_palabra[i] == 0) {
+                    array_casillas[i + comienzo].setForeground(Color.RED);
+                } else if (colorear_palabra[i] == 1) {
+                    array_casillas[i + comienzo].setForeground(Color.GREEN);
+                } else {
+                    // System.out.println("al menos una coincidencia");
+                    array_casillas[i + comienzo].setForeground(Color.ORANGE);
+                }
+            }
+        }
+    }
 
     public char[] getFila1() {
         return fila1;

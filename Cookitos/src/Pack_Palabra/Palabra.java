@@ -35,7 +35,7 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
 
     public boolean comprobar_colocadas(int posicion, String palabra_introducida, int turno) {
         palabra_original = palabras_jugador1.get(posicion);
-        System.out.println(palabra_introducida);
+        //System.out.println(palabra_introducida);
         
         if(palabra_original.equals(palabra_introducida)){
             System.out.println("Son iguales");
@@ -74,7 +74,6 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
                     }
                 }
             }
-        
         return nuevo_array_letras; // devuelve verdadero y se pone amarillo en la posicion
     }
 
