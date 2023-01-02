@@ -34,11 +34,11 @@ public class DarDeBaja extends javax.swing.JPanel {
         PanelDarDeBaja.setLayout(PanelDarDeBajaLayout);
         PanelDarDeBajaLayout.setHorizontalGroup(
             PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         PanelDarDeBajaLayout.setVerticalGroup(
             PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 380, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

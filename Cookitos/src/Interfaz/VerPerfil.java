@@ -59,8 +59,8 @@ public class VerPerfil extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PerfilPanelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PerfilPanelKeyTyped
-      
-        
+
+
     }//GEN-LAST:event_PerfilPanelKeyTyped
 
 
