@@ -385,19 +385,15 @@ public class Partida_cinco extends javax.swing.JPanel {
                             }
                             else if(colorear_palabra[i]==1){
                                 array_casillas[i].setForeground(Color.GREEN);
-                                
                             }
                             else{
                                 // System.out.println("al menos una coincidencia");
                                 array_casillas[i].setForeground(Color.ORANGE);
                             }
-                            
                         }
-                        
                     }
                     comprobar_palabra = false;
                 }
-
             }
 
             if (contTeclado > 4 && contTeclado <= 9) {
@@ -444,15 +440,12 @@ public class Partida_cinco extends javax.swing.JPanel {
                             }
                             else if(colorear_palabra[i]==1){
                                 array_casillas[i].setForeground(Color.GREEN);
-                                
                             }
                             else{
                                 // System.out.println("al menos una coincidencia");
                                 array_casillas[i].setForeground(Color.ORANGE);
                             }
-                            
                         }
-                        
                     }
                     comprobar_palabra = false;
                 }
@@ -506,15 +499,11 @@ public class Partida_cinco extends javax.swing.JPanel {
                                 // System.out.println("al menos una coincidencia");
                                 array_casillas[i].setForeground(Color.ORANGE);
                             }
-                            
                         }
-                        
                     }
                     comprobar_palabra = false;
                 }
             }
-            
-            
 
 //                case 15 -> {
 //                    char c15 = evt.getKeyChar(); //GUARDAMOS EL CARACTER PRESIONADO EN C15
