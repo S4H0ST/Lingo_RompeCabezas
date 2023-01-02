@@ -32,6 +32,8 @@ public class Partida_cinco extends javax.swing.JPanel {
 
     public Partida_cinco() {
         initComponents();
+        this.setSize(500, 380);   //fijar tamaño default
+        this.setLocation(0, 0);        //fijar ubicacion default 
         this.contTeclado = 0;
         this.turno = 0;
         array_casillas[0] = bloque1;

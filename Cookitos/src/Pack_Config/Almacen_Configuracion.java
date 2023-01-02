@@ -8,39 +8,39 @@ import java.util.ArrayList;
  */
 public class Almacen_Configuracion implements Serializable {
 
-    private int letras_jugador1; //5 o 6
-    private int letras_partida2; //5 o 6
+    private int letras_Cinco; // DEVUELVEN UN 5 
+    private int letras_Seis; //DEVUELVEN UN 6
     private int numPalabras; //numero de palabras por partida
     private String pista; //si hay pista o no
-    private ArrayList<String> palabras_jugador1; //las palabras que hay 
-    private ArrayList<String> palabras_jugador2; //las palabras que hay 
+    private ArrayList<String> palabras_CincoLetras; //las palabras que hay 
+    private ArrayList<String> palabras_SeisLetras; //las palabras que hay 
 
     public Almacen_Configuracion() {
-        this.palabras_jugador1 = new ArrayList<String>();
-        this.palabras_jugador2 = new ArrayList<String>();
+        this.palabras_CincoLetras = new ArrayList<String>();
+        this.palabras_SeisLetras = new ArrayList<String>();
     }
 
     //CONSTRUCTOR COMPLETO 
     public Almacen_Configuracion(int letras1, int numPalabras, String pista, ArrayList palabras_jugador1, int letras2, ArrayList palabras_jugador2) {
         //INFORMACION QUE IRA DENTRO DEL FICHERO 
-        this.letras_jugador1 = letras1;
-        this.letras_partida2 = letras2;
+        this.letras_Cinco = letras1;
+        this.letras_Seis = letras2;
         this.pista = pista;
-        this.palabras_jugador2 = new ArrayList<String>();
-        this.palabras_jugador1 = new ArrayList<String>();
-        this.palabras_jugador1 = palabras_jugador1;
-        this.palabras_jugador2 = palabras_jugador2;
+        this.palabras_SeisLetras = new ArrayList<String>();
+        this.palabras_CincoLetras = new ArrayList<String>();
+        this.palabras_CincoLetras = palabras_jugador1;
+        this.palabras_SeisLetras = palabras_jugador2;
         this.numPalabras = numPalabras;
     }
 
     //METODOS GET DE LAS VARIABLES
-    public int getLetras_jugador2() {
-        return letras_partida2;
+    public int getLetras_SeisLetras() {
+        return letras_Seis;
     }
 
     //METODOS SET DE LAS VARIABLES
-    public void setLetras_jugador2(int letras_jugador2) {
-        this.letras_partida2 = letras_jugador2;
+    public void setLetras_SeisLetras(int letras__SeisLetras) {
+        this.letras_Seis = letras__SeisLetras;
     }
 
     //METODOS GET DE LAS VARIABLES
@@ -64,39 +64,39 @@ public class Almacen_Configuracion implements Serializable {
     }
 
     //METODOS GET DE LAS VARIABLES
-    public int getLetras_jugador1() {
-        return letras_jugador1;
+    public int getLetras_CincoLetras() {
+        return letras_Cinco;
     }
 
     //METODOS SET DE LAS VARIABLES
-    public void setLetras_jugador1(int letras_jugador1) {
-        this.letras_jugador1 = letras_jugador1;
+    public void setLetras_CincoLetras(int letras_jugador1) {
+        this.letras_Cinco = letras_jugador1;
     }
 
     //METODOS GET DE LAS VARIABLES
-    public ArrayList<String> getPalabras_jugador1() {
-        return palabras_jugador1;
+    public ArrayList<String> getPalabras_CincoLetras() {
+        return palabras_CincoLetras;
     }
 
     //METODOS SET DE LAS VARIABLES
-    public void setPalabras_jugador1(ArrayList<String> palabras_jugador1) {
-        this.palabras_jugador1 = palabras_jugador1;
+    public void setPalabras_CincoLetras(ArrayList<String> palabras_jugador1) {
+        this.palabras_CincoLetras = palabras_jugador1;
     }
 
     //METODOS GET DE LAS VARIABLES
-    public ArrayList<String> getPalabras_jugador2() {
-        return palabras_jugador2;
+    public ArrayList<String> getPalabras_SeisLetras() {
+        return palabras_SeisLetras;
     }
 
     //METODOS SET DE LAS VARIABLES
-    public void setPalabras_jugador2(ArrayList<String> palabras_jugador2) {
-        this.palabras_jugador2 = palabras_jugador2;
+    public void setPalabras_SeisLetras(ArrayList<String> palabras_jugador2) {
+        this.palabras_SeisLetras = palabras_jugador2;
     }
 
     //METODO toString DE LAS VARIABLES (este es importante)
     @Override
     public String toString() {
-        return this.letras_jugador1 + " " + this.numPalabras + " " + this.pista + "\n" + palabras_jugador1 + "\n" + this.letras_partida2 + "\n" + palabras_jugador2;
+        return this.letras_Cinco + " " + this.numPalabras + " " + this.pista + "\n" + palabras_CincoLetras + "\n" + this.letras_Seis + "\n" + palabras_SeisLetras;
     }
 
 }

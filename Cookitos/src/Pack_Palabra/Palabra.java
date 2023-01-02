@@ -10,10 +10,9 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
 
 
     private int numLetras;
-    private char palabra[]; //palabra que metemos
     private boolean regalo_de_letra; // comprobar si se va a dar la pista o no
-    private ArrayList <String> palabras_jugador1=new ArrayList <String> ();
-    private ArrayList <String> palabras_jugador2=new ArrayList <String> ();
+    private ArrayList <String> palabras_CincoLetras=new ArrayList <String> ();
+    private ArrayList <String> palabras_SeisLetras=new ArrayList <String> ();
     private Almacen_de_palabra almacen = new Almacen_de_palabra();
     private int[] palabra_enviar;
     private int numRandom; // es la posicion del arraylist que sera la palabra entera
@@ -26,8 +25,8 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
    
 
     public Palabra() {
-        this.palabras_jugador1 = almacen.getPalabras_de_array(1); //LO QUE HAGO ES SACAR LAS PALABRAS DEL JUGADOR 1 Y GUARDARLAS EN OTRA VARIABLE
-        this.palabras_jugador2 = almacen.getPalabras_de_array(2); //LO QUE HAGO ES SACAR LAS PALABRAS DEL JUGADOR 2 Y GUARDARLAS EN OTRA VARIABLE
+        this.palabras_CincoLetras = almacen.getPalabras_de_array(1); //LO QUE HAGO ES SACAR LAS PALABRAS DEL JUGADOR 1 Y GUARDARLAS EN OTRA VARIABLE
+        this.palabras_SeisLetras = almacen.getPalabras_de_array(2); //LO QUE HAGO ES SACAR LAS PALABRAS DEL JUGADOR 2 Y GUARDARLAS EN OTRA VARIABLE
         this.numLetras=almacen.getPalabras_de_array(1).size(); // guardamos el numero de palabras que tienen los arraylist, como ambos van a TENER EL MISMO TAMANIO DA IGUAL QUE JUGADOR COJA 
     }                                               //NOTA: LO DE QUE SEA EL JUGADOR 1 O 2 PARA EL NUMPALABRAS ES INDIFERENTE
 
@@ -36,7 +35,7 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     //METODO COMPROBAR COLOCADAS
 
     public boolean comprobar_colocadas(int posicion, String palabra_introducida, int turno) {
-        palabra_original = palabras_jugador1.get(posicion);
+        palabra_original = palabras_CincoLetras.get(posicion);
         //System.out.println(palabra_introducida);
         
         if(palabra_original.equals(palabra_introducida)){
@@ -95,9 +94,9 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     }
 
     //SACAR PALABRA ALEATORIA DEL FICHERO
-    public String sacar_palabra_aleatoria(int jugador) {
+    public String sacar_palabra_aleatoria(int tipoArray) {
       this.numRandom=(int) (Math.random() * this.numLetras); //cojo una palabra aleatoria en ese rango [0-arraylist jugador (1o2).size[])
-      this.palabraRandom=almacen.getPalabras_de_array(jugador).get(this.numRandom); //elijo una palabra aleatorio del jugador que quiera  
+      this.palabraRandom=almacen.getPalabras_de_array(tipoArray).get(this.numRandom); //elijo una palabra aleatorio del jugador que quiera  
       return this.palabraRandom; //devuelve una palabra aleatoria del fichero
     }
 

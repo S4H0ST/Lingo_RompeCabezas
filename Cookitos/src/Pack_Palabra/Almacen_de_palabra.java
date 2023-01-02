@@ -13,10 +13,11 @@ public class Almacen_de_palabra implements Serializable {
 //CONSTRUCTOR QUE CARGA EL FICHERO
     public Almacen_de_palabra() { //AL INICIAR ESTA CLASE SE CARGA EL FICHERO ENTERO
         try {
-            //(SE CARGA EL FICHERO) ---------------objeto de tipo Almacen de configuracion para sacar el contenido del fichero 
-
+            //(SE CARGA EL FICHERO) ---------------> objeto de tipo Almacen de configuracion para sacar el contenido del fichero 
+            //COMO EL FICHERO TIENE CONTANIDO DE TIPO ALMACEN DE CONFIGURACION HACEMOS UN CASTING PARA METERLO EN OTRO OBJETO Y SACARLO
+            
             ObjectInputStream cargaFichero = new ObjectInputStream(new FileInputStream("Fichero_Configuracion.txt")); //para ver el contenido del fichero
-            this.infoConfig = (Almacen_Configuracion) cargaFichero.readObject();                                            //COMO EL FICHERO TIENE CONTANIDO DE TIPO ALMACEN DE CONFIGURACION HACEMOS UN CASTING PARA METERLO EN OTRO OBJETO Y SACARLO
+            this.infoConfig = (Almacen_Configuracion) cargaFichero.readObject();      
             cargaFichero.close();
 
         } catch (IOException | ClassNotFoundException ex) {
@@ -25,11 +26,11 @@ public class Almacen_de_palabra implements Serializable {
     }
 
     //METODO QUE DEVUELVE PALABRAS
-    public ArrayList<String> getPalabras_de_array(int jugador) { //devolver la cadena de palabras de cada jugador
-        if (jugador == 1) {
-            return this.infoConfig.getPalabras_jugador1(); //DEVUELVE LAS PALABRAS DEL PRIMER JUGADOR
+    public ArrayList<String> getPalabras_de_array(int tipoArray) { //devolver la cadena de palabras de cada arraylist
+        if (tipoArray == 1) { // 1 PARA DEVOLVER ARRAYLIST DE 5 LETRAS, OTRO NUMERO PARA ARRAYLIST DE 6 LETRAS
+            return this.infoConfig.getPalabras_CincoLetras(); //DEVUELVE LAS PALABRAS DEL 5 LETRAS
         } else {
-            return this.infoConfig.getPalabras_jugador2(); //DEVUELVE LAS PALABRAS DEL SEGUNDO JUGADOR
+            return this.infoConfig.getPalabras_SeisLetras(); //DEVUELVE LAS PALABRAS DE 6 LETRAS
         }
 
     }
