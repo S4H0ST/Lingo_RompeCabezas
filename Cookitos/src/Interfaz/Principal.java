@@ -1,4 +1,3 @@
-
 package Interfaz;
 
 import java.awt.BorderLayout;
@@ -8,34 +7,30 @@ import javax.swing.JPanel;
 /**
  * @author sohaib
  */
-
 //PRINCIPAL ES NUESTRA JFRAME MAIN, ES DECIR LA PESTAÑA PRINCIPAL-----------------------------------
 public class Principal extends javax.swing.JFrame {
-   
-    
+
     public Principal() {
         initComponents();
         TituloPartida.setVisible(false); //
-        Inicio_Sesion nombre=new Inicio_Sesion(); // CREO UN OBJETO DE TIPO PANEL
+        Inicio_Sesion nombre = new Inicio_Sesion(); // CREO UN OBJETO DE TIPO PANEL
         this.MostrarPanel(nombre); //USO EL METODO PARA QUE NADAMAS INCIAR SALTE LA PESTAÑA de inicio sesion
         this.setLocationRelativeTo(null);  //COLOCAR PESTAÑA EN EL CENTRO DE LA PANTALLA
-        
-        
-        
+
     }
-    
-      //METODO PARA MOSTRAR LOS PANELES (LOS INTERFACES QUE HAY)
-   public void MostrarPanel(JPanel p){ 
-       p.setSize(500, 380);
-       p.setLocation(0,0);
-       PanelDeCambio.removeAll();
-       PanelDeCambio.add(p,BorderLayout.CENTER);
-       PanelDeCambio.revalidate();
-       PanelDeCambio.repaint();
-       p.setFocusable(true); 
-       p.grabFocus();
+
+    //METODO PARA MOSTRAR LOS PANELES (LOS INTERFACES QUE HAY)
+    public void MostrarPanel(JPanel p) {
+        p.setSize(500, 380);
+        p.setLocation(0, 0);
+        PanelDeCambio.removeAll();
+        PanelDeCambio.add(p, BorderLayout.CENTER);
+        PanelDeCambio.revalidate();
+        PanelDeCambio.repaint();
+        p.setFocusable(true);
+        p.grabFocus();
     }
- 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -92,7 +87,7 @@ public class Principal extends javax.swing.JFrame {
         DemoBoton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         DemoBoton.setForeground(new java.awt.Color(255, 255, 255));
         DemoBoton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DemoBoton.setText("Demo");
+        DemoBoton.setText("Entrenamiento");
         DemoBoton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DemoBotonMouseClicked(evt);
@@ -104,7 +99,7 @@ public class Principal extends javax.swing.JFrame {
         PanelBotonPartidaLayout.setHorizontalGroup(
             PanelBotonPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBotonPartidaLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(40, 40, 40)
                 .addComponent(DemoBoton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -139,10 +134,10 @@ public class Principal extends javax.swing.JFrame {
         VolverPanel.setLayout(VolverPanelLayout);
         VolverPanelLayout.setHorizontalGroup(
             VolverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VolverPanelLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(BotonVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VolverPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         VolverPanelLayout.setVerticalGroup(
             VolverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,16 +186,16 @@ public class Principal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(202, 202, 202)
+                .addContainerGap()
                 .addComponent(TituloPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(414, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(21, 21, 21)
                 .addComponent(TituloPartida)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         Background.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 500, 60));
@@ -260,19 +255,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void DemoBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DemoBotonMouseClicked
         TituloPartida.setVisible(true);
-        Partida_cinco p5=new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-      this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
-      
-      
+        Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
+
+
     }//GEN-LAST:event_DemoBotonMouseClicked
 
     private void BotonVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonVolverMouseClicked
-        Inicio_Sesion inicio=new Inicio_Sesion(); // CREO UN OBEJTO PANEL DE INICIO_SESION
-       this.MostrarPanel(inicio); //MUESTRO POR PANTALLA AL PULSAR EL BOTON DEL INICIO SESION
-       TituloPartida.setVisible(false);
-       
+        Inicio_Sesion inicio = new Inicio_Sesion(); // CREO UN OBEJTO PANEL DE INICIO_SESION
+        this.MostrarPanel(inicio); //MUESTRO POR PANTALLA AL PULSAR EL BOTON DEL INICIO SESION
+        TituloPartida.setVisible(false);
+
     }//GEN-LAST:event_BotonVolverMouseClicked
-   
+
     private void PanelBotonPartidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonPartidaMouseEntered
         PanelBotonPartida.setBackground(Color.GRAY);
     }//GEN-LAST:event_PanelBotonPartidaMouseEntered
@@ -289,8 +284,6 @@ public class Principal extends javax.swing.JFrame {
         VolverPanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_VolverPanelMouseExited
 
-    
-    
     //MAIN DE LA INTERFAZ
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -320,8 +313,7 @@ public class Principal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Principal().setVisible(true);
-                
-                
+
             }
         });
     }

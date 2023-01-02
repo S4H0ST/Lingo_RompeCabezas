@@ -8,14 +8,14 @@ package Pack_Jugador;
 public class Jugador {
     private String nombre;
     private String contraseña;
-    public boolean admin; 
+    //public boolean admin; 
     
     //CONSTRUCTORES
     public Jugador(String nom, String pass){
         if("admin".equals(getNombre())){
-            this.nombre = nom;
-            this.contraseña = pass;
-            this.admin=false;
+//            this.nombre = nom;
+//            this.contraseña = pass;
+//            this.admin=false;
         }else{
         
         }   
@@ -41,13 +41,13 @@ public class Jugador {
         this.contraseña = contraseña;
     }
     
-    public void setAdmin(){
-        this.admin=true;
-    }
-    
-    public boolean getAdmin(){
-        return(this.admin);
-    }
+//    public void setAdmin(){
+//        this.admin=true;
+//    }
+//    
+//    public boolean getAdmin(){
+//        return(this.admin);
+//    }
     
     public String[] getJugador() {
             String[] temp = {this.nombre,this.contraseña};
