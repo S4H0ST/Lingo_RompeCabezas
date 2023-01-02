@@ -19,6 +19,8 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     private int numRandom; // es la posicion del arraylist que sera la palabra entera
     private String palabraRandom; //es la palabra aleatoria que se saca cuando se quiera
     private String palabra_original;
+    
+    
  
     //INICIALIZACION DE ATRIBUTOS-------------------------------------------------------
    
@@ -44,7 +46,7 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
             return true;
         }else{
             System.out.println("No son iguales");
-            palabra_enviar = comprobar_distinta_posicion(posicion, palabra_introducida,turno);
+            palabra_enviar = comprobar_distinta_posicion(posicion, palabra_introducida);
             return false;
         }
 
@@ -52,7 +54,7 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
 
 
     //METODO COMPROBAR Distinta posicion
-    private int[]comprobar_distinta_posicion(int posicion,String palabra_introducida,int turno) {
+    private int[]comprobar_distinta_posicion(int posicion,String palabra_introducida) {
         char[] array_palabra_original = palabra_original.toCharArray();
         int[] nuevo_array_letras = new int[palabra_introducida.length()];
         

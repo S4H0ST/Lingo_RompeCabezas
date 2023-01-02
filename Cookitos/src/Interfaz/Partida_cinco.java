@@ -19,7 +19,12 @@ public class Partida_cinco extends javax.swing.JPanel {
     private char[] fila4 = new char[5]; //array para la fila 4
     private char[] fila5 = new char[5]; //array para la fila 5
     //private char[][] matriz_filas = new char[5][5];
-    private int turno;
+    private int turno;      //dependiendo del valor, jugará j1 o j2
+    
+    //Dos variables independientes para cada jugador pues puede que cada uno vaya por distintos puntos de la partida
+    private int ronda_j1;   //variable para la ronda del jugador 1
+    private int ronda_j2;   //variable para la ronda del jugador 2
+    
     private JLabel[] array_casillas = new JLabel[25];
 
     private Palabra clase_palabra = new Palabra();
@@ -518,6 +523,10 @@ public class Partida_cinco extends javax.swing.JPanel {
                 if (comprobar_palabra) {
                     boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila5).toUpperCase(), turno);
                     this.colorearLetras(aciertas, 20);
+                    //EN LA ÚLTIMA FILA, SI FALLAS, PASA A LA SIGUIENTE PALABRA.
+                    if(!aciertas){
+                        contTeclado = -1;
+                    }
                     comprobar_palabra = false;
                 }
             }
@@ -526,20 +535,26 @@ public class Partida_cinco extends javax.swing.JPanel {
     }//GEN-LAST:event_formKeyTyped
 
     public void colorearLetras(boolean aciertas, int comienzo) {
-        int aux = comienzo + 5;
+        int aux = comienzo + 5;             //unicamente sirve para el siguiente for.  
+        
+        //SI SE ACIERTAN TODAS LAS LETRAS SE PONE EL TEXTO EN VERDE Y SE PASA A LA SIGUIENTE LETRA.
         if (aciertas) {
             for (int i = comienzo; i < aux; i++) {
-                array_casillas[i].setForeground(Color.GREEN);
+                array_casillas[i].setForeground(Color.GREEN); //Se colorea de verde
             }
-        } else {
+        }
+        //SI NO SE ACIERTAN LAS LETRAS PODRÍA SER QUE ALGUNAS ESTÉN MAL COLOCADAS, NO ESTÉN, O QUE ESTÉN BIEN.
+        else {
             int[] colorear_palabra = clase_palabra.getArrayPalabra();
             for (int i = 0; i < (colorear_palabra.length); i++) {
+                //QUE NO ESTÉN BIEN:
                 if (colorear_palabra[i] == 0) {
                     array_casillas[i + comienzo].setForeground(Color.RED);
+                //QUE ESTÉN BIEN:
                 } else if (colorear_palabra[i] == 1) {
                     array_casillas[i + comienzo].setForeground(Color.GREEN);
                 } else {
-                    // System.out.println("al menos una coincidencia");
+                //QUE ESTÉN MAL COLOCADAS:
                     array_casillas[i + comienzo].setForeground(Color.ORANGE);
                 }
             }
