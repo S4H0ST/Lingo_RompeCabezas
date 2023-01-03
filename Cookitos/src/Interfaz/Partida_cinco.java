@@ -79,7 +79,7 @@ public class Partida_cinco extends javax.swing.JPanel {
         array_casillas[23] = bloque24;
         array_casillas[24] = bloque25;
         
-   
+   System.out.println(this.clase_palabra.getPalabraRandom());
       //this.contador_Puntos=0;
 
     }

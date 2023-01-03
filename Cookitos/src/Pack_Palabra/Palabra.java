@@ -108,4 +108,8 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
         return this.palabra_original; //para no tener que sacar todo el rato palabras random si no poder reutilizar una palabra muchas veces
     }
     
+    //METODO PARA ASIGNAR LA PALABRA ALEATORIA
+    public void setPalabraRandom(){
+    this.palabra_original=this.sacar_palabra_aleatoria();
+    }
 }

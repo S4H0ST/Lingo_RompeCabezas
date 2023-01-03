@@ -18,6 +18,8 @@ private Palabra clase_palabra;
         Inicio_Sesion nombre = new Inicio_Sesion(); // CREO UN OBJETO DE TIPO PANEL
         this.MostrarPanel(nombre); //USO EL METODO PARA QUE NADAMAS INCIAR SALTE LA PESTAÑA de inicio sesion
         this.setLocationRelativeTo(null);  //COLOCAR PESTAÑA EN EL CENTRO DE LA PANTALLA
+         //seleccionar una palabra aleatoria
+       this.clase_palabra=new Palabra(); // en el propio constructor se añade una palabra aleatoria
 
     }
 
@@ -455,12 +457,13 @@ PanelSeisLetras.setBackground(Color.BLACK);    }//GEN-LAST:event_PanelSeisLetras
 
     private void LaboratorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaboratorioMouseClicked
          //seleccionar una palabra aleatoria
-       this.clase_palabra=new Palabra(); // en el propio constructor se añade una palabra aleatoria
+       this.clase_palabra.setPalabraRandom(); // en el propio constructor se añade una palabra aleatoria
+        System.out.println(this.clase_palabra.getPalabraRandom());
        if(this.clase_palabra.getPalabraRandom().length()==5){
         TituloPartida.setVisible(true);
         Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
         this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
-       }else{
+       }else if(this.clase_palabra.getPalabraRandom().length()==6){
         TituloPartida.setVisible(true);
         Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
         this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
