@@ -2,9 +2,11 @@ package Interfaz;
 
 import Pack_Palabra.Almacen_de_palabra;
 import Pack_Palabra.*;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /*
  * @author sohaib
@@ -26,13 +28,11 @@ public class Partida_cinco extends javax.swing.JPanel {
     private String palabraRandom; //palabra random
     private JLabel[] array_casillas = new JLabel[25]; //array de casillas
 
-    private Palabra clase_palabra = new Palabra();
+    private Palabra palabra_random;
     private boolean comprobar_palabra = false;
-    
+
     private Pista_de_Letra sacar_pista = new Pista_de_Letra(); // para conceder la pista de la letra
-  
-    
-    
+
     //private int contador_Puntos; //se usará para contar los puntos
     /*
     * 5 puntos acierto en 1º intento
@@ -41,12 +41,13 @@ public class Partida_cinco extends javax.swing.JPanel {
     * 2 puntos acierto en 4º intento
     * 1 puntos acierto en 5º intento
     * 0 puntos ningun acierto
-    */
+     */
+    public Partida_cinco(Palabra palabra) {
 
-    public Partida_cinco() {
         initComponents();
         this.setSize(500, 380);   //fijar tamaño default
         this.setLocation(0, 0);        //fijar ubicacion default 
+        this.palabra_random = palabra;
         this.contTeclado = 0;
         this.turno = 0;
         array_casillas[0] = bloque1;
@@ -78,9 +79,9 @@ public class Partida_cinco extends javax.swing.JPanel {
         array_casillas[22] = bloque23;
         array_casillas[23] = bloque24;
         array_casillas[24] = bloque25;
-        
-   System.out.println(this.clase_palabra.getPalabraRandom());
-      //this.contador_Puntos=0;
+
+        System.out.println(this.palabra_random.getPalabraRandom());
+        //this.contador_Puntos=0;
 
     }
 
@@ -419,7 +420,7 @@ public class Partida_cinco extends javax.swing.JPanel {
                 }
                 //Cuando se introduce la quinta letra, entra en este método. Si devuelve true la palabra es correcta, en caso contrario será inválida.
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila1).toUpperCase(), turno);
+                    boolean aciertas = palabra_random.comprobar_colocadas(0, String.valueOf(fila1).toUpperCase(), turno);
                     this.colorearLetras(aciertas, 0);
                     comprobar_palabra = false;
                 }
@@ -455,7 +456,7 @@ public class Partida_cinco extends javax.swing.JPanel {
                     }
                 }
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila2).toUpperCase(), turno);
+                    boolean aciertas = palabra_random.comprobar_colocadas(0, String.valueOf(fila2).toUpperCase(), turno);
                     this.colorearLetras(aciertas, 5);
                     comprobar_palabra = false;
                 }
@@ -490,7 +491,7 @@ public class Partida_cinco extends javax.swing.JPanel {
                     }
                 }
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila3).toUpperCase(), turno);
+                    boolean aciertas = palabra_random.comprobar_colocadas(0, String.valueOf(fila3).toUpperCase(), turno);
                     this.colorearLetras(aciertas, 10);
                     comprobar_palabra = false;
                 }
@@ -525,7 +526,7 @@ public class Partida_cinco extends javax.swing.JPanel {
                     }
                 }
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila4).toUpperCase(), turno);
+                    boolean aciertas = palabra_random.comprobar_colocadas(0, String.valueOf(fila4).toUpperCase(), turno);
                     this.colorearLetras(aciertas, 15);
                     comprobar_palabra = false;
                 }
@@ -560,10 +561,10 @@ public class Partida_cinco extends javax.swing.JPanel {
                     }
                 }
                 if (comprobar_palabra) {
-                    boolean aciertas = clase_palabra.comprobar_colocadas(0, String.valueOf(fila5).toUpperCase(), turno);
+                    boolean aciertas = palabra_random.comprobar_colocadas(0, String.valueOf(fila5).toUpperCase(), turno);
                     this.colorearLetras(aciertas, 20);
                     //EN LA ÚLTIMA FILA, SI FALLAS, PASA A LA SIGUIENTE PALABRA.
-                    if(!aciertas){
+                    if (!aciertas) {
                         contTeclado = -1;
                     }
                     comprobar_palabra = false;
@@ -575,29 +576,47 @@ public class Partida_cinco extends javax.swing.JPanel {
 
     public void colorearLetras(boolean aciertas, int comienzo) {
         int aux = comienzo + 5;             //unicamente sirve para el siguiente for.  
-        
+
         //SI SE ACIERTAN TODAS LAS LETRAS SE PONE EL TEXTO EN VERDE Y SE PASA A LA SIGUIENTE LETRA.
         if (aciertas) {
             for (int i = comienzo; i < aux; i++) {
                 array_casillas[i].setForeground(Color.GREEN); //Se colorea de verde
+                this.palabra_random.setPalabraRandom();
+                if (this.palabra_random.getPalabraRandom().length() == 5) {
+                    //TituloPartida.setVisible(true);
+                    Partida_cinco p5 = new Partida_cinco(palabra_random); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+                    this.MostrarPanel(p5);
+                }
             }
-        }
-        //SI NO SE ACIERTAN LAS LETRAS PODRÍA SER QUE ALGUNAS ESTÉN MAL COLOCADAS, NO ESTÉN, O QUE ESTÉN BIEN.
+        } //SI NO SE ACIERTAN LAS LETRAS PODRÍA SER QUE ALGUNAS ESTÉN MAL COLOCADAS, NO ESTÉN, O QUE ESTÉN BIEN.
         else {
-            int[] colorear_palabra = clase_palabra.getArrayPalabra();
+            int[] colorear_palabra = palabra_random.getArrayPalabra();
             for (int i = 0; i < (colorear_palabra.length); i++) {
                 //QUE NO ESTÉN BIEN:
                 if (colorear_palabra[i] == 0) {
                     array_casillas[i + comienzo].setForeground(Color.RED);
-                //QUE ESTÉN BIEN:
+                    //QUE ESTÉN BIEN:
                 } else if (colorear_palabra[i] == 1) {
                     array_casillas[i + comienzo].setForeground(Color.GREEN);
                 } else {
-                //QUE ESTÉN MAL COLOCADAS:
+                    //QUE ESTÉN MAL COLOCADAS:
                     array_casillas[i + comienzo].setForeground(Color.ORANGE);
                 }
             }
+
         }
+    }
+    //METODO PARA MOSTRAR LOS PANELES (LOS INTERFACES QUE HAY)
+
+    public void MostrarPanel(JPanel p) {
+        p.setSize(500, 380);
+        p.setLocation(0, 0);
+        Panel1.removeAll();
+        Panel1.add(p, BorderLayout.CENTER);
+        Panel1.revalidate();
+        Panel1.repaint();
+        p.setFocusable(true);
+        p.grabFocus();
     }
 
     public char[] getFila1() {
@@ -630,9 +649,9 @@ public class Partida_cinco extends javax.swing.JPanel {
     }//GEN-LAST:event_verPalabrasActionPerformed
 
     private void PistaLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PistaLetraActionPerformed
-     this.sacar_pista.regalar_letra(this.clase_palabra.getPalabraRandom());    // usa la palabra de la partida para sacar un caracter pista
-     System.out.println(this.sacar_pista.letraRandom());
-     PistaLetra.invalidate(); //buscar forma de poder volver a escribir 
+        this.sacar_pista.regalar_letra(this.palabra_random.getPalabraRandom());    // usa la palabra de la partida para sacar un caracter pista
+        System.out.println(this.sacar_pista.letraRandom());
+        PistaLetra.invalidate(); //buscar forma de poder volver a escribir 
     }//GEN-LAST:event_PistaLetraActionPerformed
 
     private void PistaLetraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PistaLetraMouseExited
@@ -640,7 +659,7 @@ public class Partida_cinco extends javax.swing.JPanel {
     }//GEN-LAST:event_PistaLetraMouseExited
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-      
+
     }//GEN-LAST:event_formMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

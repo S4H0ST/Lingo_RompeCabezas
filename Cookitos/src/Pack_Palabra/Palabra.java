@@ -29,10 +29,11 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
         this.palabras_CincoLetras = almacen.getPalabras_de_array(1); //LO QUE HAGO ES SACAR LAS PALABRAS DEL JUGADOR 1 Y GUARDARLAS EN OTRA VARIABLE
         this.palabras_SeisLetras = almacen.getPalabras_de_array(2); //LO QUE HAGO ES SACAR LAS PALABRAS DEL JUGADOR 2 Y GUARDARLAS EN OTRA VARIABLE
         this.numArray=almacen.getPalabras_de_array(1).size(); // guardamos el numero de palabras que tienen los arraylist, como ambos van a TENER EL MISMO TAMANIO DA IGUAL QUE JUGADOR COJA 
-        this.palabra_original=this.sacar_palabra_aleatoria();
+       // this.palabra_original=this.sacar_palabra_aleatoria();
         this.recoger_usadas=new ArrayList<>();
     }                                               //NOTA: LO DE QUE SEA EL JUGADOR 1 O 2 PARA EL NUMPALABRAS ES INDIFERENTE
-
+    
+    
     //-----------------------------------METODOS DE LA CLASE------------------------------------------------------------------
     //METODO GET NUMERO DE ELEMENTOS
     //METODO COMPROBAR COLOCADAS

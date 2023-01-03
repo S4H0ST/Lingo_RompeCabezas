@@ -19,7 +19,7 @@ private Palabra clase_palabra;
         this.MostrarPanel(nombre); //USO EL METODO PARA QUE NADAMAS INCIAR SALTE LA PESTAÑA de inicio sesion
         this.setLocationRelativeTo(null);  //COLOCAR PESTAÑA EN EL CENTRO DE LA PANTALLA
          //seleccionar una palabra aleatoria
-       this.clase_palabra=new Palabra(); // en el propio constructor se añade una palabra aleatoria
+        this.clase_palabra=new Palabra(); // en el propio constructor se añade una palabra aleatoria
 
     }
 
@@ -421,9 +421,9 @@ private Palabra clase_palabra;
     }//GEN-LAST:event_VolverPanelMouseExited
 
     private void CincoLetrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CincoLetrasMouseClicked
-         TituloPartida.setVisible(true);
-        Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
+        // TituloPartida.setVisible(true);
+        //Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        //this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
     }//GEN-LAST:event_CincoLetrasMouseClicked
 
     private void PanelCincoLetrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCincoLetrasMouseEntered
@@ -436,8 +436,8 @@ private Palabra clase_palabra;
 
     private void SeisLetrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeisLetrasMouseClicked
          TituloPartida.setVisible(true);
-    //Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_seis
-    //    this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_seis
+        Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_seis
+        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_seis
     }//GEN-LAST:event_SeisLetrasMouseClicked
 
     private void PanelSeisLetrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSeisLetrasMouseEntered
@@ -461,15 +461,17 @@ PanelSeisLetras.setBackground(Color.BLACK);    }//GEN-LAST:event_PanelSeisLetras
         System.out.println(this.clase_palabra.getPalabraRandom());
        if(this.clase_palabra.getPalabraRandom().length()==5){
         TituloPartida.setVisible(true);
-        Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        Partida_cinco p5 = new Partida_cinco(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
         this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
        }else if(this.clase_palabra.getPalabraRandom().length()==6){
-       /* TituloPartida.setVisible(true);
+        TituloPartida.setVisible(true);
         Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
         this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO */
        } 
     }//GEN-LAST:event_LaboratorioMouseClicked
-
+    public Palabra get_palabra_aleatoria(){
+        return this.clase_palabra;
+    }
     private void PanelBotonEntrenamiento1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamiento1MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_PanelBotonEntrenamiento1MouseEntered
