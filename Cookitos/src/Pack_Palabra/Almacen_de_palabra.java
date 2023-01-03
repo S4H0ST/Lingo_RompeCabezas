@@ -3,6 +3,7 @@ package Pack_Palabra;
 import java.io.*;
 import java.util.ArrayList;
 import Pack_Config.*;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +20,6 @@ public class Almacen_de_palabra implements Serializable {
             ObjectInputStream cargaFichero = new ObjectInputStream(new FileInputStream("Fichero_Configuracion.txt")); //para ver el contenido del fichero
             this.infoConfig = (Almacen_Configuracion) cargaFichero.readObject();      
             cargaFichero.close();
-
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(Almacen_de_palabra.class.getName()).log(Level.SEVERE, null, ex);
         }

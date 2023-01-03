@@ -1,5 +1,6 @@
 package Interfaz;
 
+import Pack_Palabra.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -9,6 +10,7 @@ import javax.swing.JPanel;
  */
 //PRINCIPAL ES NUESTRA JFRAME MAIN, ES DECIR LA PESTAÑA PRINCIPAL-----------------------------------
 public class Principal extends javax.swing.JFrame {
+private Palabra clase_palabra;
 
     public Principal() {
         initComponents();
@@ -40,10 +42,16 @@ public class Principal extends javax.swing.JFrame {
         Background = new javax.swing.JPanel();
         BarraDeConfig = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        PanelBotonPartida = new javax.swing.JPanel();
-        DemoBoton = new javax.swing.JLabel();
+        PanelBotonEntrenamiento = new javax.swing.JPanel();
+        EntrenamientoBoton = new javax.swing.JLabel();
+        PanelSeisLetras = new javax.swing.JPanel();
+        SeisLetras = new javax.swing.JLabel();
         VolverPanel = new javax.swing.JPanel();
         BotonVolver = new javax.swing.JLabel();
+        PanelBotonEntrenamiento1 = new javax.swing.JPanel();
+        Laboratorio = new javax.swing.JLabel();
+        PanelCincoLetras = new javax.swing.JPanel();
+        CincoLetras = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         TituloPartida = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -68,46 +76,91 @@ public class Principal extends javax.swing.JFrame {
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BarraDeConfig.setBackground(new java.awt.Color(0, 0, 0));
+        BarraDeConfig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BarraDeConfigMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BarraDeConfigMouseExited(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("OPCIONES ");
 
-        PanelBotonPartida.setBackground(new java.awt.Color(0, 0, 0));
-        PanelBotonPartida.addMouseListener(new java.awt.event.MouseAdapter() {
+        PanelBotonEntrenamiento.setBackground(new java.awt.Color(0, 0, 0));
+        PanelBotonEntrenamiento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                PanelBotonPartidaMouseEntered(evt);
+                PanelBotonEntrenamientoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                PanelBotonPartidaMouseExited(evt);
+                PanelBotonEntrenamientoMouseExited(evt);
             }
         });
 
-        DemoBoton.setBackground(new java.awt.Color(0, 0, 0));
-        DemoBoton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        DemoBoton.setForeground(new java.awt.Color(255, 255, 255));
-        DemoBoton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DemoBoton.setText("Entrenamiento");
-        DemoBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+        EntrenamientoBoton.setBackground(new java.awt.Color(0, 0, 0));
+        EntrenamientoBoton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        EntrenamientoBoton.setForeground(new java.awt.Color(255, 255, 255));
+        EntrenamientoBoton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EntrenamientoBoton.setText("Entrenamiento");
+        EntrenamientoBoton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DemoBotonMouseClicked(evt);
+                EntrenamientoBotonMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout PanelBotonPartidaLayout = new javax.swing.GroupLayout(PanelBotonPartida);
-        PanelBotonPartida.setLayout(PanelBotonPartidaLayout);
-        PanelBotonPartidaLayout.setHorizontalGroup(
-            PanelBotonPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelBotonPartidaLayout.createSequentialGroup()
+        javax.swing.GroupLayout PanelBotonEntrenamientoLayout = new javax.swing.GroupLayout(PanelBotonEntrenamiento);
+        PanelBotonEntrenamiento.setLayout(PanelBotonEntrenamientoLayout);
+        PanelBotonEntrenamientoLayout.setHorizontalGroup(
+            PanelBotonEntrenamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBotonEntrenamientoLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(DemoBoton)
+                .addComponent(EntrenamientoBoton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        PanelBotonPartidaLayout.setVerticalGroup(
-            PanelBotonPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelBotonPartidaLayout.createSequentialGroup()
-                .addComponent(DemoBoton)
+        PanelBotonEntrenamientoLayout.setVerticalGroup(
+            PanelBotonEntrenamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBotonEntrenamientoLayout.createSequentialGroup()
+                .addComponent(EntrenamientoBoton)
                 .addGap(0, 2, Short.MAX_VALUE))
+        );
+
+        PanelSeisLetras.setBackground(new java.awt.Color(0, 0, 0));
+        PanelSeisLetras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PanelSeisLetrasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PanelSeisLetrasMouseExited(evt);
+            }
+        });
+
+        SeisLetras.setBackground(new java.awt.Color(0, 0, 0));
+        SeisLetras.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        SeisLetras.setForeground(new java.awt.Color(255, 255, 255));
+        SeisLetras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SeisLetras.setText("Partida 6");
+        SeisLetras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SeisLetrasMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelSeisLetrasLayout = new javax.swing.GroupLayout(PanelSeisLetras);
+        PanelSeisLetras.setLayout(PanelSeisLetrasLayout);
+        PanelSeisLetrasLayout.setHorizontalGroup(
+            PanelSeisLetrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelSeisLetrasLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(SeisLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelSeisLetrasLayout.setVerticalGroup(
+            PanelSeisLetrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelSeisLetrasLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(SeisLetras))
         );
 
         VolverPanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -147,18 +200,95 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        PanelBotonEntrenamiento1.setBackground(new java.awt.Color(0, 0, 0));
+        PanelBotonEntrenamiento1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PanelBotonEntrenamiento1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PanelBotonEntrenamiento1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PanelBotonEntrenamiento1MouseExited(evt);
+            }
+        });
+
+        Laboratorio.setBackground(new java.awt.Color(0, 0, 0));
+        Laboratorio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Laboratorio.setForeground(new java.awt.Color(255, 255, 255));
+        Laboratorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Laboratorio.setText("Laboratorio");
+        Laboratorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LaboratorioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelBotonEntrenamiento1Layout = new javax.swing.GroupLayout(PanelBotonEntrenamiento1);
+        PanelBotonEntrenamiento1.setLayout(PanelBotonEntrenamiento1Layout);
+        PanelBotonEntrenamiento1Layout.setHorizontalGroup(
+            PanelBotonEntrenamiento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBotonEntrenamiento1Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(Laboratorio)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelBotonEntrenamiento1Layout.setVerticalGroup(
+            PanelBotonEntrenamiento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Laboratorio)
+        );
+
+        PanelCincoLetras.setBackground(new java.awt.Color(0, 0, 0));
+        PanelCincoLetras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PanelCincoLetrasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PanelCincoLetrasMouseExited(evt);
+            }
+        });
+
+        CincoLetras.setBackground(new java.awt.Color(0, 0, 0));
+        CincoLetras.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        CincoLetras.setForeground(new java.awt.Color(255, 255, 255));
+        CincoLetras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CincoLetras.setText("Partida 5");
+        CincoLetras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CincoLetrasMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelCincoLetrasLayout = new javax.swing.GroupLayout(PanelCincoLetras);
+        PanelCincoLetras.setLayout(PanelCincoLetrasLayout);
+        PanelCincoLetrasLayout.setHorizontalGroup(
+            PanelCincoLetrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelCincoLetrasLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(CincoLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanelCincoLetrasLayout.setVerticalGroup(
+            PanelCincoLetrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(CincoLetras, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
         javax.swing.GroupLayout BarraDeConfigLayout = new javax.swing.GroupLayout(BarraDeConfig);
         BarraDeConfig.setLayout(BarraDeConfigLayout);
         BarraDeConfigLayout.setHorizontalGroup(
             BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelBotonPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelBotonEntrenamiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraDeConfigLayout.createSequentialGroup()
                 .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraDeConfigLayout.createSequentialGroup()
+            .addComponent(PanelCincoLetras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelBotonEntrenamiento1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(BarraDeConfigLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(VolverPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VolverPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelSeisLetras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         BarraDeConfigLayout.setVerticalGroup(
@@ -167,8 +297,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addGap(70, 70, 70)
-                .addComponent(PanelBotonPartida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
+                .addComponent(PanelBotonEntrenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(PanelCincoLetras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(PanelSeisLetras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PanelBotonEntrenamiento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addComponent(VolverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -253,13 +389,11 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DemoBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DemoBotonMouseClicked
-        TituloPartida.setVisible(true);
-        Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
+    private void EntrenamientoBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EntrenamientoBotonMouseClicked
+      
 
 
-    }//GEN-LAST:event_DemoBotonMouseClicked
+    }//GEN-LAST:event_EntrenamientoBotonMouseClicked
 
     private void BotonVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonVolverMouseClicked
         Inicio_Sesion inicio = new Inicio_Sesion(); // CREO UN OBEJTO PANEL DE INICIO_SESION
@@ -268,13 +402,13 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BotonVolverMouseClicked
 
-    private void PanelBotonPartidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonPartidaMouseEntered
-        PanelBotonPartida.setBackground(Color.GRAY);
-    }//GEN-LAST:event_PanelBotonPartidaMouseEntered
+    private void PanelBotonEntrenamientoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamientoMouseEntered
+        PanelBotonEntrenamiento.setBackground(Color.GRAY);
+    }//GEN-LAST:event_PanelBotonEntrenamientoMouseEntered
 
-    private void PanelBotonPartidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonPartidaMouseExited
-        PanelBotonPartida.setBackground(Color.BLACK);
-    }//GEN-LAST:event_PanelBotonPartidaMouseExited
+    private void PanelBotonEntrenamientoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamientoMouseExited
+        PanelBotonEntrenamiento.setBackground(Color.BLACK);
+    }//GEN-LAST:event_PanelBotonEntrenamientoMouseExited
 
     private void VolverPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VolverPanelMouseEntered
         VolverPanel.setBackground(Color.GRAY);
@@ -283,6 +417,67 @@ public class Principal extends javax.swing.JFrame {
     private void VolverPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VolverPanelMouseExited
         VolverPanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_VolverPanelMouseExited
+
+    private void CincoLetrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CincoLetrasMouseClicked
+         TituloPartida.setVisible(true);
+        Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
+    }//GEN-LAST:event_CincoLetrasMouseClicked
+
+    private void PanelCincoLetrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCincoLetrasMouseEntered
+        PanelCincoLetras.setBackground(Color.GRAY);
+    }//GEN-LAST:event_PanelCincoLetrasMouseEntered
+
+    private void PanelCincoLetrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelCincoLetrasMouseExited
+       PanelCincoLetras.setBackground(Color.BLACK);
+    }//GEN-LAST:event_PanelCincoLetrasMouseExited
+
+    private void SeisLetrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeisLetrasMouseClicked
+         TituloPartida.setVisible(true);
+        Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_seis
+        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_seis
+    }//GEN-LAST:event_SeisLetrasMouseClicked
+
+    private void PanelSeisLetrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSeisLetrasMouseEntered
+        PanelSeisLetras.setBackground(Color.GRAY);
+    }//GEN-LAST:event_PanelSeisLetrasMouseEntered
+
+    private void PanelSeisLetrasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSeisLetrasMouseExited
+PanelSeisLetras.setBackground(Color.BLACK);    }//GEN-LAST:event_PanelSeisLetrasMouseExited
+
+    private void BarraDeConfigMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraDeConfigMouseEntered
+    
+    }//GEN-LAST:event_BarraDeConfigMouseEntered
+
+    private void BarraDeConfigMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraDeConfigMouseExited
+     
+    }//GEN-LAST:event_BarraDeConfigMouseExited
+
+    private void LaboratorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaboratorioMouseClicked
+         //seleccionar una palabra aleatoria
+       this.clase_palabra=new Palabra(); // en el propio constructor se añade una palabra aleatoria
+       if(this.clase_palabra.getPalabraRandom().length()==5){
+        TituloPartida.setVisible(true);
+        Partida_cinco p5 = new Partida_cinco(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
+       }else{
+        TituloPartida.setVisible(true);
+        Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
+       } 
+    }//GEN-LAST:event_LaboratorioMouseClicked
+
+    private void PanelBotonEntrenamiento1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamiento1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PanelBotonEntrenamiento1MouseEntered
+
+    private void PanelBotonEntrenamiento1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamiento1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PanelBotonEntrenamiento1MouseExited
+
+    private void PanelBotonEntrenamiento1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamiento1MouseClicked
+         
+    }//GEN-LAST:event_PanelBotonEntrenamiento1MouseClicked
 
     //MAIN DE LA INTERFAZ
     public static void main(String args[]) {
@@ -322,9 +517,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Background;
     private javax.swing.JPanel BarraDeConfig;
     private javax.swing.JLabel BotonVolver;
-    private javax.swing.JLabel DemoBoton;
-    private javax.swing.JPanel PanelBotonPartida;
+    private javax.swing.JLabel CincoLetras;
+    private javax.swing.JLabel EntrenamientoBoton;
+    private javax.swing.JLabel Laboratorio;
+    private javax.swing.JPanel PanelBotonEntrenamiento;
+    private javax.swing.JPanel PanelBotonEntrenamiento1;
+    private javax.swing.JPanel PanelCincoLetras;
     private javax.swing.JPanel PanelDeCambio;
+    private javax.swing.JPanel PanelSeisLetras;
+    private javax.swing.JLabel SeisLetras;
     private javax.swing.JLabel TituloPartida;
     private javax.swing.JPanel VolverPanel;
     private javax.swing.JLabel jLabel1;

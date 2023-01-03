@@ -17,14 +17,16 @@ public class Pista_de_Letra {
         this.palPista = new Almacen_de_palabra();
     }
 
+    
+
     //METODO DONDE se comprueba si se da una letra en caso afirmativo se da la letra
-    public void regalar_letra(int tipoPalabra, int posicion) {  //estos parametros son necesarios para ver de que palabras sacar la pista
+    public void regalar_letra(String palabra_original) {  //estos parametros son necesarios para ver de que palabras sacar la pista
        if(palPista.confirmacionPista()==true){ //si la pista es afirmativa se devuelve un char
            
         //VARIABLE ARRAY CHAR , coger el array de palabras de uno de los jugadores y de ese array sacar una palabra y convertirlo en un array de char, para luego poder coger una letra aleatoria.
-        this.converStringToChar = palPista.getPalabras_de_array(tipoPalabra).get(posicion).toCharArray();
+        this.converStringToChar = palabra_original.toCharArray();
         this.numRandom = (int) (Math.random() * this.converStringToChar.length); // genero un numero aleatorio para soltar un caracter aleatorio de la palabra (rango [0-char[].size()] 
-        this.letraRandom(); //lo que hace es devolver una letra aleatoria de la palabra
+         this.letraRandom(); //lo que hace es devolver una letra aleatoria de la palabra
        }
     }
      

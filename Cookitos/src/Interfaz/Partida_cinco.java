@@ -1,7 +1,7 @@
 package Interfaz;
 
 import Pack_Palabra.Almacen_de_palabra;
-import Pack_Palabra.Palabra;
+import Pack_Palabra.*;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -20,15 +20,28 @@ public class Partida_cinco extends javax.swing.JPanel {
     private char[] fila5 = new char[5]; //array para la fila 5
     //private char[][] matriz_filas = new char[5][5];
     private int turno;      //dependiendo del valor, jugará j1 o j2
-    
     //Dos variables independientes para cada jugador pues puede que cada uno vaya por distintos puntos de la partida
     private int ronda_j1;   //variable para la ronda del jugador 1
     private int ronda_j2;   //variable para la ronda del jugador 2
-    
-    private JLabel[] array_casillas = new JLabel[25];
+    private String palabraRandom; //palabra random
+    private JLabel[] array_casillas = new JLabel[25]; //array de casillas
 
     private Palabra clase_palabra = new Palabra();
-    boolean comprobar_palabra = false;
+    private boolean comprobar_palabra = false;
+    
+    private Pista_de_Letra sacar_pista = new Pista_de_Letra(); // para conceder la pista de la letra
+  
+    
+    
+    //private int contador_Puntos; //se usará para contar los puntos
+    /*
+    * 5 puntos acierto en 1º intento
+    * 4 puntos acierto en 2º intento
+    * 3 puntos acierto en 3º intento
+    * 2 puntos acierto en 4º intento
+    * 1 puntos acierto en 5º intento
+    * 0 puntos ningun acierto
+    */
 
     public Partida_cinco() {
         initComponents();
@@ -65,6 +78,9 @@ public class Partida_cinco extends javax.swing.JPanel {
         array_casillas[22] = bloque23;
         array_casillas[23] = bloque24;
         array_casillas[24] = bloque25;
+        
+   
+      //this.contador_Puntos=0;
 
     }
 
@@ -100,8 +116,14 @@ public class Partida_cinco extends javax.swing.JPanel {
         bloque25 = new javax.swing.JLabel();
         verPalabras = new javax.swing.JButton();
         PistaLetra = new javax.swing.JButton();
+        Siguiente = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 formKeyTyped(evt);
@@ -308,6 +330,18 @@ public class Partida_cinco extends javax.swing.JPanel {
         });
 
         PistaLetra.setText("Pista?");
+        PistaLetra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PistaLetraMouseExited(evt);
+            }
+        });
+        PistaLetra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PistaLetraActionPerformed(evt);
+            }
+        });
+
+        Siguiente.setText("NEXT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -315,13 +349,15 @@ public class Partida_cinco extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(verPalabras)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PistaLetra))
+                        .addGap(18, 18, 18)
+                        .addComponent(PistaLetra)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                        .addComponent(Siguiente))
                     .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,7 +367,8 @@ public class Partida_cinco extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verPalabras)
-                    .addComponent(PistaLetra))
+                    .addComponent(PistaLetra)
+                    .addComponent(Siguiente))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -592,9 +629,24 @@ public class Partida_cinco extends javax.swing.JPanel {
 
     }//GEN-LAST:event_verPalabrasActionPerformed
 
+    private void PistaLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PistaLetraActionPerformed
+     this.sacar_pista.regalar_letra(this.clase_palabra.getPalabraRandom());    // usa la palabra de la partida para sacar un caracter pista
+     System.out.println(this.sacar_pista.letraRandom());
+     PistaLetra.invalidate(); //buscar forma de poder volver a escribir 
+    }//GEN-LAST:event_PistaLetraActionPerformed
+
+    private void PistaLetraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PistaLetraMouseExited
+
+    }//GEN-LAST:event_PistaLetraMouseExited
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+      
+    }//GEN-LAST:event_formMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel1;
     private javax.swing.JButton PistaLetra;
+    private javax.swing.JButton Siguiente;
     private javax.swing.JLabel bloque1;
     private javax.swing.JLabel bloque10;
     private javax.swing.JLabel bloque11;
