@@ -11,7 +11,7 @@ public class Pista_de_Letra {
     private Almacen_de_palabra palPista; //es el objeto de la cual sacamos la palabra de la pista 
     private char[] converStringToChar; // es para convertir /dividir el string en char
     private int numRandom; // es la posicion de la palabra que sera la pista
-    
+    private char letraPista;
 
     public Pista_de_Letra() {
         this.palPista = new Almacen_de_palabra();
@@ -31,7 +31,8 @@ public class Pista_de_Letra {
     }
      
     public char letraRandom(){
-    return this.converStringToChar[this.numRandom]; //DEVUELVE UN CARACTER ALEATORIO DE LA PALABRA ;
+        this.letraPista=this.converStringToChar[this.numRandom];
+    return this.letraPista; //DEVUELVE UN CARACTER ALEATORIO DE LA PALABRA ;
     }
     
     

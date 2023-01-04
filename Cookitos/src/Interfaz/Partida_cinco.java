@@ -89,6 +89,7 @@ public class Partida_cinco extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        NomJugador = new javax.swing.JLabel();
         Panel1 = new javax.swing.JPanel();
         bloque1 = new javax.swing.JLabel();
         bloque2 = new javax.swing.JLabel();
@@ -118,6 +119,11 @@ public class Partida_cinco extends javax.swing.JPanel {
         verPalabras = new javax.swing.JButton();
         PistaLetra = new javax.swing.JButton();
         Siguiente = new javax.swing.JButton();
+        TituloPuntos = new javax.swing.JLabel();
+        TituloJugador = new javax.swing.JLabel();
+        TituloPartida = new javax.swing.JLabel();
+        NumPartida = new javax.swing.JLabel();
+        NumPuntos = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -130,6 +136,9 @@ public class Partida_cinco extends javax.swing.JPanel {
                 formKeyTyped(evt);
             }
         });
+
+        NomJugador.setForeground(new java.awt.Color(0, 0, 0));
+        NomJugador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         Panel1.setBackground(new java.awt.Color(255, 255, 255));
         Panel1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -344,33 +353,79 @@ public class Partida_cinco extends javax.swing.JPanel {
 
         Siguiente.setText("NEXT");
 
+        TituloPuntos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloPuntos.setForeground(new java.awt.Color(0, 0, 0));
+        TituloPuntos.setText("Puntos : ");
+
+        TituloJugador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloJugador.setForeground(new java.awt.Color(0, 0, 0));
+        TituloJugador.setText("Jugador : ");
+
+        TituloPartida.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloPartida.setForeground(new java.awt.Color(0, 0, 0));
+        TituloPartida.setText("Partida: ");
+
+        NumPartida.setForeground(new java.awt.Color(0, 0, 0));
+        NumPartida.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        NumPuntos.setForeground(new java.awt.Color(0, 0, 0));
+        NumPuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(verPalabras)
-                        .addGap(18, 18, 18)
-                        .addComponent(PistaLetra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                        .addComponent(Siguiente))
-                    .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(TituloPartida)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(verPalabras)
+                                .addGap(18, 18, 18)
+                                .addComponent(PistaLetra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                                .addComponent(Siguiente))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(TituloPuntos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(TituloJugador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TituloJugador)
+                        .addComponent(TituloPartida))
+                    .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TituloPuntos))
                 .addGap(18, 18, 18)
+                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verPalabras)
                     .addComponent(PistaLetra)
                     .addComponent(Siguiente))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -581,6 +636,7 @@ public class Partida_cinco extends javax.swing.JPanel {
         if (aciertas) {
             for (int i = comienzo; i < aux; i++) {
                 array_casillas[i].setForeground(Color.GREEN); //Se colorea de verde
+               
                 this.palabra_random.setPalabraRandom();
                 if (this.palabra_random.getPalabraRandom().length() == 5) {
                     //TituloPartida.setVisible(true);
@@ -594,13 +650,16 @@ public class Partida_cinco extends javax.swing.JPanel {
             for (int i = 0; i < (colorear_palabra.length); i++) {
                 //QUE NO ESTÉN BIEN:
                 if (colorear_palabra[i] == 0) {
-                    array_casillas[i + comienzo].setForeground(Color.RED);
+                  array_casillas[i + comienzo].setForeground(Color.RED);
+                   
                     //QUE ESTÉN BIEN:
                 } else if (colorear_palabra[i] == 1) {
-                    array_casillas[i + comienzo].setForeground(Color.GREEN);
+                   array_casillas[i + comienzo].setForeground(Color.GREEN);
+                    
                 } else {
                     //QUE ESTÉN MAL COLOCADAS:
-                    array_casillas[i + comienzo].setForeground(Color.ORANGE);
+                   array_casillas[i + comienzo].setForeground(Color.ORANGE);
+                  
                 }
             }
 
@@ -663,9 +722,15 @@ public class Partida_cinco extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel NomJugador;
+    private javax.swing.JLabel NumPartida;
+    private javax.swing.JLabel NumPuntos;
     private javax.swing.JPanel Panel1;
     private javax.swing.JButton PistaLetra;
     private javax.swing.JButton Siguiente;
+    private javax.swing.JLabel TituloJugador;
+    private javax.swing.JLabel TituloPartida;
+    private javax.swing.JLabel TituloPuntos;
     private javax.swing.JLabel bloque1;
     private javax.swing.JLabel bloque10;
     private javax.swing.JLabel bloque11;

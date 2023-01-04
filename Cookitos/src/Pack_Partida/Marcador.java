@@ -13,6 +13,8 @@ public class Marcador {
         this.puntos_j2 = p2;
     }
     
+    
+    
     public int getPuntosJ1(){
         return this.puntos_j1;
     }
@@ -20,5 +22,16 @@ public class Marcador {
     public int getPuntosJ2(){
         return this.puntos_j2;
     }
+
+    public void setPuntos_j1(int puntos_j1) {
+        this.puntos_j1 = puntos_j1;
+    }
+
+    public void setPuntos_j2(int puntos_j2) {
+        this.puntos_j2 = puntos_j2;
+    }
+    
+    
+    
     
 }
