@@ -33,6 +33,8 @@ public class Pista_de_Letra {
     public char letraRandom(){
     return this.converStringToChar[this.numRandom]; //DEVUELVE UN CARACTER ALEATORIO DE LA PALABRA ;
     }
-    
+    public int getPosicion_en_Palabra(){
+        return this.numRandom;
+    }
     
 }
