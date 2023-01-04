@@ -96,7 +96,7 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
         return 0; //devuelve los puntos obtenidos
     }
 
-    //SACAR PALABRA ALEATORIA DEL FICHERO
+    //METODO QUE GENERA PALABRAS ALEATORIAS DEL FICHERO DE CONFIGURACION
     public String sacar_palabra_aleatoria() {
       this.numRandom=(int) (Math.random() * this.numArray); //cojo una palabra aleatoria en ese rango [0-arraylist.size[])
       this.indiceRandom= (int) Math.floor(Math.random() * 2 + 1); // cojo un indice aleatorio que sera el que elija que arraylist elejir [1-2] para elegir arrayCinco o arraySeis
@@ -104,12 +104,12 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
       return this.getPalabraRandom(); //devuelve una palabra aleatoria del fichero
     }
 
-    //METODO GET PALABRA RANDOM
+    //METODO GET PALABRA RANDOM (MUESTRA LA PALABRA)
     public String getPalabraRandom() {
         return this.palabra_original; //para no tener que sacar todo el rato palabras random si no poder reutilizar una palabra muchas veces
     }
     
-    //METODO PARA ASIGNAR LA PALABRA ALEATORIA
+    //METODO PARA ASIGNAR LA PALABRA ALEATORIA ESTA ES LA QUE SE USARA FRECUENTEMENTE
     public void setPalabraRandom(){
     this.palabra_original=this.sacar_palabra_aleatoria();
     }
