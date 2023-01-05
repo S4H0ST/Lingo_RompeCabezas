@@ -7,20 +7,15 @@ package Pack_Jugador;
 
 public class Jugador {
     private String nombre;
-    private String contraseña;
+    private String contrasena;
     //public boolean admin; 
     private int puntos;
      private int puntosVictoria, puntosVictoria2,puntosEmpate, puntosP;
     
     //CONSTRUCTORES
     public Jugador(String nom, String pass){
-        //if("admin".equals(getNombre())){
-//            this.nombre = nom;
-//            this.contraseña = pass;
-//            this.admin=false;
-       // }else{
-        
-       // }   
+        this.nombre=nom;
+        this.contrasena=pass;
     }
     
     public Jugador(){
@@ -31,8 +26,8 @@ public class Jugador {
         return nombre;
     }
     
-    public String getContraseña(){
-        return contraseña;
+    public String getContrasena(){
+        return contrasena;
     }
     
     public void setNombre(String nombre) {
@@ -40,7 +35,7 @@ public class Jugador {
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contrasena = contraseña;
     }
     
 //    public void setAdmin(){
@@ -52,7 +47,7 @@ public class Jugador {
 //    }
     
     public String[] getJugador() {
-            String[] temp = {this.nombre,this.contraseña};
+            String[] temp = {this.nombre,this.contrasena};
             return(temp);
 	}
     

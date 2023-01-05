@@ -34,6 +34,8 @@ public class DarDeBaja extends javax.swing.JPanel {
 
         PanelDarDeBaja.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Admin: Introduce el usuario que deseas dar de baja: ");
 
         jButton1.setText("Dar de baja");
@@ -44,46 +46,46 @@ public class DarDeBaja extends javax.swing.JPanel {
         });
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("NOMBRE DE USUARIO");
 
         javax.swing.GroupLayout PanelDarDeBajaLayout = new javax.swing.GroupLayout(PanelDarDeBaja);
         PanelDarDeBaja.setLayout(PanelDarDeBajaLayout);
         PanelDarDeBajaLayout.setHorizontalGroup(
             PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
                 .addGroup(PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
                         .addGroup(PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
+                                .addGap(155, 155, 155)
+                                .addComponent(jButton1))
+                            .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addGroup(PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jButton1)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         PanelDarDeBajaLayout.setVerticalGroup(
             PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel5)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
-=======
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-        PanelDarDeBajaLayout.setVerticalGroup(
-            PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
->>>>>>> ae0581e53c265c5caf84a95caf282f7c510707e9
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

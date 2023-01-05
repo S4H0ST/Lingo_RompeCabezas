@@ -6,6 +6,8 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import Pack_Jugador.Almacen_de_jugadores;
 import Pack_Jugador.Jugador;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,6 +18,9 @@ public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
     private String nombre;
     private String contrasena;
    
+    
+    private String usuario;
+    private String password;
     Almacen_de_jugadores almacenj= new Almacen_de_jugadores();	
     Jugador j1,j2;
   //  j2=new Jugador();
@@ -28,6 +33,7 @@ public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
         this.setSize(500,380);
         this.nombre="jugador"; 
         this.contrasena="12345";  
+        
         
     }
 
@@ -78,10 +84,12 @@ public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("INICIAR SESIÓN");
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("INICIAR SESIÓN JUGADORES");
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CONTRASEÑA");
 
         Contrasena.setForeground(new java.awt.Color(102, 102, 102));
@@ -126,11 +134,12 @@ public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelDiferenteLayout.createSequentialGroup()
                         .addGap(134, 134, 134)
-                        .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(IniciarSesion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
         PanelDiferenteLayout.setVerticalGroup(
@@ -166,7 +175,7 @@ public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSesionActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_IniciarSesionActionPerformed
 
     private void IniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarSesionMousePressed
@@ -204,16 +213,22 @@ public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
     }//GEN-LAST:event_EntrarSesionMousePressed
 
     private void EntrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarSesionActionPerformed
-
-     //COMPARA SI EL JUGADOR COINCIDE CON EL QUE EXISTE
-        if(IniciarSesion.getText().equals(this.nombre)&&(Contrasena.getText().equals(this.contrasena))){
-            Partida_cinco partidacinco=new Partida_cinco();
-            this.MuestraPanel(partidacinco);
-        }else{
-            javax.swing.JOptionPane.showMessageDialog(this,"Datos incorrectos"); //si los datos incorrectos salta pestaña de error
-        }       
+             this.usuario=String.valueOf(IniciarSesion.getText());
+             this.password=String.valueOf(Contrasena.getText());
+             this.j1=new Jugador(this.usuario,this.password);
+             this.almacenj.alta(this.j1); 
+        try {
+            this.almacenj.serializar();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Inicio_Sesion_Jugadores.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        
+        try {
+            //BORRAR
+            this.almacenj.deserializar();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Inicio_Sesion_Jugadores.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_EntrarSesionActionPerformed
 
 

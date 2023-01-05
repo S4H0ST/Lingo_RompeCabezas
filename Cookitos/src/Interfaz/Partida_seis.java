@@ -437,12 +437,12 @@ public class Partida_seis extends javax.swing.JPanel {
             this.MostrarPanelCinco(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO */
         } else {
 //            this.MostrarPanelCinco(Panel1);
-            Partida_cinco p5 = new Partida_cinco(palabra_random); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+            PartidaCinco p5 = new PartidaCinco(palabra_random); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
             this.MostrarPanelCinco(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
         }
     }//GEN-LAST:event_SiguienteActionPerformed
 
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {                                
         int key = evt.getKeyChar(); //key recibe lo que se ha escrito por teclado
         boolean mayusculas = key >= 65 && key <= 90; //LIMITAMOS  PARA QUE SALGAN MAYUSCULAS
         boolean minusculas = key >= 97 && key <= 122; //LIMITAMOS  PARA QUE SALGAN MINUSCULAS
@@ -664,7 +664,7 @@ public class Partida_seis extends javax.swing.JPanel {
             }
             ++contTeclado;//contamos cuantas veces tecleamos para ir colocando cada vez que se hace
         }
-    }//GEN-LAST:event_formKeyTyped
+    }                             
  public void colorearLetras(boolean aciertas, int comienzo) {
         int aux = comienzo + 6;             //unicamente sirve para el siguiente for.  
 
@@ -689,7 +689,7 @@ public class Partida_seis extends javax.swing.JPanel {
                 }
             }
         }
-    }//GEN-LAST:event_formKeyPressed
+    }                               
     
 
     public char[] getFila1() {

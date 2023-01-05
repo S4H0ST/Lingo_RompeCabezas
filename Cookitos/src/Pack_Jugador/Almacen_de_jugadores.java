@@ -19,8 +19,6 @@ import java.util.Iterator;
 
 public class Almacen_de_jugadores implements Serializable {
 
-   
-    
     private String nombreFichero;
     private final ArrayList<Jugador> jugadores=new ArrayList();  //arraylist de jugadores
     //private Jugador administrador;   //jugador de tipo administrador
@@ -61,11 +59,11 @@ public class Almacen_de_jugadores implements Serializable {
 //	}
     
     //Fichero
-    public void serializar(String name) throws ClassNotFoundException{
+    public void serializar() throws ClassNotFoundException{
         try{
-            ObjectOutputStream entrada = new ObjectOutputStream(new FileOutputStream(name));
+            ObjectOutputStream entrada = new ObjectOutputStream(new FileOutputStream("JugadoresBinario"));
 
-            entrada.writeObject(this.jugadores);
+            entrada.writeObject(this.jugadores); //METEMOS UN ARRAYLIST DE JUGADOR EN EL FICHERO
 
             entrada.close();
             System.out.println("Guardado correctamente");
@@ -74,14 +72,15 @@ public class Almacen_de_jugadores implements Serializable {
         }
     }
     
-      public void deserializar(String nombre) throws ClassNotFoundException{
+      public void deserializar() throws ClassNotFoundException{
         try{
-            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(nombreFichero));
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("JugadoresBinario"));
 
             ArrayList<Jugador> objetoLeido = (ArrayList<Jugador>) entrada.readObject();
         
             this.jugadores.addAll(objetoLeido);
             System.out.println("Cargado correctamente");
+            System.out.println(this.jugadores); //BORRAR
             
         }catch(IOException e){
             System.out.println("Error de lectura");
@@ -101,18 +100,18 @@ public class Almacen_de_jugadores implements Serializable {
       
     //Dar de alta a un jugador
     public void alta(Jugador j){
-        if(encontrarJugador(j.getNombre(),j.getContraseña())!=null){
+        if(encontrarJugador(j.getNombre(),j.getContrasena())!=null){
             System.out.println("Ya existe el usuario");
         }else{
-            jugadores.add(new Jugador(j.getNombre(),j.getContraseña())); //Si el usuario no existe, se añadirá al ArrayList de jugadores
+            jugadores.add(new Jugador(j.getNombre(),j.getContrasena())); //Si el usuario no existe, se añadirá al ArrayList de jugadores
             contador_de_jugadores++;
         }
     }
     
     //Dar de baja a un jugador
     public void baja(Jugador j){
-        if(encontrarJugador(j.getNombre(),j.getContraseña())!=null){
-            jugadores.remove(encontrarJugador(j.getNombre(),j.getContraseña()));
+        if(encontrarJugador(j.getNombre(),j.getContrasena())!=null){
+            jugadores.remove(encontrarJugador(j.getNombre(),j.getContrasena()));
             contador_de_jugadores--;
         }else{
             System.out.println("Error: No existe el usuario, por lo que no se puede eliminar");

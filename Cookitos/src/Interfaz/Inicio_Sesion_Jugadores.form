@@ -54,11 +54,13 @@
                       <Component id="jSeparator4" min="-2" pref="281" max="-2" attributes="0"/>
                       <Component id="Contrasena" min="-2" pref="281" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="129" max="-2" attributes="0"/>
-                      <Component id="IniciarSesion" min="-2" pref="280" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="210" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                           <Component id="EntrarSesion" min="-2" pref="79" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="IniciarSesion" alignment="0" pref="280" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="144" max="32767" attributes="0"/>
@@ -108,16 +110,22 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N JUGADORES"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CONTRASE&#xd1;A"/>
           </Properties>

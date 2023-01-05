@@ -16,16 +16,16 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     //CONSTRUCTOR
     public Inicio_Sesion() {
         initComponents();
-<<<<<<< HEAD
+
         this.setSize(500,380);
         this.administrador="Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
         this.contrasena="12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
         
-=======
+
         this.setSize(500, 380);
         this.administrador = "Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
         this.contrasena = "12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
->>>>>>> ae0581e53c265c5caf84a95caf282f7c510707e9
+
     }
 
     public void MuestraPanel(JPanel p) {

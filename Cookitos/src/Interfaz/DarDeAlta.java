@@ -6,6 +6,8 @@ package Interfaz;
 
 import Pack_Jugador.Almacen_de_jugadores;
 import Pack_Jugador.Jugador;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,6 +17,9 @@ public class DarDeAlta extends javax.swing.JPanel {
 
     private String nombre;
     private String clave;
+    private Jugador j2;
+    private Almacen_de_jugadores j1 = new Almacen_de_jugadores();
+    
     
     public DarDeAlta() {
         initComponents();
@@ -127,10 +132,25 @@ public class DarDeAlta extends javax.swing.JPanel {
     private void BotonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAltaActionPerformed
         
         if (CampoNombre.getText()!= null && CampoClave.getText() != null){
-            Almacen_de_jugadores j1 = new Almacen_de_jugadores();
-            Almacen_de_jugadores.alta(j1);
+           
+            this.nombre=String.valueOf(CampoNombre.getText());
+             this.clave=String.valueOf(CampoClave.getText());
+             this.j2=new Jugador(this.nombre,this.clave);
+             j1.alta(j2);
+             
+            try {
+                j1.serializar();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                j1.deserializar();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-       
+            
+        
         
     }//GEN-LAST:event_BotonAltaActionPerformed
 
