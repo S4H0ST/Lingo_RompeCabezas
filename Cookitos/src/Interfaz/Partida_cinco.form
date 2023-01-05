@@ -69,10 +69,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TituloJugador" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="TituloPartida" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="TituloJugador" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="TituloPartida" min="-2" max="-2" attributes="0"/>
                   <Component id="NumPartida" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="NomJugador" min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="NumPuntos" min="-2" pref="23" max="-2" attributes="0"/>
