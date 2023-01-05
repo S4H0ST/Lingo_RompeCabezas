@@ -51,6 +51,7 @@ public class DarDeBaja extends javax.swing.JPanel {
         PanelDarDeBaja.setLayout(PanelDarDeBajaLayout);
         PanelDarDeBajaLayout.setHorizontalGroup(
             PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
                 .addGroup(PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelDarDeBajaLayout.createSequentialGroup()
@@ -76,6 +77,13 @@ public class DarDeBaja extends javax.swing.JPanel {
                 .addGap(34, 34, 34)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(64, Short.MAX_VALUE))
+=======
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+        PanelDarDeBajaLayout.setVerticalGroup(
+            PanelDarDeBajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+>>>>>>> ae0581e53c265c5caf84a95caf282f7c510707e9
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
