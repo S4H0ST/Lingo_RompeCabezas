@@ -4,22 +4,30 @@ package Interfaz;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import Pack_Jugador.Almacen_de_jugadores;
+import Pack_Jugador.Jugador;
 
 /**
  *
- * @author sohaib
+ * @author sohaib, Jose, Laura
  */
-public class Inicio_Sesion extends javax.swing.JPanel {
+public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
 
-    private String administrador;
+    private String nombre;
     private String contrasena;
+   
+    Almacen_de_jugadores almacenj= new Almacen_de_jugadores();	
+    Jugador j1,j2;
+  //  j2=new Jugador();
+    
+    
     
     //CONSTRUCTOR
-    public Inicio_Sesion() {
+    public Inicio_Sesion_Jugadores() {
         initComponents();
         this.setSize(500,380);
-        this.administrador="Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
-        this.contrasena="12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
+        this.nombre="jugador"; 
+        this.contrasena="12345";  
         
     }
 
@@ -50,13 +58,11 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         EntrarSesion = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setForeground(new java.awt.Color(0, 0, 0));
 
         PanelDiferente.setBackground(new java.awt.Color(255, 255, 255));
         PanelDiferente.setMaximumSize(new java.awt.Dimension(500, 380));
         PanelDiferente.setMinimumSize(new java.awt.Dimension(500, 380));
 
-        IniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
         IniciarSesion.setForeground(new java.awt.Color(102, 102, 102));
         IniciarSesion.setText("Inserte nombre de usuario");
         IniciarSesion.setBorder(null);
@@ -72,15 +78,12 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("INICIAR SESIÓN");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CONTRASEÑA");
 
-        Contrasena.setBackground(new java.awt.Color(255, 255, 255));
         Contrasena.setForeground(new java.awt.Color(102, 102, 102));
         Contrasena.setText("pon una contraseña");
         Contrasena.setToolTipText("");
@@ -201,13 +204,14 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     }//GEN-LAST:event_EntrarSesionMousePressed
 
     private void EntrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarSesionActionPerformed
-//COMPARA SI ADMINISTRADOR CONCIDIE CON EL QUE EXISTE
-        if(IniciarSesion.getText().equals(this.administrador)&&(Contrasena.getText().equals(this.contrasena))){
-       Config_ menuConfig=new Config_();
-       this.MuestraPanel(menuConfig); //MUESTRO EL PANEL DE CONFIGURACION SI EL ADMIN ES CORRECTO
+
+     //COMPARA SI EL JUGADOR COINCIDE CON EL QUE EXISTE
+        if(IniciarSesion.getText().equals(this.nombre)&&(Contrasena.getText().equals(this.contrasena))){
+            Partida_cinco partidacinco=new Partida_cinco();
+            this.MuestraPanel(partidacinco);
         }else{
-           javax.swing.JOptionPane.showMessageDialog(this,"ERROR"); //si los datos incorrectos salta pestaña de error
-       }        
+            javax.swing.JOptionPane.showMessageDialog(this,"Datos incorrectos"); //si los datos incorrectos salta pestaña de error
+        }       
         
         
     }//GEN-LAST:event_EntrarSesionActionPerformed

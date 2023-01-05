@@ -9,16 +9,18 @@ public class Jugador {
     private String nombre;
     private String contraseña;
     //public boolean admin; 
+    private int puntos;
+     private int puntosVictoria, puntosVictoria2,puntosEmpate, puntosP;
     
     //CONSTRUCTORES
     public Jugador(String nom, String pass){
-        if("admin".equals(getNombre())){
+        //if("admin".equals(getNombre())){
 //            this.nombre = nom;
 //            this.contraseña = pass;
 //            this.admin=false;
-        }else{
+       // }else{
         
-        }   
+       // }   
     }
     
     public Jugador(){

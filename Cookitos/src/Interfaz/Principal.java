@@ -6,7 +6,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
- * @author sohaib
+ * @author sohaib, Jose, Laura
  */
 
 //PRINCIPAL ES NUESTRA JFRAME MAIN, ES DECIR LA PESTAÑA PRINCIPAL-----------------------------------
