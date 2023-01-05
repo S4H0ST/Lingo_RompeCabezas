@@ -1,44 +1,49 @@
+
 package Interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import Pack_Jugador.Almacen_de_jugadores;
+import Pack_Jugador.Jugador;
 
 /**
  *
- * @author sohaib
+ * @author sohaib, Jose, Laura
  */
-public class Inicio_Sesion extends javax.swing.JPanel {
+public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
 
-    private String administrador;
+    private String nombre;
     private String contrasena;
-
+   
+    Almacen_de_jugadores almacenj= new Almacen_de_jugadores();	
+    Jugador j1,j2;
+  //  j2=new Jugador();
+    
+    
+    
     //CONSTRUCTOR
-    public Inicio_Sesion() {
+    public Inicio_Sesion_Jugadores() {
         initComponents();
-<<<<<<< HEAD
         this.setSize(500,380);
-        this.administrador="Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
-        this.contrasena="12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
+        this.nombre="jugador"; 
+        this.contrasena="12345";  
         
-=======
-        this.setSize(500, 380);
-        this.administrador = "Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
-        this.contrasena = "12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
->>>>>>> ae0581e53c265c5caf84a95caf282f7c510707e9
     }
 
-    public void MuestraPanel(JPanel p) {
-        p.setLocation(0, 0);
-        p.setSize(500, 380);
-        PanelDiferente.removeAll();
-        PanelDiferente.add(p);
-        PanelDiferente.revalidate();
-        PanelDiferente.repaint();
-        p.setFocusable(true); //mirar
-        p.grabFocus();
+    public void MuestraPanel(JPanel p){ 
+       p.setLocation(0,0);
+       p.setSize(500,380);
+       PanelDiferente.removeAll();
+       PanelDiferente.add(p);
+       PanelDiferente.revalidate();
+       PanelDiferente.repaint();
+       p.setFocusable(true); //mirar
+       p.grabFocus();
     }
-
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,13 +58,11 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         EntrarSesion = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setForeground(new java.awt.Color(0, 0, 0));
 
         PanelDiferente.setBackground(new java.awt.Color(255, 255, 255));
         PanelDiferente.setMaximumSize(new java.awt.Dimension(500, 380));
         PanelDiferente.setMinimumSize(new java.awt.Dimension(500, 380));
 
-        IniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
         IniciarSesion.setForeground(new java.awt.Color(102, 102, 102));
         IniciarSesion.setText("Inserte nombre de usuario");
         IniciarSesion.setBorder(null);
@@ -75,15 +78,12 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("INICIAR SESIÓN");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CONTRASEÑA");
 
-        Contrasena.setBackground(new java.awt.Color(255, 255, 255));
         Contrasena.setForeground(new java.awt.Color(102, 102, 102));
         Contrasena.setText("pon una contraseña");
         Contrasena.setToolTipText("");
@@ -170,29 +170,29 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     }//GEN-LAST:event_IniciarSesionActionPerformed
 
     private void IniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarSesionMousePressed
-        if (IniciarSesion.getText().equals("Inserte nombre de usuario")) {
-            IniciarSesion.setText("");                  //cuando se pulsa se borra el texto que estuviera
-            IniciarSesion.setForeground(Color.BLACK); //cuando se escriba las letras cambian a negro
+        if(IniciarSesion.getText().equals("Inserte nombre de usuario")){
+        IniciarSesion.setText("");                  //cuando se pulsa se borra el texto que estuviera
+        IniciarSesion.setForeground(Color.BLACK); //cuando se escriba las letras cambian a negro
         }
-
-        if (String.valueOf(Contrasena.getPassword()).isEmpty()) {//si no tiene nada escrito restaura con el texto original
-            Contrasena.setText("pon una contraseña");
-            Contrasena.setForeground(Color.GRAY);
+        
+        if(String.valueOf(Contrasena.getPassword()).isEmpty()){//si no tiene nada escrito restaura con el texto original
+        Contrasena.setText("pon una contraseña");
+        Contrasena.setForeground(Color.GRAY);
         }
-
-
+        
+        
     }//GEN-LAST:event_IniciarSesionMousePressed
 
     private void ContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContrasenaMousePressed
-        if (Contrasena.getText().equals("pon una contraseña")) { //solo deja entrar a esta condicion cuando el texto anterior sea el mismo
-            Contrasena.setText(" ");                 //cuando se pulsa se borra el texto que estuviera
-            Contrasena.setForeground(Color.BLACK);//cuando se escriba las letras cambian a negro
+        if(Contrasena.getText().equals("pon una contraseña")){ //solo deja entrar a esta condicion cuando el texto anterior sea el mismo
+        Contrasena.setText(" ");                 //cuando se pulsa se borra el texto que estuviera
+        Contrasena.setForeground(Color.BLACK);//cuando se escriba las letras cambian a negro
         }
-
-        if (String.valueOf(IniciarSesion.getText()).isEmpty()) { //si no tiene nada escrito restaura con el texto original
-            IniciarSesion.setText("Inserte nombre de usuario");
-            IniciarSesion.setForeground(Color.GRAY);
-        }
+        
+         if(String.valueOf(IniciarSesion.getText()).isEmpty()){ //si no tiene nada escrito restaura con el texto original
+          IniciarSesion.setText("Inserte nombre de usuario");
+          IniciarSesion.setForeground(Color.GRAY);
+         }
     }//GEN-LAST:event_ContrasenaMousePressed
 
     private void ContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaActionPerformed
@@ -200,19 +200,20 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     }//GEN-LAST:event_ContrasenaActionPerformed
 
     private void EntrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EntrarSesionMousePressed
-
+     
     }//GEN-LAST:event_EntrarSesionMousePressed
 
     private void EntrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarSesionActionPerformed
-//COMPARA SI ADMINISTRADOR CONCIDIE CON EL QUE EXISTE
-        if (IniciarSesion.getText().equals(this.administrador) && (Contrasena.getText().equals(this.contrasena))) {
-            Config_ menuConfig = new Config_();
-            this.MuestraPanel(menuConfig); //MUESTRO EL PANEL DE CONFIGURACION SI EL ADMIN ES CORRECTO
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "ERROR"); //si los datos incorrectos salta pestaña de error
-        }
 
-
+     //COMPARA SI EL JUGADOR COINCIDE CON EL QUE EXISTE
+        if(IniciarSesion.getText().equals(this.nombre)&&(Contrasena.getText().equals(this.contrasena))){
+            Partida_cinco partidacinco=new Partida_cinco();
+            this.MuestraPanel(partidacinco);
+        }else{
+            javax.swing.JOptionPane.showMessageDialog(this,"Datos incorrectos"); //si los datos incorrectos salta pestaña de error
+        }       
+        
+        
     }//GEN-LAST:event_EntrarSesionActionPerformed
 
 

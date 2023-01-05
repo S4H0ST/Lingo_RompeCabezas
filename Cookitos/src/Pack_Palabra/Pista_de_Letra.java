@@ -34,6 +34,8 @@ public class Pista_de_Letra {
         this.letraPista=this.converStringToChar[this.numRandom];
     return this.letraPista; //DEVUELVE UN CARACTER ALEATORIO DE LA PALABRA ;
     }
-    
+    public int getPosicion_en_Palabra(){
+        return this.numRandom;
+    }
     
 }

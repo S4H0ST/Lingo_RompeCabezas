@@ -6,7 +6,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
- * @author sohaib
+ * @author sohaib, Jose, Laura
  */
 //PRINCIPAL ES NUESTRA JFRAME MAIN, ES DECIR LA PESTAÑA PRINCIPAL-----------------------------------
 public class Principal extends javax.swing.JFrame {
@@ -379,9 +379,9 @@ private Palabra clase_palabra;
     }//GEN-LAST:event_PanelCincoLetrasMouseExited
 
     private void SeisLetrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeisLetrasMouseClicked
-         TituloPartida.setVisible(true);
-        Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_seis
-        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_seis
+//         TituloPartida.setVisible(true);
+//        Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_seis
+//        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_seis
     }//GEN-LAST:event_SeisLetrasMouseClicked
 
     private void PanelSeisLetrasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSeisLetrasMouseEntered
@@ -409,7 +409,7 @@ PanelSeisLetras.setBackground(Color.BLACK);    }//GEN-LAST:event_PanelSeisLetras
         this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
        }else if(this.clase_palabra.getPalabraRandom().length()==6){
         TituloPartida.setVisible(true);
-        Partida_seis p6 = new Partida_seis(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        Partida_seis p6 = new Partida_seis(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
         this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO */
        } 
     }//GEN-LAST:event_LaboratorioMouseClicked
