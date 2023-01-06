@@ -15,14 +15,10 @@ import java.util.logging.Logger;
  */
 public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
 
-    private String nombre;
-    private String contrasena;
-   
-    
     private String usuario;
     private String password;
     Almacen_de_jugadores almacenj= new Almacen_de_jugadores();	
-    Jugador j1,j2;
+    Jugador j1;
   //  j2=new Jugador();
     
     
@@ -31,8 +27,7 @@ public class Inicio_Sesion_Jugadores extends javax.swing.JPanel {
     public Inicio_Sesion_Jugadores() {
         initComponents();
         this.setSize(500,380);
-        this.nombre="jugador"; 
-        this.contrasena="12345";  
+        
         
         
     }

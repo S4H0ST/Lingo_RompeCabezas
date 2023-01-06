@@ -136,7 +136,7 @@ public class Principal extends javax.swing.JFrame {
         Laboratorio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Laboratorio.setForeground(new java.awt.Color(255, 255, 255));
         Laboratorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Laboratorio.setText("Laboratorio");
+        Laboratorio.setText("Entrenamiento");
         Laboratorio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LaboratorioMouseClicked(evt);
@@ -148,13 +148,15 @@ public class Principal extends javax.swing.JFrame {
         PanelBotonEntrenamiento1Layout.setHorizontalGroup(
             PanelBotonEntrenamiento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBotonEntrenamiento1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(Laboratorio)
+                .addGap(34, 34, 34)
+                .addComponent(Laboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBotonEntrenamiento1Layout.setVerticalGroup(
             PanelBotonEntrenamiento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Laboratorio)
+            .addGroup(PanelBotonEntrenamiento1Layout.createSequentialGroup()
+                .addComponent(Laboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         LoginBoton.setBackground(new java.awt.Color(0, 0, 0));
@@ -216,7 +218,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(PanelBotonEntrenamiento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(LoginBoton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(VolverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -327,22 +329,7 @@ public class Principal extends javax.swing.JFrame {
     private void LaboratorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaboratorioMouseClicked
         Eleccion_num_letras num = new Eleccion_num_letras(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
         this.MostrarPanel(num);
-//seleccionar una palabra aleatoria
-//       this.clase_palabra.setPalabra(2); // en el propio constructor se añade una palabra aleatoria
-//        System.out.println(this.clase_palabra.getPalabraRandom());
-//       if(this.clase_palabra.getPalabraRandom().length()==5){
-//        TituloPartida.setVisible(true);
-//        PartidaCinco p5 = new PartidaCinco(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-//        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
-//       }else if(this.clase_palabra.getPalabraRandom().length()==6){
-//        TituloPartida.setVisible(true);
-//        Partida_seis p6 = new Partida_seis(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-//        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO */
-//       } 
     }//GEN-LAST:event_LaboratorioMouseClicked
-//    public Palabra get_palabra_aleatoria() {
-//        return this.clase_palabra;
-//    }
     private void PanelBotonEntrenamiento1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamiento1MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_PanelBotonEntrenamiento1MouseEntered

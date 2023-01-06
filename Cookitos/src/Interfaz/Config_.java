@@ -195,6 +195,11 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         SelectSeis.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         SelectSeis.setForeground(new java.awt.Color(0, 0, 0));
         SelectSeis.setText("6 Letras");
+        SelectSeis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectSeisActionPerformed(evt);
+            }
+        });
 
         SelectSi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         SelectSi.setForeground(new java.awt.Color(0, 0, 0));
@@ -380,7 +385,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPartida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+            .addComponent(PanelPartida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -529,6 +534,10 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     private void IntroPal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntroPal2ActionPerformed
         this.setPalabras(this.palabras_partida2);//metemos las palabras del partida 2
     }//GEN-LAST:event_IntroPal2ActionPerformed
+
+    private void SelectSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectSeisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectSeisActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

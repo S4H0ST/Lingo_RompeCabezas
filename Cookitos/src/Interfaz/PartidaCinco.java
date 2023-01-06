@@ -32,7 +32,6 @@ public class PartidaCinco extends javax.swing.JPanel {
     private Palabra palabra_random;
     private boolean comprobar_palabra = false;
     private boolean permiso = true;
-
     private Pista_de_Letra sacar_pista = new Pista_de_Letra(); // para conceder la pista de la letra
 
     //private int contador_Puntos; //se usará para contar los puntos
@@ -111,7 +110,7 @@ public class PartidaCinco extends javax.swing.JPanel {
         if (aciertas) {
             this.permiso = false;
             Next.setEnabled(true);
-            contTeclado = -1;
+            //contTeclado = -1;
             for (int i = comienzo; i < aux; i++) {
                 array_casillas[i].setForeground(Color.GREEN); //Se colorea de verde
 
@@ -162,8 +161,6 @@ public class PartidaCinco extends javax.swing.JPanel {
     private void initComponents() {
 
         Next = new javax.swing.JButton();
-        PistaLetra = new javax.swing.JButton();
-        verPalabras = new javax.swing.JButton();
         TituloPuntos = new javax.swing.JLabel();
         TituloJugador = new javax.swing.JLabel();
         TituloPartida = new javax.swing.JLabel();
@@ -203,6 +200,8 @@ public class PartidaCinco extends javax.swing.JPanel {
         bloque28 = new javax.swing.JLabel();
         bloque29 = new javax.swing.JLabel();
         bloque30 = new javax.swing.JLabel();
+        pistaLetra = new javax.swing.JLabel();
+        VerPalabras = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(610, 380));
@@ -216,20 +215,6 @@ public class PartidaCinco extends javax.swing.JPanel {
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NextActionPerformed(evt);
-            }
-        });
-
-        PistaLetra.setText("Pista?");
-        PistaLetra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PistaLetraActionPerformed(evt);
-            }
-        });
-
-        verPalabras.setText("VER PALABRAS");
-        verPalabras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verPalabrasActionPerformed(evt);
             }
         });
 
@@ -483,44 +468,64 @@ public class PartidaCinco extends javax.swing.JPanel {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        pistaLetra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pistaLetra.setText("Pista?");
+        pistaLetra.setToolTipText("");
+        pistaLetra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pistaLetra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pistaLetraMouseClicked(evt);
+            }
+        });
+
+        VerPalabras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        VerPalabras.setText("VER PALABRAS");
+        VerPalabras.setToolTipText("");
+        VerPalabras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        VerPalabras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VerPalabrasMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(78, Short.MAX_VALUE)
+                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(verPalabras)
-                        .addGap(110, 110, 110)
-                        .addComponent(PistaLetra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Next)
-                        .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 76, Short.MAX_VALUE)
-                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TituloPuntos)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(14, 14, 14))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(TituloPartida)
-                        .addGap(34, 34, 34)
-                        .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(TituloJugador)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(TituloPuntos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(14, 14, 14))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(TituloPartida)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(TituloJugador)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(VerPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
+                .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Next)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,27 +535,32 @@ public class PartidaCinco extends javax.swing.JPanel {
                     .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TituloPartida)
+                            .addComponent(TituloJugador)
                             .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TituloJugador))
+                            .addComponent(TituloPartida))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TituloPuntos)
-                                .addGap(33, 33, 33)
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TituloPuntos)
+                                    .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Next)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(verPalabras)
-                        .addComponent(PistaLetra)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(Next)
+                        .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(VerPalabras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pistaLetra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -562,14 +572,6 @@ public class PartidaCinco extends javax.swing.JPanel {
         PartidaCinco p5 = new PartidaCinco(palabra_random); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
         this.MostrarPanelCinco(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO
     }//GEN-LAST:event_NextActionPerformed
-
-    private void verPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPalabrasActionPerformed
-        System.out.println(String.valueOf(fila1).toUpperCase());
-        System.out.println(fila2);
-        System.out.println(fila3);
-        System.out.println(fila4);
-        System.out.println(fila5);
-    }//GEN-LAST:event_verPalabrasActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         System.out.println("gfddsfdsfdsfdsfs");
@@ -765,17 +767,24 @@ public class PartidaCinco extends javax.swing.JPanel {
                 ++contTeclado;//contamos cuantas veces tecleamos para ir colocando cada vez que se hace
             }
         }
-
     }//GEN-LAST:event_formKeyPressed
 
-    private void PistaLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PistaLetraActionPerformed
+    private void pistaLetraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pistaLetraMouseClicked
         this.sacar_pista.regalar_letra(this.palabra_random.getPalabraRandom());    // usa la palabra de la partida para sacar un caracter pista
 //        System.out.println(this.sacar_pista.letraRandom());
         char pista = this.sacar_pista.letraRandom();
         int posicion = this.sacar_pista.getPosicion_en_Palabra();
         array_casillas_pista[posicion].setText(String.valueOf(pista).toUpperCase());
-        PistaLetra.setEnabled(false);
-    }//GEN-LAST:event_PistaLetraActionPerformed
+         pistaLetra.setVisible(false);
+    }//GEN-LAST:event_pistaLetraMouseClicked
+
+    private void VerPalabrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerPalabrasMouseClicked
+        System.out.println(String.valueOf(fila1).toUpperCase());
+        System.out.println(fila2);
+        System.out.println(fila3);
+        System.out.println(fila4);
+        System.out.println(fila5);
+    }//GEN-LAST:event_VerPalabrasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -784,10 +793,10 @@ public class PartidaCinco extends javax.swing.JPanel {
     private javax.swing.JLabel NumPartida;
     private javax.swing.JLabel NumPuntos;
     private javax.swing.JPanel Panel1;
-    private javax.swing.JButton PistaLetra;
     private javax.swing.JLabel TituloJugador;
     private javax.swing.JLabel TituloPartida;
     private javax.swing.JLabel TituloPuntos;
+    private javax.swing.JLabel VerPalabras;
     private javax.swing.JLabel bloque1;
     private javax.swing.JLabel bloque10;
     private javax.swing.JLabel bloque11;
@@ -820,6 +829,6 @@ public class PartidaCinco extends javax.swing.JPanel {
     private javax.swing.JLabel bloque9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton verPalabras;
+    private javax.swing.JLabel pistaLetra;
     // End of variables declaration//GEN-END:variables
 }
