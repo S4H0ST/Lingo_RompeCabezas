@@ -10,7 +10,6 @@ import javax.swing.JPanel;
  */
 //PRINCIPAL ES NUESTRA JFRAME MAIN, ES DECIR LA PESTAÑA PRINCIPAL-----------------------------------
 public class Principal extends javax.swing.JFrame {
-private Palabra clase_palabra;
 
     public Principal() {
         initComponents();
@@ -18,14 +17,13 @@ private Palabra clase_palabra;
         Inicio_Sesion nombre = new Inicio_Sesion(); // CREO UN OBJETO DE TIPO PANEL
         this.MostrarPanel(nombre); //USO EL METODO PARA QUE NADAMAS INCIAR SALTE LA PESTAÑA de inicio sesion
         this.setLocationRelativeTo(null);  //COLOCAR PESTAÑA EN EL CENTRO DE LA PANTALLA
-         //seleccionar una palabra aleatoria
-        this.clase_palabra=new Palabra(); // en el propio constructor se añade una palabra aleatoria
+        //seleccionar una palabra aleatoria
 
     }
 
     //METODO PARA MOSTRAR LOS PANELES (LOS INTERFACES QUE HAY)
     public void MostrarPanel(JPanel p) {
-        p.setSize(500, 380);
+        p.setSize(610, 380);
         p.setLocation(0, 0);
         PanelDeCambio.removeAll();
         PanelDeCambio.add(p, BorderLayout.CENTER);
@@ -183,16 +181,15 @@ private Palabra clase_palabra;
         LoginBotonLayout.setHorizontalGroup(
             LoginBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginBotonLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(35, 35, 35))
         );
         LoginBotonLayout.setVerticalGroup(
             LoginBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LoginBotonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Login)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginBotonLayout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(Login))
         );
 
         javax.swing.GroupLayout BarraDeConfigLayout = new javax.swing.GroupLayout(BarraDeConfig);
@@ -239,7 +236,7 @@ private Palabra clase_palabra;
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TituloPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addContainerGap(530, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +246,7 @@ private Palabra clase_palabra;
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        Background.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 500, 60));
+        Background.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 610, 60));
 
         jPanel5.setBackground(new java.awt.Color(255, 0, 51));
 
@@ -264,7 +261,7 @@ private Palabra clase_palabra;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addContainerGap(600, Short.MAX_VALUE))
+                .addContainerGap(709, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +270,7 @@ private Palabra clase_palabra;
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
         );
 
-        Background.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 30));
+        Background.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 30));
 
         PanelDeCambio.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -281,14 +278,14 @@ private Palabra clase_palabra;
         PanelDeCambio.setLayout(PanelDeCambioLayout);
         PanelDeCambioLayout.setHorizontalGroup(
             PanelDeCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
         PanelDeCambioLayout.setVerticalGroup(
             PanelDeCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 380, Short.MAX_VALUE)
         );
 
-        Background.add(PanelDeCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 500, 380));
+        Background.add(PanelDeCambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 610, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -320,30 +317,32 @@ private Palabra clase_palabra;
     }//GEN-LAST:event_VolverPanelMouseExited
 
     private void BarraDeConfigMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraDeConfigMouseEntered
-    
+
     }//GEN-LAST:event_BarraDeConfigMouseEntered
 
     private void BarraDeConfigMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraDeConfigMouseExited
-     
+
     }//GEN-LAST:event_BarraDeConfigMouseExited
 
     private void LaboratorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaboratorioMouseClicked
-         //seleccionar una palabra aleatoria
-       this.clase_palabra.setPalabraRandom(); // en el propio constructor se añade una palabra aleatoria
-        System.out.println(this.clase_palabra.getPalabraRandom());
-       if(this.clase_palabra.getPalabraRandom().length()==5){
-        TituloPartida.setVisible(true);
-        PartidaCinco p5 = new PartidaCinco(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
-       }else if(this.clase_palabra.getPalabraRandom().length()==6){
-        TituloPartida.setVisible(true);
-        Partida_seis p6 = new Partida_seis(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO */
-       } 
+        Eleccion_num_letras num = new Eleccion_num_letras(); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        this.MostrarPanel(num);
+//seleccionar una palabra aleatoria
+//       this.clase_palabra.setPalabra(2); // en el propio constructor se añade una palabra aleatoria
+//        System.out.println(this.clase_palabra.getPalabraRandom());
+//       if(this.clase_palabra.getPalabraRandom().length()==5){
+//        TituloPartida.setVisible(true);
+//        PartidaCinco p5 = new PartidaCinco(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+//        this.MostrarPanel(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO 
+//       }else if(this.clase_palabra.getPalabraRandom().length()==6){
+//        TituloPartida.setVisible(true);
+//        Partida_seis p6 = new Partida_seis(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+//        this.MostrarPanel(p6); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO */
+//       } 
     }//GEN-LAST:event_LaboratorioMouseClicked
-    public Palabra get_palabra_aleatoria(){
-        return this.clase_palabra;
-    }
+//    public Palabra get_palabra_aleatoria() {
+//        return this.clase_palabra;
+//    }
     private void PanelBotonEntrenamiento1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelBotonEntrenamiento1MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_PanelBotonEntrenamiento1MouseEntered
@@ -361,9 +360,9 @@ private Palabra clase_palabra;
     }//GEN-LAST:event_LoginBotonMouseExited
 
     private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
-    Inicio_Sesion_Jugadores login= new Inicio_Sesion_Jugadores ();
-    this.MostrarPanel(login);
-        
+        Inicio_Sesion_Jugadores login = new Inicio_Sesion_Jugadores();
+        this.MostrarPanel(login);
+
     }//GEN-LAST:event_LoginMouseClicked
 
     //MAIN DE LA INTERFAZ

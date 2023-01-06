@@ -32,9 +32,21 @@ public class Almacen_de_palabra implements Serializable {
         } else {
             return this.infoConfig.getPalabras_SeisLetras(); //DEVUELVE LAS PALABRAS DE 6 LETRAS
         }
-
     }
-
+    public void borrar_palabras_array(int tipoArray,int indice_palabra) { //devolver la cadena de palabras de cada arraylist
+        if (tipoArray == 1) { // 1 PARA DEVOLVER ARRAYLIST DE 5 LETRAS, OTRO NUMERO PARA ARRAYLIST DE 6 LETRAS
+            this.infoConfig.borrar_palabras_cincoletras(indice_palabra);
+        } else {
+            this.infoConfig.getPalabras_SeisLetras(); //DEVUELVE LAS PALABRAS DE 6 LETRAS
+        }
+    }
+    public int get_longitud_cinco(){
+        return this.infoConfig.get_longitud_array_cinco();
+    }
+    
+    public int get_longitud_seis(){
+        return this.infoConfig.get_longitud_array_seis();
+    }
     //METODO QUE DEVUELVE LA CONFIRMACION SI SE ENVIA PISTA O NO 
     public boolean confirmacionPista() {
         return "SI".equals(this.infoConfig.getPista()); //devuelve true si esto es cierto, es decir TRANSFORMA EL SI EN TRUE, NO EN FALSE
