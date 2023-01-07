@@ -1,7 +1,7 @@
-
 package Interfaz;
 
 import Pack_Palabra.Palabra;
+import Pack_Partida.Marcador;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -10,15 +10,14 @@ import javax.swing.JPanel;
  * @author Jose Manuel
  */
 public class Eleccion_num_letras extends javax.swing.JPanel {
-private Palabra clase_palabra;
-    
+
+    private Palabra clase_palabra;
+    private Marcador marcador_jugadores = new Marcador(0,0);
+
     public Eleccion_num_letras() {
         initComponents();
-        this.clase_palabra=new Palabra(); // en el propio constructor se añade una palabra aleatoria
-
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,25 +85,25 @@ private Palabra clase_palabra;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.clase_palabra = new Palabra(); // en el propio constructor se añade una palabra aleatoria
+
         grupo_letras.add(cinco);
         grupo_letras.add(seis);
-        
-        if(cinco.isSelected()){
+
+        if (cinco.isSelected()) {
             this.clase_palabra.setPalabra(1);
-            PartidaCinco p5 = new PartidaCinco(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+            PartidaCinco p5 = new PartidaCinco(clase_palabra, 0,marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
             this.MostrarPanel(p5);
-        }
-        else if(seis.isSelected()){
+        } else if (seis.isSelected()) {
             this.clase_palabra.setPalabra(2);
-            Partida_seis p6 = new Partida_seis(clase_palabra); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+            Partida_seis p6 = new Partida_seis(clase_palabra, 0,marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
             this.MostrarPanel(p6);
-        }
-        else {
+        } else {
             javax.swing.JOptionPane.showMessageDialog(this, "NO SE HA SELECCIONADO NÚMERO DE LETRAS"); //si los datos incorrectos salta pestaña de error
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-public void MostrarPanel(JPanel p) {
-        p.setSize(610, 380);
+    public void MostrarPanel(JPanel p) {
+        p.setSize(650, 380);
         p.setLocation(0, 0);
         jPanel1.removeAll();
         jPanel1.add(p, BorderLayout.CENTER);

@@ -14,8 +14,7 @@ public class Almacen_Configuracion implements Serializable {
     private String pista; //si hay pista o no
     private ArrayList<String> palabras_CincoLetras; //las palabras que hay 
     private ArrayList<String> palabras_SeisLetras; //las palabras que hay 
-    private ArrayList<String> palabras_usadas_CincoLetras; //las palabras que hay 
-    private ArrayList<String> palabras_usadas_SeisLetras; //las palabras que hay
+  
 
     public Almacen_Configuracion() {
         this.palabras_CincoLetras = new ArrayList<String>();
@@ -61,13 +60,7 @@ public class Almacen_Configuracion implements Serializable {
     public int getNumPalabras() {
         return numPalabras;
     }
-    public int get_longitud_array_cinco(){
-        return this.palabras_CincoLetras.size();
-    }
     
-    public int get_longitud_array_seis(){
-        return this.palabras_SeisLetras.size();
-    }
     //METODOS SET DE LAS VARIABLES
     public void setNumPalabras(int numPalabras) {
         this.numPalabras = numPalabras;
@@ -92,13 +85,6 @@ public class Almacen_Configuracion implements Serializable {
     public void setPalabras_CincoLetras(ArrayList<String> palabras_jugador1) {
         this.palabras_CincoLetras = palabras_jugador1;
     }
-    
-    public void borrar_palabras_cincoletras(int indice){
-        this.palabras_CincoLetras.remove(indice);
-    }   
-    public void borrar_palabras_seisletras(int indice){
-        this.palabras_SeisLetras.remove(indice);
-    }  
     
     //METODOS GET DE LAS VARIABLES
     public ArrayList<String> getPalabras_SeisLetras() {

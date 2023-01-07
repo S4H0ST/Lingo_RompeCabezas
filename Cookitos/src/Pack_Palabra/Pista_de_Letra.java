@@ -16,9 +16,6 @@ public class Pista_de_Letra {
     public Pista_de_Letra() {
         this.palPista = new Almacen_de_palabra();
     }
-
-    
-
     //METODO DONDE se comprueba si se da una letra en caso afirmativo se da la letra
     public void regalar_letra(String palabra_original) {  //estos parametros son necesarios para ver de que palabras sacar la pista
        if(palPista.confirmacionPista()==true){ //si la pista es afirmativa se devuelve un char
