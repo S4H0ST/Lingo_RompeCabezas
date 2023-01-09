@@ -1,5 +1,6 @@
 package Interfaz;
 
+import Pack_Jugador.Jugador;
 import Pack_Palabra.Palabra;
 import Pack_Partida.Marcador;
 import java.awt.BorderLayout;
@@ -12,10 +13,15 @@ import javax.swing.JPanel;
 public class Eleccion_num_letras extends javax.swing.JPanel {
 
     private Palabra clase_palabra;
-    private Marcador marcador_jugadores = new Marcador(0,0);
-
+    private final Marcador marcador_jugadores = new Marcador();
+//    private Jugador jugador_1;
+//    private Jugador jugador_2;
     public Eleccion_num_letras() {
         initComponents();
+        
+        
+//        this.jugador_1 = jugador1;
+//        this.jugador_2 = jugador2;
     }
 
     /**
@@ -91,12 +97,12 @@ public class Eleccion_num_letras extends javax.swing.JPanel {
         grupo_letras.add(seis);
 
         if (cinco.isSelected()) {
-            this.clase_palabra.setPalabra(1);
-            PartidaCinco p5 = new PartidaCinco(clase_palabra, 0,marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+            this.clase_palabra.setPalabra(1,0);
+            PartidaCinco p5 = new PartidaCinco(clase_palabra,marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
             this.MostrarPanel(p5);
         } else if (seis.isSelected()) {
-            this.clase_palabra.setPalabra(2);
-            Partida_seis p6 = new Partida_seis(clase_palabra, 0,marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+            this.clase_palabra.setPalabra(2,0);
+            Partida_seis p6 = new Partida_seis(clase_palabra,marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
             this.MostrarPanel(p6);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "NO SE HA SELECCIONADO NÚMERO DE LETRAS"); //si los datos incorrectos salta pestaña de error

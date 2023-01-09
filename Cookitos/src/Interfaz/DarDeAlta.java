@@ -149,9 +149,6 @@ public class DarDeAlta extends javax.swing.JPanel {
                 Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-            
-        
-        
     }//GEN-LAST:event_BotonAltaActionPerformed
 
 

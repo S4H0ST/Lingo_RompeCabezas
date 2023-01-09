@@ -186,9 +186,6 @@ public class Config_Jugador extends javax.swing.JPanel implements Serializable  
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Config_Jugador.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-        
-       
     }//GEN-LAST:event_VerFicheroActionPerformed
 
     private void BDarDeBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BDarDeBajaActionPerformed

@@ -5,13 +5,15 @@ import Pack_Palabra.Pista_de_Letra;
 import Pack_Partida.Marcador;
 import java.awt.BorderLayout;
 import java.awt.Color;
+
 import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
  *
- * @author sohaib
+ * @author Sohaib, Jose, Laura
  */
 public class PartidaCinco extends javax.swing.JPanel {
 
@@ -26,16 +28,24 @@ public class PartidaCinco extends javax.swing.JPanel {
     private int turno;      //dependiendo del valor, jugará j1 o j2
     //Dos variables independientes para cada jugador pues puede que cada uno vaya por distintos puntos de la partida
 
-    private int negar_pista = 0;
-    private int contador;
+    private int negar_pista = 0;    
+    private int contador_j1;        //RONDA POR LA QUE VA EL JUGADOR 1
+    private int contador_j2;        //RONDA POR LA QUE VA EL JUGADOR 2
     private String palabraRandom; //palabra random
     private JLabel[] array_casillas = new JLabel[25]; //array de casillas
-    private JLabel[] array_casillas_pista = new JLabel[5];
-    private Palabra palabra_random;
-    private boolean comprobar_palabra = false;
+    private JLabel[] array_casillas_pista = new JLabel[5];  //array de casillas para las pistas, una letra o palabra
+    private Palabra palabra_random; //ASÍ SE LLAMA EL OBJETO QUE USAMOS DE LA CLASE PALABRA
+    private boolean comprobar_palabra = false; //
     private boolean permiso = true;
     private Pista_de_Letra sacar_pista = new Pista_de_Letra(); // para conceder la pista de la letra
     private Marcador marcador_jugadores;
+    private boolean final_partida = true;
+
+    private boolean termina_j1;
+    private boolean termina_j2;
+
+    private boolean cambio_j1;
+    private boolean cambio_j2;
 
     //private int contador_Puntos; //se usará para contar los puntos
     /*
@@ -57,7 +67,7 @@ public class PartidaCinco extends javax.swing.JPanel {
         p.grabFocus();
     }
 
-    public PartidaCinco(Palabra palabra, int contador, Marcador m) {
+    public PartidaCinco(Palabra palabra, Marcador m) {
 
         initComponents();
         this.setSize(650, 380);   //fijar tamaño default
@@ -65,14 +75,26 @@ public class PartidaCinco extends javax.swing.JPanel {
         this.marcador_jugadores = m;
         this.palabra_random = palabra;
         this.contTeclado = 0;
-        this.turno = 0;
-        this.contador = contador;
+
+        //ACTUALIZAMOS VARIABLES DEL MARCADOR PARA ESTA PARTIDA EN CONCRETO.
+        this.turno = m.getTurno();
+        this.contador_j1 = m.getRondaJ1();                      //NUEVO
+        this.contador_j2 = m.getRondaJ2();                      //NUEVO
 
         //INICIALIZAMOS LA CASILLA DE MARCADOR CON UN 0, PORQUE TIENE 0 PUNTOS.
         int puntuacion1 = this.marcador_jugadores.getPuntosJ1();
         int puntuacion2 = this.marcador_jugadores.getPuntosJ2();
-        NumPuntos.setText(String.valueOf(puntuacion1).toUpperCase());
-        NumPartida.setText(String.valueOf(this.marcador_jugadores.getRondaJ1()).toUpperCase());
+
+        //EL MARCADOR EN TIEMPO REAL SE ACTUALIZA DEPENDIENDO DE A QUE JUGADOR LE TOQUE                         NUEVO
+        if (turno == 0) {
+            NomJugador.setText(this.marcador_jugadores.get_nombre_j1());
+            NumPuntos.setText(String.valueOf(puntuacion1).toUpperCase());
+            NumPartida.setText(String.valueOf(this.marcador_jugadores.getRondaJ1() + 1).toUpperCase());
+        } else {
+            NomJugador.setText(this.marcador_jugadores.get_nombre_j2());
+            NumPuntos.setText(String.valueOf(puntuacion2).toUpperCase());
+            NumPartida.setText(String.valueOf(this.marcador_jugadores.getRondaJ2() + 1).toUpperCase());
+        }
 
         Next.setEnabled(false);
 
@@ -125,8 +147,9 @@ public class PartidaCinco extends javax.swing.JPanel {
             Next.setEnabled(true);
             //contTeclado = -1;
             for (int i = comienzo; i < aux; i++) {
-                array_casillas[i].setForeground(Color.GREEN); //Se colorea de verde
-
+                array_casillas[i].setBackground(Color.decode("#008f39"));
+                    array_casillas[i].setOpaque(true);
+                    array_casillas[i].setForeground(Color.WHITE);//Se colorea de verde
             }
             Next.setVisible(true);
 
@@ -136,14 +159,19 @@ public class PartidaCinco extends javax.swing.JPanel {
             for (int i = 0; i < (colorear_palabra.length); i++) {
                 //QUE NO ESTÉN BIEN:
                 if (colorear_palabra[i] == 0) {
-                    array_casillas[i + comienzo].setForeground(Color.RED);
+                    array_casillas[i+comienzo].setBackground(Color.decode("#cb3234"));
+                    array_casillas[i+comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                     //QUE ESTÉN BIEN:
                 } else if (colorear_palabra[i] == 1) {
-                    array_casillas[i + comienzo].setForeground(Color.GREEN);
+                    array_casillas[i+comienzo].setBackground(Color.decode("#008f39"));
+                    array_casillas[i+comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                     this.negar_pista++;
                 } else {
-                    //QUE ESTÉN MAL COLOCADAS:
-                    array_casillas[i + comienzo].setForeground(Color.ORANGE);
+                    array_casillas[i+comienzo].setBackground(Color.decode("#ff8000"));
+                    array_casillas[i+comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                 }
             }
 
@@ -518,106 +546,161 @@ public class PartidaCinco extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(TituloPuntos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(14, 14, 14))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(TituloPartida)
-                        .addGap(18, 18, 18)
-                        .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(TituloJugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE))
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(97, 97, 97))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(55, 55, 55))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(VerPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TituloJugador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TituloPartida))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(TituloPuntos)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(56, 56, 56))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(VerPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(335, 335, 335)
                 .addComponent(Next)
-                .addGap(59, 59, 59))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TituloPartida)
+                            .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TituloPuntos)
+                            .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(pistaPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(1, 1, 1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TituloJugador)
-                                    .addComponent(TituloPartida))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TituloPuntos)
-                                    .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(Next)
-                        .addContainerGap(21, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(TituloJugador)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(VerPalabras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pistaLetra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pistaPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(VerPalabras, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(Next))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         System.out.println(this.palabra_random.getPalabraRandom());
 
-        this.contador++;
-        this.marcador_jugadores.setRonda_j1(contador);
+        if (turno == 0) {
+            this.contador_j1++;
+            this.marcador_jugadores.setRonda_j1(contador_j1);
+            if (this.marcador_jugadores.get_Cambio_j1()) {
+                this.turno = 1;
+                this.marcador_jugadores.setTurno(this.turno);
+            }
+        } else {                                                            //CAMBIAR
+            this.contador_j2++;
+            this.marcador_jugadores.setRonda_j2(contador_j2);
+            if (this.marcador_jugadores.get_Cambio_j2()) {
+                this.turno = 0;
+                this.marcador_jugadores.setTurno(this.turno);
+            }
+        }
 
         for (int i = 0; i < this.array_casillas.length; i++) {
             this.array_casillas[i].setText(String.valueOf(""));
         }
-        if (this.contador < this.palabra_random.getnumArray()) {
-            this.palabra_random.setPalabra(1);
-            PartidaCinco p5 = new PartidaCinco(this.palabra_random, this.contador, this.marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
-            this.MostrarPanelCinco(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO
+        if (turno == 0) {
+            if (this.contador_j1 < this.palabra_random.getnumArray()) {
+                this.palabra_random.setPalabra(1, this.marcador_jugadores.getTurno());
+                PartidaCinco p5 = new PartidaCinco(this.palabra_random, this.marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+                this.MostrarPanelCinco(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO
+            } else {
+                if (final_partida) {
+                    this.marcador_jugadores.set_cambio_j1();
+                    //this.cambio_j1 = true;
+                    if (this.marcador_jugadores.get_Cambio_j1() && this.marcador_jugadores.get_Cambio_j2()) {
+                        Marcador_puntuaciones_final ir_puntuaciones = new Marcador_puntuaciones_final(this); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+                        this.MostrarPanelCinco(ir_puntuaciones);
+                    } else {
+                        this.turno = 1;
+                        this.marcador_jugadores.setTurno(this.turno);
+                        PartidaCinco p5 = new PartidaCinco(this.palabra_random, this.marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+                        this.MostrarPanelCinco(p5);
+                    }
+
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "SE HA ALCANZADO EL LÍMITE DE PALABRAS"); //si los datos incorrectos salta pestaña de error
+                }
+            }
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "SE HA ALCANZADO EL LÍMITE DE PALABRAS"); //si los datos incorrectos salta pestaña de error
+            if (this.contador_j2 < this.palabra_random.getnumArray()) {
+                this.palabra_random.setPalabra(1, this.marcador_jugadores.getTurno());
+                PartidaCinco p5 = new PartidaCinco(this.palabra_random, this.marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+                this.MostrarPanelCinco(p5); //MUESTRO POR PANTALLA AL PULSAR EL BOTON LA PARTIDA_CINCO
+            } else {
+                if (final_partida) {
+                    this.marcador_jugadores.set_cambio_j2();
+                    if (this.marcador_jugadores.get_Cambio_j1() && this.marcador_jugadores.get_Cambio_j2()) {
+                        Marcador_puntuaciones_final ir_puntuaciones = new Marcador_puntuaciones_final(this); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+                        this.MostrarPanelCinco(ir_puntuaciones);
+                    } else {
+                        this.turno = 0;
+                        this.marcador_jugadores.setTurno(this.turno);
+                        PartidaCinco p5 = new PartidaCinco(this.palabra_random, this.marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+                        this.MostrarPanelCinco(p5);
+                    }
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "SE HA ALCANZADO EL LÍMITE DE PALABRAS"); //si los datos incorrectos salta pestaña de error
+                }
+            }
         }
+
 
     }//GEN-LAST:event_NextActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        System.out.println("gfddsfdsfdsfdsfs");
         if (permiso) {
             int key = evt.getKeyChar(); //key recibe lo que se ha escrito por teclado
             boolean mayusculas = key >= 65 && key <= 90; //LIMITAMOS  PARA QUE SALGAN MAYUSCULAS
@@ -668,7 +751,6 @@ public class PartidaCinco extends javax.swing.JPanel {
                         comprobar_palabra = false;
                     }
                 }
-
                 if (contTeclado > 4 && contTeclado <= 9) {
                     switch (contTeclado) {
                         case 5 -> {
@@ -818,6 +900,16 @@ public class PartidaCinco extends javax.swing.JPanel {
                         this.colorearLetras(aciertas, 20);
                         if (aciertas) {
                             this.actualizar_marcador(1);
+                        } else {
+                            if (this.turno == 0) {
+                                if (!this.marcador_jugadores.get_Cambio_j2()) {
+                                    this.marcador_jugadores.setTurno(1);
+                                }
+                            } else {
+                                if (!this.marcador_jugadores.get_Cambio_j1()) {
+                                    this.marcador_jugadores.setTurno(0);
+                                }
+                            }
                         }
                         //EN LA ÚLTIMA FILA, SI FALLAS, PASA A LA SIGUIENTE PALABRA.
                         comprobar_palabra = false;
@@ -831,21 +923,36 @@ public class PartidaCinco extends javax.swing.JPanel {
     private void pistaLetraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pistaLetraMouseClicked
         this.sacar_pista.regalar_letra(this.palabra_random.getPalabraRandom());    // usa la palabra de la partida para sacar un caracter pista
 //        System.out.println(this.sacar_pista.letraRandom());
-        if (this.marcador_jugadores.getPuntosJ1() > 0) {
-            if (this.negar_pista != 4) {
-                this.actualizar_marcador(-1);
-                char pista = this.sacar_pista.letraRandom();
-                int posicion = this.sacar_pista.getPosicion_en_Palabra();
-                array_casillas_pista[posicion].setText(String.valueOf(pista).toUpperCase());
-                pistaLetra.setVisible(false);
+
+        if (this.marcador_jugadores.getTurno() == 0) {
+            if (this.marcador_jugadores.getPuntosJ1() > 0) {
+                if (this.negar_pista != 4) {
+                    this.actualizar_marcador(-1);
+                    char pista = this.sacar_pista.letraRandom();
+                    int posicion = this.sacar_pista.getPosicion_en_Palabra();
+                    array_casillas_pista[posicion].setText(String.valueOf(pista).toUpperCase());
+                    pistaLetra.setVisible(false);
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "YA SABES 4 LETRAS, NO PUEDES REALIZAR ESTA ACCIÓN.");
+                }
             } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "YA SABES 4 LETRAS, NO PUEDES REALIZAR ESTA ACCIÓN.");
+                javax.swing.JOptionPane.showMessageDialog(this, "NO TIENES SUFICIENTES PUNTOS."); //si los datos incorrectos salta pestaña de error
             }
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "NO TIENES SUFICIENTES PUNTOS."); //si los datos incorrectos salta pestaña de error
+            if (this.marcador_jugadores.getPuntosJ2() > 0) {
+                if (this.negar_pista != 4) {
+                    this.actualizar_marcador(-1);
+                    char pista = this.sacar_pista.letraRandom();
+                    int posicion = this.sacar_pista.getPosicion_en_Palabra();
+                    array_casillas_pista[posicion].setText(String.valueOf(pista).toUpperCase());
+                    pistaLetra.setVisible(false);
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "YA SABES 4 LETRAS, NO PUEDES REALIZAR ESTA ACCIÓN.");
+                }
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "NO TIENES SUFICIENTES PUNTOS."); //si los datos incorrectos salta pestaña de error
+            }
         }
-
-
     }//GEN-LAST:event_pistaLetraMouseClicked
 
     private void VerPalabrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerPalabrasMouseClicked
@@ -857,33 +964,67 @@ public class PartidaCinco extends javax.swing.JPanel {
     }//GEN-LAST:event_VerPalabrasMouseClicked
 
     private void pistaPalabraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pistaPalabraMouseClicked
-        if (!this.marcador_jugadores.get_pedir_ayuda_p_j1()) {
-            if (this.marcador_jugadores.getPuntosJ1() >= 3) {
-                this.actualizar_marcador(-3);
-                
-                char[] array_palabra_original = this.palabra_random.getPalabraRandom().toCharArray();
-                for(int i = 0;i<this.palabra_random.getPalabraRandom().length();i++){
-                    array_casillas_pista[i].setText(String.valueOf(array_palabra_original[i]).toUpperCase());
+        if (this.marcador_jugadores.getTurno() == 0) {
+            if (!this.marcador_jugadores.get_pedir_ayuda_p_j1()) {
+                if (this.marcador_jugadores.getPuntosJ1() >= 3) {
+                    this.actualizar_marcador(-3);
+
+                    char[] array_palabra_original = this.palabra_random.getPalabraRandom().toCharArray();
+                    for (int i = 0; i < this.palabra_random.getPalabraRandom().length(); i++) {
+                        array_casillas_pista[i].setText(String.valueOf(array_palabra_original[i]).toUpperCase());
+                    }
+                    pistaPalabra.setVisible(false);
+                    this.marcador_jugadores.set_pedir_ayuda_palabra_j1();
+                    
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "NO TIENES SUFICIENTES PUNTOS."); //si los datos incorrectos salta pestaña de error
                 }
-                pistaPalabra.setVisible(false);
-                this.marcador_jugadores.set_pedir_ayuda_palabra_j1();
-                this.marcador_jugadores.set_pedir_ayuda_palabra_j2();
             } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "NO TIENES SUFICIENTES PUNTOS."); //si los datos incorrectos salta pestaña de error
-            }
-        }else {
                 javax.swing.JOptionPane.showMessageDialog(this, "YA HAS PEDIDO UNA VEZ ESTA AYUDA."); //si los datos incorrectos salta pestaña de error
             }
+        } else {
+            if (!this.marcador_jugadores.get_pedir_ayuda_p_j2()) {
+                if (this.marcador_jugadores.getPuntosJ2() >= 3) {
+                    this.actualizar_marcador(-3);
+
+                    char[] array_palabra_original = this.palabra_random.getPalabraRandom().toCharArray();
+                    for (int i = 0; i < this.palabra_random.getPalabraRandom().length(); i++) {
+                        array_casillas_pista[i].setText(String.valueOf(array_palabra_original[i]).toUpperCase());
+                    }
+                    pistaPalabra.setVisible(false);
+                    this.marcador_jugadores.set_pedir_ayuda_palabra_j2();
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "NO TIENES SUFICIENTES PUNTOS."); //si los datos incorrectos salta pestaña de error
+                }
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "YA HAS PEDIDO UNA VEZ ESTA AYUDA."); //si los datos incorrectos salta pestaña de error
+            }
+        }
     }//GEN-LAST:event_pistaPalabraMouseClicked
 
     private void actualizar_marcador(int fila_acierto) {
-        this.marcador_jugadores.setPuntos_j1(fila_acierto);
-        this.marcador_jugadores.setPuntos_j2(fila_acierto);
+        if (this.marcador_jugadores.getTurno() == 0) {
+            this.marcador_jugadores.setPuntos_j1(fila_acierto);
+        } else {
+            this.marcador_jugadores.setPuntos_j2(fila_acierto);
+        }
+        if (fila_acierto > 0) {
+            this.marcador_jugadores.set_añadir_puntos_palabra(fila_acierto);
+            this.marcador_jugadores.set_añadir_palabra(this.palabra_random.getPalabraRandom());
+        }
+
         int puntuacion1 = this.marcador_jugadores.getPuntosJ1();
         int puntuacion2 = this.marcador_jugadores.getPuntosJ2();
-        NumPuntos.setText(String.valueOf(puntuacion1).toUpperCase());
+        if (this.marcador_jugadores.getTurno() == 0) {
+            NumPuntos.setText(String.valueOf(puntuacion1).toUpperCase());
+        } else {
+            NumPuntos.setText(String.valueOf(puntuacion2).toUpperCase());
+        }
     }
 
+    public Marcador getMarcador_jugadores() {
+        return this.marcador_jugadores;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Next;
     private javax.swing.JLabel NomJugador;

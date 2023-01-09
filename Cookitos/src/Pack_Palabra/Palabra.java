@@ -107,33 +107,52 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     }
 
     //METODO QUE GENERA PALABRAS ALEATORIAS DEL FICHERO DE CONFIGURACION
-    public String sacar_palabra_aleatoria() {
-        boolean colocada = false;
+    public String sacar_palabra_aleatoria(int turno) {
+        boolean colocada_j1 = false;
+        boolean colocada_j2 = false;
         boolean num_encontrado = false;
         this.numRandom = (int) (Math.random() * this.numArray); //cojo una palabra aleatoria en ese rango [0-arraylist.size[])
 
         for (int j = 0; j < numArray; j++) {
-            if (this.indices_usados_jugador1[j] == this.numRandom) {
-                num_encontrado = true;
-            }
-        }
-        
-        while (num_encontrado) {
-            num_encontrado = false;
-            this.numRandom = (int) (Math.random() * this.numArray);
-            for (int j = 0; j < numArray; j++) {
+            if (turno == 0) {
                 if (this.indices_usados_jugador1[j] == this.numRandom) {
+                    num_encontrado = true;
+                }
+            } else {
+                if (this.indices_usados_jugador2[j] == this.numRandom) {
                     num_encontrado = true;
                 }
             }
         }
-
+        while (num_encontrado) {
+            num_encontrado = false;
+            this.numRandom = (int) (Math.random() * this.numArray);
+            for (int j = 0; j < numArray; j++) {
+                if (turno == 0) {
+                    if (this.indices_usados_jugador1[j] == this.numRandom) {
+                        num_encontrado = true;
+                    }
+                } else {
+                    if (this.indices_usados_jugador2[j] == this.numRandom) {
+                        num_encontrado = true;
+                    }
+                }
+            }
+        }
         if (!num_encontrado) {
             for (int i = 0; i < numArray; i++) {
-                if (this.indices_usados_jugador1[i] == -1 && !colocada) {
-                    this.palabra_original = almacen.getPalabras_de_array(indice).get(this.numRandom); //elijo una palabra aleatorio  de una arraylist
-                    this.indices_usados_jugador1[i] = numRandom;
-                    colocada = true;
+                if (turno == 0) {
+                    if (this.indices_usados_jugador1[i] == -1 && !colocada_j1) {
+                        this.palabra_original = almacen.getPalabras_de_array(indice).get(this.numRandom); //elijo una palabra aleatorio  de una arraylist
+                        this.indices_usados_jugador1[i] = numRandom;
+                        colocada_j1 = true;
+                    }
+                } else {
+                    if (this.indices_usados_jugador2[i] == -1 && !colocada_j2) {
+                        this.palabra_original = almacen.getPalabras_de_array(indice).get(this.numRandom); //elijo una palabra aleatorio  de una arraylist
+                        this.indices_usados_jugador2[i] = numRandom;
+                        colocada_j2 = true;
+                    }
                 }
             }
         }
@@ -161,13 +180,14 @@ public class Palabra extends Almacen_de_palabra implements Serializable {
     public String getPalabraRandom() {
         return this.palabra_original; //para no tener que sacar todo el rato palabras random si no poder reutilizar una palabra muchas veces
     }
-    public int getnumArray(){
+
+    public int getnumArray() {
         return this.numArray;
     }
 
     //METODO PARA ASIGNAR LA PALABRA ALEATORIA ESTA ES LA QUE SE USARA FRECUENTEMENTE
-    public void setPalabra(int indice) {
+    public void setPalabra(int indice, int turno) {
         this.indice = indice;
-        this.palabra_original = this.sacar_palabra_aleatoria();
+        this.palabra_original = this.sacar_palabra_aleatoria(turno);
     }
 }

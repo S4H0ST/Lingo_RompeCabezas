@@ -56,10 +56,10 @@ public class Partida {
     public boolean usar_Pista_de_Palabra(boolean pistaP){
         return false;
     }
-    public void actualizarMarcador(){
-        Marcador m = new Marcador(puntosJ1, puntosJ2);
-        //"Se han actualizado los marcadores."
-    }
+//    public void actualizarMarcador(){
+//        Marcador m = new Marcador(puntosJ1, puntosJ2);
+//        //"Se han actualizado los marcadores."
+//    }
     
     public void info_Partida(){}
 }
