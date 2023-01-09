@@ -623,6 +623,7 @@ public class Partida_seis extends javax.swing.JPanel {
                     } else {
                         this.turno = 1;
                         this.marcador_jugadores.setTurno(this.turno);
+                        this.palabra_random.setPalabra(1, this.marcador_jugadores.getTurno());
                         Partida_seis p6 = new Partida_seis(this.palabra_random, this.marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
                         this.MostrarPanelCinco(p6);
                     }
