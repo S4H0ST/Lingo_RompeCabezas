@@ -1,6 +1,7 @@
 package Interfaz;
 
 import Pack_Palabra.*;
+import Pack_Partida.Marcador;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -10,6 +11,9 @@ import javax.swing.JPanel;
  */
 //PRINCIPAL ES NUESTRA JFRAME MAIN, ES DECIR LA PESTAÑA PRINCIPAL-----------------------------------
 public class Principal extends javax.swing.JFrame {
+
+    private Palabra clase_palabra;                                          //PARA ENTRENAMIENTO
+    private final Marcador marcador_jugadores = new Marcador();             //PARA ENTRENAMIENTO
 
     public Principal() {
         initComponents();
@@ -45,9 +49,11 @@ public class Principal extends javax.swing.JFrame {
         VolverPanel = new javax.swing.JPanel();
         BotonVolver = new javax.swing.JLabel();
         PanelBotonEntrenamiento1 = new javax.swing.JPanel();
-        Laboratorio = new javax.swing.JLabel();
-        LoginBoton = new javax.swing.JPanel();
         Login = new javax.swing.JLabel();
+        LoginBoton = new javax.swing.JPanel();
+        Laboratorio = new javax.swing.JLabel();
+        Laboratorio2 = new javax.swing.JLabel();
+        Laboratorio1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         TituloPartida = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -132,14 +138,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        Laboratorio.setBackground(new java.awt.Color(0, 0, 0));
-        Laboratorio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Laboratorio.setForeground(new java.awt.Color(255, 255, 255));
-        Laboratorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Laboratorio.setText("Entrenamiento");
-        Laboratorio.addMouseListener(new java.awt.event.MouseAdapter() {
+        Login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Login.setForeground(new java.awt.Color(255, 255, 255));
+        Login.setText("LOGIN USER");
+        Login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LaboratorioMouseClicked(evt);
+                LoginMouseClicked(evt);
             }
         });
 
@@ -148,15 +152,16 @@ public class Principal extends javax.swing.JFrame {
         PanelBotonEntrenamiento1Layout.setHorizontalGroup(
             PanelBotonEntrenamiento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBotonEntrenamiento1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(Laboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBotonEntrenamiento1Layout.setVerticalGroup(
             PanelBotonEntrenamiento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelBotonEntrenamiento1Layout.createSequentialGroup()
-                .addComponent(Laboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBotonEntrenamiento1Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(Login)
+                .addContainerGap())
         );
 
         LoginBoton.setBackground(new java.awt.Color(0, 0, 0));
@@ -169,56 +174,93 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        Login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Login.setForeground(new java.awt.Color(255, 255, 255));
-        Login.setText("LOGIN USER");
-        Login.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoginMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout LoginBotonLayout = new javax.swing.GroupLayout(LoginBoton);
         LoginBoton.setLayout(LoginBotonLayout);
         LoginBotonLayout.setHorizontalGroup(
             LoginBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginBotonLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+            .addGap(0, 50, Short.MAX_VALUE)
         );
         LoginBotonLayout.setVerticalGroup(
             LoginBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginBotonLayout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(Login))
+            .addGap(0, 29, Short.MAX_VALUE)
         );
+
+        Laboratorio.setBackground(new java.awt.Color(0, 0, 0));
+        Laboratorio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Laboratorio.setForeground(new java.awt.Color(255, 255, 255));
+        Laboratorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Laboratorio.setText("Entrenamiento");
+        Laboratorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LaboratorioMouseClicked(evt);
+            }
+        });
+
+        Laboratorio2.setBackground(new java.awt.Color(0, 0, 0));
+        Laboratorio2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Laboratorio2.setForeground(new java.awt.Color(255, 255, 255));
+        Laboratorio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Laboratorio2.setText("Entrenamiento seis");
+        Laboratorio2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Laboratorio2MouseClicked(evt);
+            }
+        });
+
+        Laboratorio1.setBackground(new java.awt.Color(0, 0, 0));
+        Laboratorio1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Laboratorio1.setForeground(new java.awt.Color(255, 255, 255));
+        Laboratorio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Laboratorio1.setText("Entrenamiento cinco");
+        Laboratorio1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Laboratorio1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout BarraDeConfigLayout = new javax.swing.GroupLayout(BarraDeConfig);
         BarraDeConfig.setLayout(BarraDeConfigLayout);
         BarraDeConfigLayout.setHorizontalGroup(
             BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraDeConfigLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43))
             .addComponent(PanelBotonEntrenamiento1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(BarraDeConfigLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(LoginBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(BarraDeConfigLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(VolverPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(LoginBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BarraDeConfigLayout.createSequentialGroup()
+                        .addComponent(VolverPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraDeConfigLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Laboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(43, 43, 43))))
+            .addGroup(BarraDeConfigLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Laboratorio1)
+                    .addComponent(Laboratorio2))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         BarraDeConfigLayout.setVerticalGroup(
             BarraDeConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BarraDeConfigLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(65, 65, 65)
+                .addGap(60, 60, 60)
+                .addComponent(Laboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelBotonEntrenamiento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(LoginBoton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Laboratorio1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(Laboratorio2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(VolverPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -355,6 +397,21 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LoginMouseClicked
 
+    private void Laboratorio2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Laboratorio2MouseClicked
+        this.clase_palabra = new Palabra();
+        this.clase_palabra.setPalabra(2, 0);
+        PartidaSeisEntrenamiento p6e = new PartidaSeisEntrenamiento(clase_palabra, 0, marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        this.MostrarPanel(p6e);
+    }//GEN-LAST:event_Laboratorio2MouseClicked
+
+    private void Laboratorio1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Laboratorio1MouseClicked
+        
+        this.clase_palabra = new Palabra();
+        this.clase_palabra.setPalabra(1, 0);
+        PartidaCincoEntrenamiento p5e = new PartidaCincoEntrenamiento(clase_palabra, 0, marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
+        this.MostrarPanel(p5e);
+    }//GEN-LAST:event_Laboratorio1MouseClicked
+
     //MAIN DE LA INTERFAZ
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -394,6 +451,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel BarraDeConfig;
     private javax.swing.JLabel BotonVolver;
     private javax.swing.JLabel Laboratorio;
+    private javax.swing.JLabel Laboratorio1;
+    private javax.swing.JLabel Laboratorio2;
     private javax.swing.JLabel Login;
     private javax.swing.JPanel LoginBoton;
     private javax.swing.JPanel PanelBotonEntrenamiento1;

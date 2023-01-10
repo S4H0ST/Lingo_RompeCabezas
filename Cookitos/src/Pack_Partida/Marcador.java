@@ -24,8 +24,11 @@ public class Marcador {
     private boolean pediste_ayuda_palabra_j1;
     private boolean pediste_ayuda_palabra_j2;
 
+    //AQUÍ SE GUARDAN LOS PUNTOS (ESTO SE GUARDA EN EL HISTORIAL)
     private ArrayList<Integer> puntos_palabra1 = new ArrayList<Integer>(); // Create an ArrayList object
     private ArrayList<Integer> puntos_palabra2 = new ArrayList<Integer>(); 
+    
+    //TODAS LAS PALABRAS QUE SALGAN EN EL JUEGO SE VAN A GUARDAR EN ESTE ARRAY
     private ArrayList<String> palabra_marcador1 = new ArrayList<String>();
     private ArrayList<String> palabra_marcador2 = new ArrayList<String>();
 
