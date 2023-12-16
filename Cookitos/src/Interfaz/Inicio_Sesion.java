@@ -1,5 +1,6 @@
 package Interfaz;
 
+import Pack_Jugador.Almacen_de_jugadores;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -12,25 +13,22 @@ public class Inicio_Sesion extends javax.swing.JPanel {
 
     private String administrador;
     private String contrasena;
-
+    private Almacen_de_jugadores almacenjug;
     //CONSTRUCTOR
-    public Inicio_Sesion() {
+    public Inicio_Sesion(Almacen_de_jugadores almacenjug) {
         initComponents();
 
-        this.setSize(500,380);
+        this.setSize(650,380);
+        this.almacenjug = almacenjug;
         this.administrador="Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
         this.contrasena="12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
-        
-
-        this.setSize(500, 380);
-        this.administrador = "Admin"; //PONGO UN ADMINISTRADOR DE PRUEBA
-        this.contrasena = "12345";   //PONGO UNA CONTRASEÑA DE PRUEBA
-
+        //PONGO UNA CONTRASEÑA DE PRUEBA
     }
+    
 
     public void MuestraPanel(JPanel p) {
         p.setLocation(0, 0);
-        p.setSize(500, 380);
+        p.setSize(650, 380);
         PanelDiferente.removeAll();
         PanelDiferente.add(p);
         PanelDiferente.revalidate();
@@ -53,13 +51,11 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         EntrarSesion = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setForeground(new java.awt.Color(0, 0, 0));
 
         PanelDiferente.setBackground(new java.awt.Color(255, 255, 255));
         PanelDiferente.setMaximumSize(new java.awt.Dimension(500, 380));
         PanelDiferente.setMinimumSize(new java.awt.Dimension(500, 380));
 
-        IniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
         IniciarSesion.setForeground(new java.awt.Color(102, 102, 102));
         IniciarSesion.setText("Inserte nombre de usuario");
         IniciarSesion.setBorder(null);
@@ -75,15 +71,12 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("INICIAR SESIÓN");
+        jLabel1.setText("INICIAR SESIÓN ADMIN");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CONTRASEÑA");
 
-        Contrasena.setBackground(new java.awt.Color(255, 255, 255));
         Contrasena.setForeground(new java.awt.Color(102, 102, 102));
         Contrasena.setText("pon una contraseña");
         Contrasena.setToolTipText("");
@@ -120,23 +113,24 @@ public class Inicio_Sesion extends javax.swing.JPanel {
         PanelDiferenteLayout.setHorizontalGroup(
             PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDiferenteLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(170, 170, 170)
                 .addGroup(PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelDiferenteLayout.createSequentialGroup()
                         .addGap(134, 134, 134)
-                        .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                        .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(IniciarSesion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         PanelDiferenteLayout.setVerticalGroup(
             PanelDiferenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDiferenteLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(IniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,7 +144,7 @@ public class Inicio_Sesion extends javax.swing.JPanel {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(EntrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -170,7 +164,7 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     }//GEN-LAST:event_IniciarSesionActionPerformed
 
     private void IniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniciarSesionMousePressed
-        if (IniciarSesion.getText().equals("Inserte nombre de usuario")) {
+         if (IniciarSesion.getText().equals("Inserte nombre de usuario")) {
             IniciarSesion.setText("");                  //cuando se pulsa se borra el texto que estuviera
             IniciarSesion.setForeground(Color.BLACK); //cuando se escriba las letras cambian a negro
         }
@@ -180,11 +174,10 @@ public class Inicio_Sesion extends javax.swing.JPanel {
             Contrasena.setForeground(Color.GRAY);
         }
 
-
     }//GEN-LAST:event_IniciarSesionMousePressed
 
     private void ContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContrasenaMousePressed
-        if (Contrasena.getText().equals("pon una contraseña")) { //solo deja entrar a esta condicion cuando el texto anterior sea el mismo
+          if (Contrasena.getText().equals("pon una contraseña")) { //solo deja entrar a esta condicion cuando el texto anterior sea el mismo
             Contrasena.setText(" ");                 //cuando se pulsa se borra el texto que estuviera
             Contrasena.setForeground(Color.BLACK);//cuando se escriba las letras cambian a negro
         }
@@ -206,13 +199,11 @@ public class Inicio_Sesion extends javax.swing.JPanel {
     private void EntrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarSesionActionPerformed
 //COMPARA SI ADMINISTRADOR CONCIDIE CON EL QUE EXISTE
         if (IniciarSesion.getText().equals(this.administrador) && (Contrasena.getText().equals(this.contrasena))) {
-            Config_ menuConfig = new Config_();
+            Config_ menuConfig = new Config_(almacenjug);
             this.MuestraPanel(menuConfig); //MUESTRO EL PANEL DE CONFIGURACION SI EL ADMIN ES CORRECTO
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "ERROR"); //si los datos incorrectos salta pestaña de error
         }
-
-
     }//GEN-LAST:event_EntrarSesionActionPerformed
 
 

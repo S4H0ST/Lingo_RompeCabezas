@@ -1,11 +1,14 @@
 package Interfaz;
 
+import Pack_Jugador.Almacen_de_jugadores;
 import Pack_Jugador.Jugador;
 import Pack_Palabra.Palabra;
 import Pack_Partida.Marcador;
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import javax.swing.JPanel;
-
 /**
  *
  * @author Jose Manuel
@@ -14,12 +17,27 @@ public class Eleccion_num_letras extends javax.swing.JPanel {
 
     private Palabra clase_palabra;
     private final Marcador marcador_jugadores = new Marcador();
+    private Almacen_de_jugadores almacenjug;
 //    private Jugador jugador_1;
 //    private Jugador jugador_2;
-    public Eleccion_num_letras() {
+    
+    private Jugador j1,j2;
+    private String nombre1;
+    private String nombre2;
+    public Eleccion_num_letras(Jugador j1,Jugador j2,Almacen_de_jugadores almacenjug) {
         initComponents();
+        this.almacenjug = almacenjug;
+        this.j1 = j1;
+        this.j2 = j2;
         
+        this.nombre1 = j1.getNombre();
+        this.nombre2 = j2.getNombre();
         
+        marcador_jugadores.setNombrej1(this.nombre1);
+        marcador_jugadores.setNombrej2(this.nombre2);
+        
+        marcador_jugadores.setJugadorObjeto(j1, j2);
+        marcador_jugadores.setAlmacenJugadores(almacenjug);
 //        this.jugador_1 = jugador1;
 //        this.jugador_2 = jugador2;
     }
@@ -37,16 +55,29 @@ public class Eleccion_num_letras extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         cinco = new javax.swing.JRadioButton();
         seis = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        botonIniPartida = new javax.swing.JButton();
 
-        cinco.setText("Jugar con cinco letras.");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        seis.setText("Jugar con seis letras.");
+        cinco.setBackground(new java.awt.Color(255, 255, 255));
+        cinco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cinco.setForeground(new java.awt.Color(0, 0, 0));
+        cinco.setText("Jugar con cinco letras");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        seis.setBackground(new java.awt.Color(255, 255, 255));
+        seis.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        seis.setForeground(new java.awt.Color(0, 0, 0));
+        seis.setText("Jugar con seis letras");
+        seis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                seisActionPerformed(evt);
+            }
+        });
+
+        botonIniPartida.setText("Iniciar");
+        botonIniPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIniPartidaActionPerformed(evt);
             }
         });
 
@@ -54,28 +85,27 @@ public class Eleccion_num_letras extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(194, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(216, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(187, 187, 187))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cinco, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(seis))
-                        .addGap(239, 239, 239))))
+                    .addComponent(botonIniPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(seis)
+                            .addGap(14, 14, 14))
+                        .addComponent(cinco)))
+                .addGap(205, 205, 205))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(124, 124, 124)
                 .addComponent(cinco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(seis)
-                .addGap(117, 117, 117)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(botonIniPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -90,9 +120,10 @@ public class Eleccion_num_letras extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonIniPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniPartidaActionPerformed
         this.clase_palabra = new Palabra(); // en el propio constructor se añade una palabra aleatoria
-
+        
+        
         grupo_letras.add(cinco);
         grupo_letras.add(seis);
 
@@ -107,7 +138,11 @@ public class Eleccion_num_letras extends javax.swing.JPanel {
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "NO SE HA SELECCIONADO NÚMERO DE LETRAS"); //si los datos incorrectos salta pestaña de error
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonIniPartidaActionPerformed
+
+    private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seisActionPerformed
     public void MostrarPanel(JPanel p) {
         p.setSize(650, 380);
         p.setLocation(0, 0);
@@ -120,9 +155,9 @@ public class Eleccion_num_letras extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonIniPartida;
     private javax.swing.JRadioButton cinco;
     private javax.swing.ButtonGroup grupo_letras;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton seis;
     // End of variables declaration//GEN-END:variables

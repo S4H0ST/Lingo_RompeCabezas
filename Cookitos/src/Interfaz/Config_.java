@@ -1,6 +1,7 @@
 package Interfaz;
 
 import Pack_Config.Almacen_Configuracion;
+import Pack_Jugador.Almacen_de_jugadores;
 import java.io.*;
 import java.util.*;
 import javax.swing.JPanel;
@@ -19,16 +20,17 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     private ArrayList<String> palabras_partida2; //las palabras que hay de 6 letras 
     private Almacen_Configuracion infoConfig;
     private int contador = 0; //nos servira para limitar el ingreso de palabras en el arraylist
-
+    private Almacen_de_jugadores almacenjug;
 //CONSTRUCTOR--------------------
-    public Config_() {
+    public Config_(Almacen_de_jugadores almacenjug) {
         initComponents();
-        this.setSize(500, 380);   //fijar tamaño default
+        this.setSize(650, 380);   //fijar tamaño default
         this.setLocation(0, 0);        //fijar ubicacion default 
         this.palabras_partida1 = new ArrayList<String>();  //las palabras que hay de 5 letras
         this.palabras_partida2 = new ArrayList<String>(); //las palabras que hay de 6 letras 
         this.contador = 0;  //contador de palabras que se van metiendo
 
+        this.almacenjug = almacenjug;
         //ESCONDEMOS ELEMENTOS DE LA INTERFAZ
         TitJugador2.setVisible(false); //escondemos un titulo de jugador 2
         BotonGu2.setVisible(false);      //escondemos un boton de jugador 2
@@ -40,7 +42,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     //METODO PARA MOSTRAR PANEL
     public void MuestraPanel(JPanel p) {
         p.setLocation(0, 0);
-        p.setSize(500, 380);
+        p.setSize(650, 380);
         PanelPartida.removeAll();
         PanelPartida.add(p);
         PanelPartida.revalidate();
@@ -151,18 +153,14 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         PanelPartida.setPreferredSize(new java.awt.Dimension(500, 380));
 
         SelectNo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        SelectNo.setForeground(new java.awt.Color(0, 0, 0));
         SelectNo.setText("NO");
 
         DejarPistaTxt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        DejarPistaTxt.setForeground(new java.awt.Color(0, 0, 0));
         DejarPistaTxt.setText("Dejar Pistas");
 
         NumpalabrasTxt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        NumpalabrasTxt.setForeground(new java.awt.Color(0, 0, 0));
         NumpalabrasTxt.setText("Numero de Palabras");
 
-        NumPalabras.setForeground(new java.awt.Color(0, 0, 0));
         NumPalabras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NumPalabrasActionPerformed(evt);
@@ -177,14 +175,12 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Opciones de Partida");
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
         SelectCinco.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        SelectCinco.setForeground(new java.awt.Color(0, 0, 0));
         SelectCinco.setText("5 Letras");
         SelectCinco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,7 +189,6 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         });
 
         SelectSeis.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        SelectSeis.setForeground(new java.awt.Color(0, 0, 0));
         SelectSeis.setText("6 Letras");
         SelectSeis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,7 +197,6 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         });
 
         SelectSi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        SelectSi.setForeground(new java.awt.Color(0, 0, 0));
         SelectSi.setText("SI");
 
         BotonGuardar.setText("Guardar");
@@ -213,11 +207,9 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("  [0 -10]");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Palabras");
 
         lasPalabras.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -243,7 +235,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
             }
         });
 
-        OpDeJugador.setText("O.Jugador");
+        OpDeJugador.setText("Opcion Jugador");
         OpDeJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OpDeJugadorActionPerformed(evt);
@@ -251,15 +243,12 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Opciones de Jugador");
 
         TitJugador1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        TitJugador1.setForeground(new java.awt.Color(0, 0, 0));
         TitJugador1.setText("Palabras de 5 Letras");
 
         TitJugador2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        TitJugador2.setForeground(new java.awt.Color(0, 0, 0));
         TitJugador2.setText("Palabras de 6 Letras");
 
         BotonGu2.setText("Guardar");
@@ -281,55 +270,65 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         PanelPartidaLayout.setHorizontalGroup(
             PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPartidaLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
                 .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SelectSi, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SelectNo))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPartidaLayout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PanelPartidaLayout.createSequentialGroup()
-                                    .addComponent(NumpalabrasTxt)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPartidaLayout.createSequentialGroup()
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(NumPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPartidaLayout.createSequentialGroup()
-                                    .addComponent(TitJugador1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(SelectCinco))
-                                .addGroup(PanelPartidaLayout.createSequentialGroup()
-                                    .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(DejarPistaTxt)
-                                        .addGroup(PanelPartidaLayout.createSequentialGroup()
-                                            .addComponent(TitJugador2)
-                                            .addGap(172, 172, 172)
-                                            .addComponent(SelectSeis))
-                                        .addComponent(jLabel1)
-                                        .addGroup(PanelPartidaLayout.createSequentialGroup()
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(59, 59, 59)
-                                            .addComponent(IntroPal2)))
-                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(PanelPartidaLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(OpDeJugador)
-                        .addGap(43, 43, 43)
-                        .addComponent(BotonGu2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
+                        .addGap(102, 102, 102)
+                        .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(SelectSi, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SelectNo))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelPartidaLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelPartidaLayout.createSequentialGroup()
+                                        .addComponent(NumpalabrasTxt)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPartidaLayout.createSequentialGroup()
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(NumPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPartidaLayout.createSequentialGroup()
+                                        .addComponent(TitJugador1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(SelectCinco))
+                                    .addGroup(PanelPartidaLayout.createSequentialGroup()
+                                        .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(DejarPistaTxt)
+                                            .addGroup(PanelPartidaLayout.createSequentialGroup()
+                                                .addComponent(TitJugador2)
+                                                .addGap(172, 172, 172)
+                                                .addComponent(SelectSeis))
+                                            .addGroup(PanelPartidaLayout.createSequentialGroup()
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(59, 59, 59)
+                                                .addComponent(IntroPal2)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(PanelPartidaLayout.createSequentialGroup()
+                        .addGap(406, 406, 406)
                         .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(IntroPal1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lasPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel2))
-                .addContainerGap(33, Short.MAX_VALUE))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PanelPartidaLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPartidaLayout.createSequentialGroup()
+                        .addComponent(jSeparator2)
+                        .addGap(144, 144, 144))
+                    .addGroup(PanelPartidaLayout.createSequentialGroup()
+                        .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(PanelPartidaLayout.createSequentialGroup()
+                                .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(OpDeJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(60, 60, 60)
+                                .addComponent(BotonGu2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PanelPartidaLayout.setVerticalGroup(
             PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,8 +336,8 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelPartidaLayout.createSequentialGroup()
                         .addComponent(SelectCinco)
@@ -368,16 +367,20 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
                     .addComponent(jLabel7)
                     .addComponent(IntroPal2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IntroPal1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonGuardar)
-                    .addComponent(OpDeJugador)
-                    .addComponent(BotonGu2))
+                .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPartidaLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IntroPal1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PanelPartidaLayout.createSequentialGroup()
+                        .addGap(0, 50, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(OpDeJugador)
+                            .addComponent(BotonGu2)
+                            .addComponent(BotonGuardar))))
                 .addGap(31, 31, 31))
         );
 
@@ -385,7 +388,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPartida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelPartida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,7 +456,6 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         this.SelectCinco.setVisible(false); //esconder la opcion de 5 para que luego no aparezca, ya que en esta parte solo sera de 6
        NumpalabrasTxt.setVisible(false); //se esconde porque no es relevante
        DejarPistaTxt.setVisible(false); //se esconde porque no es relevante
-
     }//GEN-LAST:event_BotonGuardarActionPerformed
 
     private void NumPalabrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NumPalabrasKeyTyped
@@ -472,6 +474,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
             evt.consume();//ACCIONA LA FUNCION
         }
 
+
     }//GEN-LAST:event_NumPalabrasKeyTyped
 
     private void NumPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumPalabrasActionPerformed
@@ -483,7 +486,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
     }//GEN-LAST:event_lasPalabrasActionPerformed
 
     private void OpDeJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpDeJugadorActionPerformed
-        Config_Jugador opJugador = new Config_Jugador();
+        Config_Jugador opJugador = new Config_Jugador(almacenjug);
         this.MuestraPanel(opJugador);
     }//GEN-LAST:event_OpDeJugadorActionPerformed
 
@@ -511,7 +514,7 @@ public class Config_ extends javax.swing.JPanel implements Serializable {
         } catch (IOException e) {
         }
 
-        //---------------------------------------------------------------CREACION DEL FICHERO----------------------------------------------------//      
+        //---------------------------------------------------------------CREACION DEL FICHERO----------------------------------------------------// 
     }//GEN-LAST:event_BotonGu2ActionPerformed
 
     private void lasPalabrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lasPalabrasMouseClicked

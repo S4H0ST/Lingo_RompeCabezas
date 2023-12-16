@@ -48,27 +48,29 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jSeparator3" min="-2" pref="280" max="-2" attributes="0"/>
                       <Component id="jSeparator4" min="-2" pref="281" max="-2" attributes="0"/>
                       <Component id="Contrasena" min="-2" pref="281" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="129" max="-2" attributes="0"/>
-                      <Component id="IniciarSesion" min="-2" pref="280" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="210" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                           <Component id="EntrarSesion" min="-2" pref="79" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="IniciarSesion" alignment="0" pref="280" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="144" max="32767" attributes="0"/>
+                  <EmptySpace pref="199" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="IniciarSesion" min="-2" max="-2" attributes="0"/>
@@ -82,7 +84,7 @@
                   <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="EntrarSesion" min="-2" pref="26" max="-2" attributes="0"/>
-                  <EmptySpace pref="103" max="32767" attributes="0"/>
+                  <EmptySpace pref="90" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -108,7 +110,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N"/>
+            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N ADMIN"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">

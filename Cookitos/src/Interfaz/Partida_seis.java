@@ -63,10 +63,16 @@ public class Partida_seis extends javax.swing.JPanel {
 
         //EL MARCADOR EN TIEMPO REAL SE ACTUALIZA DEPENDIENDO DE A QUE JUGADOR LE TOQUE                         NUEVO
         if (turno == 0) {
+            if(this.marcador_jugadores.get_pedir_ayuda_p_j1()){
+                pistaPalabra.setEnabled(false);
+            }
             NomJugador.setText(this.marcador_jugadores.get_nombre_j1());
             NumPuntos.setText(String.valueOf(puntuacion1).toUpperCase());
             NumPartida.setText(String.valueOf(this.marcador_jugadores.getRondaJ1() + 1).toUpperCase());
         } else {
+            if(this.marcador_jugadores.get_pedir_ayuda_p_j2()){
+                pistaPalabra.setEnabled(false);
+            }
             NomJugador.setText(this.marcador_jugadores.get_nombre_j2());
             NumPuntos.setText(String.valueOf(puntuacion2).toUpperCase());
             NumPartida.setText(String.valueOf(this.marcador_jugadores.getRondaJ2() + 1).toUpperCase());
@@ -114,7 +120,7 @@ public class Partida_seis extends javax.swing.JPanel {
         array_casillas_pista[3] = bloque39;
         array_casillas_pista[4] = bloque40;
         array_casillas_pista[5] = bloque41;
-        System.out.println(this.palabra_random.getPalabraRandom());
+        System.out.println(this.palabra_random.getPalabraRandom()); //muestra la palabra con la que se esta jugando (BORRAR OPCIONAL)
     }
 
     @SuppressWarnings("unchecked")
@@ -169,8 +175,8 @@ public class Partida_seis extends javax.swing.JPanel {
         NumPuntos = new javax.swing.JLabel();
         PistaLetra = new javax.swing.JLabel();
         pistaPalabra = new javax.swing.JLabel();
-        VerPalabras = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(650, 380));
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -181,94 +187,94 @@ public class Partida_seis extends javax.swing.JPanel {
         Panel1.setBackground(new java.awt.Color(255, 255, 255));
 
         bloque1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque17.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque19.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque20.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque22.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque23.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque26.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque27.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque28.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque29.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
         Panel1.setLayout(Panel1Layout);
@@ -329,10 +335,10 @@ public class Partida_seis extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(bloque12, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bloque18, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(bloque18, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(Panel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(bloque25, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bloque25, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bloque26, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -342,8 +348,8 @@ public class Partida_seis extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bloque29, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bloque30, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                        .addComponent(bloque30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         Panel1Layout.setVerticalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,15 +396,20 @@ public class Partida_seis extends javax.swing.JPanel {
                         .addComponent(bloque27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bloque28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bloque29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        Next.setBackground(new java.awt.Color(255, 255, 255));
+        Next.setForeground(new java.awt.Color(0, 0, 0));
         Next.setText("NEXT");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NextActionPerformed(evt);
             }
         });
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
 
         bloque36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque36.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -422,7 +433,7 @@ public class Partida_seis extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bloque36, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -434,7 +445,8 @@ public class Partida_seis extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bloque40, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bloque41, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bloque41, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,25 +462,39 @@ public class Partida_seis extends javax.swing.JPanel {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Pista:");
 
         TituloJugador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloJugador.setForeground(new java.awt.Color(0, 0, 0));
         TituloJugador.setText("Jugador : ");
 
+        TituloPartida.setBackground(new java.awt.Color(255, 255, 255));
         TituloPartida.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloPartida.setForeground(new java.awt.Color(0, 0, 0));
         TituloPartida.setText("Partida: ");
 
+        NumPartida.setBackground(new java.awt.Color(255, 255, 255));
+        NumPartida.setForeground(new java.awt.Color(0, 0, 0));
         NumPartida.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         NomJugador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        TituloPuntos.setBackground(new java.awt.Color(255, 255, 255));
         TituloPuntos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloPuntos.setForeground(new java.awt.Color(0, 0, 0));
         TituloPuntos.setText("Puntos : ");
 
+        NumPuntos.setBackground(new java.awt.Color(255, 255, 255));
+        NumPuntos.setForeground(new java.awt.Color(0, 0, 0));
         NumPuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        PistaLetra.setBackground(new java.awt.Color(255, 255, 255));
+        PistaLetra.setForeground(new java.awt.Color(0, 0, 0));
         PistaLetra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PistaLetra.setText("Pista?");
+        PistaLetra.setText("Mostrar Letra");
         PistaLetra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PistaLetra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -476,6 +502,8 @@ public class Partida_seis extends javax.swing.JPanel {
             }
         });
 
+        pistaPalabra.setBackground(new java.awt.Color(255, 255, 255));
+        pistaPalabra.setForeground(new java.awt.Color(0, 0, 0));
         pistaPalabra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pistaPalabra.setText("Revelar Palabra");
         pistaPalabra.setToolTipText("");
@@ -483,16 +511,6 @@ public class Partida_seis extends javax.swing.JPanel {
         pistaPalabra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pistaPalabraMouseClicked(evt);
-            }
-        });
-
-        VerPalabras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        VerPalabras.setText("VER PALABRAS");
-        VerPalabras.setToolTipText("");
-        VerPalabras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        VerPalabras.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                VerPalabrasMouseClicked(evt);
             }
         });
 
@@ -507,41 +525,39 @@ public class Partida_seis extends javax.swing.JPanel {
                 .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(VerPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(Next)
-                                    .addGap(24, 24, 24))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(76, 76, 76)))))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(116, 116, 116)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TituloPuntos)
-                            .addComponent(TituloPartida))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(NumPartida, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                            .addComponent(NumPuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(56, 56, 56)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(TituloPuntos)
+                                            .addComponent(TituloPartida))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(NumPartida, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                                            .addComponent(NumPuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(69, 69, 69)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(PistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Next)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -566,13 +582,13 @@ public class Partida_seis extends javax.swing.JPanel {
                         .addGap(21, 21, 21)
                         .addComponent(PistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Next)
-                    .addComponent(VerPalabras, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-                .addGap(0, 6, Short.MAX_VALUE))
+                        .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addComponent(Next))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -591,14 +607,14 @@ public class Partida_seis extends javax.swing.JPanel {
         System.out.println(this.palabra_random.getPalabraRandom());
         if (turno == 0) {
             this.contador_j1++;
-            this.marcador_jugadores.setRonda_j1(contador_j1);
+            this.marcador_jugadores.setRonda_j1(1);
             if (this.marcador_jugadores.get_Cambio_j1()) {
                 this.turno = 1;
                 this.marcador_jugadores.setTurno(this.turno);
             }
         } else {                                                            //CAMBIAR
             this.contador_j2++;
-            this.marcador_jugadores.setRonda_j2(contador_j2);
+            this.marcador_jugadores.setRonda_j2(1);
             if (this.marcador_jugadores.get_Cambio_j2()) {
                 this.turno = 0;
                 this.marcador_jugadores.setTurno(this.turno);
@@ -623,7 +639,7 @@ public class Partida_seis extends javax.swing.JPanel {
                     } else {
                         this.turno = 1;
                         this.marcador_jugadores.setTurno(this.turno);
-                        this.palabra_random.setPalabra(1, this.marcador_jugadores.getTurno());
+                        this.palabra_random.setPalabra(2, this.marcador_jugadores.getTurno());
                         Partida_seis p6 = new Partida_seis(this.palabra_random, this.marcador_jugadores); // CREO UN OBEJTO PANEL DE PARTIDA_CINCO
                         this.MostrarPanelCinco(p6);
                     }
@@ -727,14 +743,6 @@ public class Partida_seis extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_pistaPalabraMouseClicked
-
-    private void VerPalabrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerPalabrasMouseClicked
-        System.out.println(String.valueOf(fila1).toUpperCase());
-        System.out.println(fila2);
-        System.out.println(fila3);
-        System.out.println(fila4);
-        System.out.println(fila5);
-    }//GEN-LAST:event_VerPalabrasMouseClicked
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {
         if (permiso) {
@@ -994,22 +1002,29 @@ public class Partida_seis extends javax.swing.JPanel {
             this.permiso = false;
             Next.setEnabled(true);
             for (int i = comienzo; i < aux; i++) {
-                array_casillas[i].setForeground(Color.GREEN); //Se colorea de verde
+               array_casillas[i + comienzo].setBackground(Color.decode("#008f39"));
+                    array_casillas[i + comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE); //Se colorea de verde
             }
         } //SI NO SE ACIERTAN LAS LETRAS PODRÍA SER QUE ALGUNAS ESTÉN MAL COLOCADAS, NO ESTÉN, O QUE ESTÉN BIEN.
         else {
             int[] colorear_palabra = palabra_random.getArrayPalabra();
             for (int i = 0; i < (colorear_palabra.length); i++) {
                 //QUE NO ESTÉN BIEN:
-                if (colorear_palabra[i] == 0) {
-                    array_casillas[i + comienzo].setForeground(Color.RED);
+               if (colorear_palabra[i] == 0) {
+                    array_casillas[i + comienzo].setBackground(Color.decode("#cb3234"));
+                    array_casillas[i + comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                     //QUE ESTÉN BIEN:
                 } else if (colorear_palabra[i] == 1) {
-                    array_casillas[i + comienzo].setForeground(Color.GREEN);
+                    array_casillas[i + comienzo].setBackground(Color.decode("#008f39"));
+                    array_casillas[i + comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                     this.negar_pista++;
                 } else {
-                    //QUE ESTÉN MAL COLOCADAS:
-                    array_casillas[i + comienzo].setForeground(Color.ORANGE);
+                    array_casillas[i + comienzo].setBackground(Color.decode("#ff8000"));
+                    array_casillas[i + comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                 }
             }
         }
@@ -1068,7 +1083,6 @@ public class Partida_seis extends javax.swing.JPanel {
     private javax.swing.JLabel TituloJugador;
     private javax.swing.JLabel TituloPartida;
     private javax.swing.JLabel TituloPuntos;
-    private javax.swing.JLabel VerPalabras;
     private javax.swing.JLabel bloque1;
     private javax.swing.JLabel bloque10;
     private javax.swing.JLabel bloque11;

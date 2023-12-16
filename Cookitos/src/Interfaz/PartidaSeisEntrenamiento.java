@@ -26,7 +26,7 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
     private int negar_pista = 0;
     //Dos variables independientes para cada jugador pues puede que cada uno vaya por distintos puntos de la partida
     private int ronda_j1;   //variable para la ronda del jugador 1
-    private int ronda_j2;   //variable para la ronda del jugador 2
+   
     private Pista_de_Letra sacar_pista = new Pista_de_Letra(); // para conceder la pista de la letra
     private JLabel[] array_casillas = new JLabel[30];
     private JLabel[] array_casillas_pista = new JLabel[6];
@@ -93,6 +93,8 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
         array_casillas_pista[3] = bloque39;
         array_casillas_pista[4] = bloque40;
         array_casillas_pista[5] = bloque41;
+        
+        System.out.println(this.palabra_random.getPalabraRandom()); //muestra la palabra con la que se esta jugando (BORRAR OPCIONAL)
 
     }
 
@@ -109,9 +111,7 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
         NumPuntos = new javax.swing.JLabel();
         PistaLetra = new javax.swing.JLabel();
         pistaPalabra = new javax.swing.JLabel();
-        VerPalabras = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        TituloJugador = new javax.swing.JLabel();
         TituloPartida = new javax.swing.JLabel();
         Next = new javax.swing.JButton();
         NumPartida = new javax.swing.JLabel();
@@ -122,7 +122,6 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
         bloque39 = new javax.swing.JLabel();
         bloque40 = new javax.swing.JLabel();
         bloque41 = new javax.swing.JLabel();
-        NomJugador = new javax.swing.JLabel();
         Panel1 = new javax.swing.JPanel();
         bloque1 = new javax.swing.JLabel();
         bloque2 = new javax.swing.JLabel();
@@ -154,20 +153,28 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
         bloque28 = new javax.swing.JLabel();
         bloque29 = new javax.swing.JLabel();
         bloque30 = new javax.swing.JLabel();
+        TitEntrenamiento = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
             }
         });
 
+        TituloPuntos.setBackground(new java.awt.Color(0, 0, 0));
         TituloPuntos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloPuntos.setForeground(new java.awt.Color(0, 0, 0));
         TituloPuntos.setText("Puntos : ");
 
+        NumPuntos.setBackground(new java.awt.Color(0, 0, 0));
+        NumPuntos.setForeground(new java.awt.Color(0, 0, 0));
         NumPuntos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        PistaLetra.setBackground(new java.awt.Color(0, 0, 0));
+        PistaLetra.setForeground(new java.awt.Color(0, 0, 0));
         PistaLetra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PistaLetra.setText("Pista?");
+        PistaLetra.setText("Mostrar Letra");
         PistaLetra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PistaLetra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -175,6 +182,8 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
             }
         });
 
+        pistaPalabra.setBackground(new java.awt.Color(0, 0, 0));
+        pistaPalabra.setForeground(new java.awt.Color(0, 0, 0));
         pistaPalabra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pistaPalabra.setText("Revelar Palabra");
         pistaPalabra.setToolTipText("");
@@ -185,24 +194,18 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
             }
         });
 
-        VerPalabras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        VerPalabras.setText("VER PALABRAS");
-        VerPalabras.setToolTipText("");
-        VerPalabras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        VerPalabras.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                VerPalabrasMouseClicked(evt);
-            }
-        });
-
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Pista:");
 
-        TituloJugador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        TituloJugador.setText("Jugador : ");
-
+        TituloPartida.setBackground(new java.awt.Color(0, 0, 0));
         TituloPartida.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TituloPartida.setForeground(new java.awt.Color(0, 0, 0));
         TituloPartida.setText("Partida: ");
 
+        Next.setBackground(new java.awt.Color(0, 0, 0));
+        Next.setForeground(new java.awt.Color(255, 255, 255));
         Next.setText("NEXT");
         Next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,7 +213,12 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
             }
         });
 
+        NumPartida.setBackground(new java.awt.Color(0, 0, 0));
+        NumPartida.setForeground(new java.awt.Color(0, 0, 0));
         NumPartida.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
 
         bloque36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bloque36.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -262,99 +270,97 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        NomJugador.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         Panel1.setBackground(new java.awt.Color(255, 255, 255));
 
         bloque1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque17.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque19.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque20.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque22.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque23.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque26.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque27.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque28.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque29.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bloque30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bloque30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        bloque30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
         Panel1.setLayout(Panel1Layout);
@@ -417,24 +423,22 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
                                     .addComponent(bloque12, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(bloque18, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(Panel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
                         .addComponent(bloque25, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bloque26, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bloque26, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bloque27, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bloque28, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bloque29, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bloque30, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bloque30, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         Panel1Layout.setVerticalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bloque6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bloque1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -475,32 +479,30 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
                         .addComponent(bloque26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bloque27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bloque28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bloque29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addComponent(bloque29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        TitEntrenamiento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TitEntrenamiento.setForeground(new java.awt.Color(0, 0, 0));
+        TitEntrenamiento.setText("ENTRENAMIENTO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(TituloJugador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NomJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(VerPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(TitEntrenamiento)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,22 +525,18 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
                             .addComponent(TituloPartida))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(NumPartida, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                            .addComponent(NumPuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(NumPuntos, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(NumPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TituloJugador)
-                    .addComponent(NomJugador, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(TituloPartida)
-                    .addComponent(NumPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(NumPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TituloPuntos)
                             .addComponent(NumPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -550,12 +548,15 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
                         .addComponent(PistaLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pistaPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Next)
-                    .addComponent(VerPalabras, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TituloPartida)
+                            .addComponent(TitEntrenamiento))
+                        .addGap(7, 7, 7)
+                        .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(Next)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -597,14 +598,6 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
             javax.swing.JOptionPane.showMessageDialog(this, "YA HAS PEDIDO UNA VEZ ESTA AYUDA."); //si los datos incorrectos salta pestaña de error
         }
     }//GEN-LAST:event_pistaPalabraMouseClicked
-
-    private void VerPalabrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerPalabrasMouseClicked
-        System.out.println(String.valueOf(fila1).toUpperCase());
-        System.out.println(fila2);
-        System.out.println(fila3);
-        System.out.println(fila4);
-        System.out.println(fila5);
-    }//GEN-LAST:event_VerPalabrasMouseClicked
     public void MostrarPanelCinco(JPanel p) {
         this.removeAll();
         p.setSize(650, 380);
@@ -618,6 +611,7 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
         System.out.println(this.palabra_random.getPalabraRandom());
         this.contador++;
+        this.marcador_jugadores.setRonda_j1(1);
         for (int i = 0; i < this.array_casillas.length; i++) {
             this.array_casillas[i].setText(String.valueOf(""));
         }
@@ -877,22 +871,30 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
             this.permiso = false;
             Next.setEnabled(true);
             for (int i = comienzo; i < aux; i++) {
-                array_casillas[i].setForeground(Color.GREEN); //Se colorea de verde
+               array_casillas[i].setBackground(Color.decode("#008f39"));
+                array_casillas[i].setOpaque(true);
+                array_casillas[i].setForeground(Color.WHITE);//Se colorea de verde
             }
         } //SI NO SE ACIERTAN LAS LETRAS PODRÍA SER QUE ALGUNAS ESTÉN MAL COLOCADAS, NO ESTÉN, O QUE ESTÉN BIEN.
         else {
             int[] colorear_palabra = palabra_random.getArrayPalabra();
             for (int i = 0; i < (colorear_palabra.length); i++) {
                 //QUE NO ESTÉN BIEN:
+                //QUE NO ESTÉN BIEN:
                 if (colorear_palabra[i] == 0) {
-                    array_casillas[i + comienzo].setForeground(Color.RED);
+                    array_casillas[i + comienzo].setBackground(Color.decode("#cb3234"));
+                    array_casillas[i + comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                     //QUE ESTÉN BIEN:
                 } else if (colorear_palabra[i] == 1) {
-                    array_casillas[i + comienzo].setForeground(Color.GREEN);
+                    array_casillas[i + comienzo].setBackground(Color.decode("#008f39"));
+                    array_casillas[i + comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                     this.negar_pista++;
                 } else {
-                    //QUE ESTÉN MAL COLOCADAS:
-                    array_casillas[i + comienzo].setForeground(Color.ORANGE);
+                    array_casillas[i + comienzo].setBackground(Color.decode("#ff8000"));
+                    array_casillas[i + comienzo].setOpaque(true);
+                    array_casillas[i + comienzo].setForeground(Color.WHITE);
                 }
             }
         }
@@ -928,15 +930,13 @@ public class PartidaSeisEntrenamiento extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Next;
-    private javax.swing.JLabel NomJugador;
     private javax.swing.JLabel NumPartida;
     private javax.swing.JLabel NumPuntos;
     private javax.swing.JPanel Panel1;
     private javax.swing.JLabel PistaLetra;
-    private javax.swing.JLabel TituloJugador;
+    private javax.swing.JLabel TitEntrenamiento;
     private javax.swing.JLabel TituloPartida;
     private javax.swing.JLabel TituloPuntos;
-    private javax.swing.JLabel VerPalabras;
     private javax.swing.JLabel bloque1;
     private javax.swing.JLabel bloque10;
     private javax.swing.JLabel bloque11;

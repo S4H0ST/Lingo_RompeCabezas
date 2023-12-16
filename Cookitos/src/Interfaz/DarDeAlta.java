@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Interfaz;
 
 import Pack_Jugador.Almacen_de_jugadores;
 import Pack_Jugador.Jugador;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
+
 
 /**
  *
@@ -17,12 +13,12 @@ public class DarDeAlta extends javax.swing.JPanel {
 
     private String nombre;
     private String clave;
+    private Almacen_de_jugadores almacenjug;
     private Jugador j2;
-    private Almacen_de_jugadores j1 = new Almacen_de_jugadores();
-    
-    
-    public DarDeAlta() {
+
+    public DarDeAlta(Almacen_de_jugadores almacenj) {
         initComponents();
+        this.almacenjug = almacenj;
     }
 
     /**
@@ -78,23 +74,24 @@ public class DarDeAlta extends javax.swing.JPanel {
         DarAltaPanelLayout.setHorizontalGroup(
             DarAltaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DarAltaPanelLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addContainerGap(143, Short.MAX_VALUE)
                 .addGroup(DarAltaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(CampoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoClave, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DarAltaPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BotonAlta)
-                .addGap(204, 204, 204))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DarAltaPanelLayout.createSequentialGroup()
+                        .addGroup(DarAltaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(CampoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CampoClave, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(160, 160, 160))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DarAltaPanelLayout.createSequentialGroup()
+                        .addComponent(BotonAlta)
+                        .addGap(196, 196, 196))))
         );
         DarAltaPanelLayout.setVerticalGroup(
             DarAltaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DarAltaPanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(59, 59, 59)
                 .addComponent(jLabel1)
                 .addGap(21, 21, 21)
                 .addComponent(jLabel5)
@@ -106,7 +103,7 @@ public class DarDeAlta extends javax.swing.JPanel {
                 .addComponent(CampoClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(BotonAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -130,25 +127,46 @@ public class DarDeAlta extends javax.swing.JPanel {
     }//GEN-LAST:event_CampoClaveActionPerformed
 
     private void BotonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAltaActionPerformed
+
+        this.nombre = String.valueOf(CampoNombre.getText());
+        this.clave = String.valueOf(CampoClave.getText());
+        this.j2 = new Jugador(this.nombre, this.clave);  
         
-        if (CampoNombre.getText()!= null && CampoClave.getText() != null){
-           
-            this.nombre=String.valueOf(CampoNombre.getText());
-             this.clave=String.valueOf(CampoClave.getText());
-             this.j2=new Jugador(this.nombre,this.clave);
-             j1.alta(j2);
-             
-            try {
-                j1.serializar();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                j1.deserializar();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    //lectura fichero
+        try {
+            almacenjug.deserializar(); 
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        try {
+            if(almacenjug.autenticar2(nombre) == null){
+                //damos de alta al jugador
+                try {
+                    almacenjug.alta(j2);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                //escritura fichero
+                try {
+                    almacenjug.serializar();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
+                javax.swing.JOptionPane.showMessageDialog(this, "Ya existe ese usuario. Elige otro nombre");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //este solo lo utilizo para ver por pantalla si estan todos los nombres en el fichero
+        try {
+            almacenjug.deserializar(); //lectura fichero
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DarDeAlta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_BotonAltaActionPerformed
 
 

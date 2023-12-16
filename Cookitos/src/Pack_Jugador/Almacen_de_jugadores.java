@@ -8,138 +8,158 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator; //Para mas tarde
-import java.util.Iterator;
+import java.util.Comparator; 
 
-/** 
+/**
  *
  * @author sohaib, Jose, Laura
  */
-
-
 public class Almacen_de_jugadores implements Serializable {
 
-    private String nombreFichero;
-    private final ArrayList<Jugador> jugadores=new ArrayList();  //arraylist de jugadores
-    //private Jugador administrador;   //jugador de tipo administrador
+    // private String nombreFichero;
     private int contador_de_jugadores = 0;  //para asignar el numero de jugadores
-    
-    
-    
-     public Almacen_de_jugadores(){
-        this.nombreFichero="JugadoresBinario";//Nombre del objeto
-    }
-    
+
+    private ArrayList<Jugador> jugadorFichero = new ArrayList();
+
     //Constructores
-    public Almacen_de_jugadores(String clave){
-      //  Jugador admin = new Jugador("admin", clave);
-      //  jugadores.add(admin);
-      //  System.out.println(admin.getNombre() + admin.getContraseña());   
-    }
-   
-    //iniciar sesion
-//    public boolean autenticar (Jugador j){
-//        for (Jugador j : this.jugadores) {
-//            if(encontrarJugador(j.getNombre(),j.getContraseña())!=null){
-//                
-//            }else{
-//                
-//            }   
-//        }
-//        return false;
-//
-//   } 
-    
-//    public boolean Admin(String clave) {
-//            if(administrador.getJugador()[1].equals(clave)) {
-//		return(true);
-//            }else {
-//		return(false);
-//            }
-//	}
-    
-    //Fichero
-    public void serializar() throws ClassNotFoundException{
-        try{
-            ObjectOutputStream entrada = new ObjectOutputStream(new FileOutputStream("JugadoresBinario"));
+//     public Almacen_de_jugadores(){
+//        this.nombreFichero="JugadoresBinario.txt";//Nombre del objeto
+//    }
+    //Fichero escribir
+    public void serializar() throws ClassNotFoundException {
+        try {
+            //FileWriter fw = new FileWriter("JugadoresBinario.txt", true); //poniendo apend a true hacemos que no se sobreescriba el fichero
+            ObjectOutputStream entrada = new ObjectOutputStream(new FileOutputStream("JugadoresBinario.txt"));
 
-            entrada.writeObject(this.jugadores); //METEMOS UN ARRAYLIST DE JUGADOR EN EL FICHERO
-
+            entrada.writeObject(this.jugadorFichero);
             entrada.close();
             System.out.println("Guardado correctamente");
-        }catch (IOException e) {
-            System.out.println("Error de escritura"); 
+        } catch (IOException e) {
+            System.out.println("Error de escritura");
         }
     }
-    
-      public void deserializar() throws ClassNotFoundException{
-        try{
-            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("JugadoresBinario"));
+
+    //Fichero leer
+    public void deserializar() throws ClassNotFoundException {
+        try {
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("JugadoresBinario.txt"));
 
             ArrayList<Jugador> objetoLeido = (ArrayList<Jugador>) entrada.readObject();
-        
-            this.jugadores.addAll(objetoLeido);
-            System.out.println("Cargado correctamente");
-            System.out.println(this.jugadores); //BORRAR
-            
-        }catch(IOException e){
+            jugadorFichero = objetoLeido;
+            System.out.println(objetoLeido);
+            entrada.close();
+
+            // System.out.println(objetoLeido.getNombre());
+        } catch (IOException e) {
             System.out.println("Error de lectura");
         }
     }
-      
-      //Para buscar al jugador
-      public Jugador encontrarJugador(String nombre,String clave){
-		Jugador j = null;
-		for(int i=0;i<jugadores.size();i++) {
-			if(jugadores.get(i).getJugador()[1].equals(clave) && jugadores.get(i).getJugador()[0].equals(nombre)) {
-				j=jugadores.get(i);
-			}
-		}
-		return(j);
-	}
-      
+
     //Dar de alta a un jugador
-    public void alta(Jugador j){
-        if(encontrarJugador(j.getNombre(),j.getContrasena())!=null){
+    public void alta(Jugador j) throws ClassNotFoundException {
+        if (autenticar(j.getNombre(), j.getContrasena()) != null) {
             System.out.println("Ya existe el usuario");
-        }else{
-            jugadores.add(new Jugador(j.getNombre(),j.getContrasena())); //Si el usuario no existe, se añadirá al ArrayList de jugadores
+        } else {
+            jugadorFichero.add(j); //Si el usuario no existe, se añadirá al ArrayList de jugadores /probar
             contador_de_jugadores++;
+            System.out.println("Jugador añadido");
+            System.out.println(j);
+
         }
     }
-    
+
     //Dar de baja a un jugador
-    public void baja(Jugador j){
-        if(encontrarJugador(j.getNombre(),j.getContrasena())!=null){
-            jugadores.remove(encontrarJugador(j.getNombre(),j.getContrasena()));
+    //Dar de baja a un jugador
+    public boolean baja(String nombre) throws ClassNotFoundException {
+        boolean borrado;
+        if (autenticar2(nombre) != null) {
+            jugadorFichero.remove(this.autenticar2(nombre));
             contador_de_jugadores--;
-        }else{
+            borrado = true;
+            System.out.println("Jugador borrado: ");
+        } else {
+            borrado = false;
             System.out.println("Error: No existe el usuario, por lo que no se puede eliminar");
         }
+        return borrado;
+    }
+
+    //Para buscar al jugador
+    public Jugador autenticar(String nombre, String clave) throws ClassNotFoundException {
+        Jugador j = null;
+        for (int i = 0; i < this.jugadorFichero.size(); i++) {
+            if (this.jugadorFichero.get(i).getJugador()[1].equals(clave) && this.jugadorFichero.get(i).getJugador()[0].equals(nombre)) {
+                j = this.jugadorFichero.get(i);
+            }
+        }
+        return (j);
+    }
+
+    //PUESTO POR SOHA
+    public Jugador autenticar2(String nombre) throws ClassNotFoundException {
+        Jugador j = null;
+        for (int i = 0; i < this.jugadorFichero.size(); i++) {
+            if (this.jugadorFichero.get(i).getJugador()[0].equals(nombre)) {
+                j = this.jugadorFichero.get(i);
+            }
+        }
+        return (j);
+    }
+
+    public void modificar_array(Jugador j1, Jugador j2) throws ClassNotFoundException {
+        for (int i = 0; i < this.jugadorFichero.size(); i++) {
+            if (this.jugadorFichero.get(i).getContrasena().equals(j1.getContrasena()) && this.jugadorFichero.get(i).getNombre().equals(j1.getNombre())) {
+                this.jugadorFichero.get(i).setActualizarValores(j1.getPartidasGanadas(), j1.getPartidasPerdidas(), j1.getPartidasEmpatadas(), j1.getPuntos());
+
+            }
+            if (this.jugadorFichero.get(i).getContrasena().equals(j2.getContrasena()) && this.jugadorFichero.get(i).getNombre().equals(j2.getNombre())) {
+                this.jugadorFichero.get(i).setActualizarValores(j2.getPartidasGanadas(), j2.getPartidasPerdidas(), j2.getPartidasEmpatadas(), j2.getPuntos());
+
+            }
+            this.serializar();
+        }
+    }
+
+    public ArrayList<Jugador> ranking_ordenado_por_victorias() throws ClassNotFoundException {
+        deserializar();
+        ArrayList<Jugador> array = (ArrayList<Jugador>) jugadorFichero.clone();
+        Collections.sort(array, new Comparar_Por_Partidas_Ganadas());
+
+        for(Jugador temp: array){
+//            System.out.println("Usuario: "+temp.getNombre()+"Partidas ganadas:"+temp.getPartidasGanadas());
+            System.out.println(temp.getNombre());  
+        }
+
+        return (array);
     }
     
-    
-    
-    public ArrayList<Jugador> ranking_ordenado_por_victorias(){
-        ArrayList<Jugador> array = (ArrayList<Jugador>)jugadores.clone();
-        //Collections.sort(array,new ComparaPartidasGanadas()); //hay que programarlo aun
-        return(array);
+
+    private static class Comparar_Por_Partidas_Ganadas implements Comparator<Jugador> {
+
+        @Override
+        public int compare(Jugador j1, Jugador j2) {
+        return Integer.compare(j2.getPartidasGanadas(), j1.getPartidasGanadas());
+ 
+        }
     }
-    
-    
-    public ArrayList<Jugador> ranking_ordenado_por_nombre(){
-         ArrayList<Jugador> array = (ArrayList<Jugador>)jugadores.clone();
-        //Collections.sort(array,new comparar_nombre()); //hay que programarlo aun
-        return(array);
+
+    public ArrayList<Jugador> ranking_ordenado_por_nombre() throws ClassNotFoundException {
+        deserializar();
+        ArrayList<Jugador> array = (ArrayList<Jugador>) jugadorFichero.clone();
+        Collections.sort(array, new comparar_por_nombre() );
+
+        for(Jugador temp: array){
+            System.out.println(temp.getNombre());
+        }
+
+        return (array);
     }
-    
-    //comparar puntps j1 y j2
-//     public int compare(Jugador j1,Jugador j2){
-//            if(j1.getPuntos()>j2.getPuntos()){
-//                return 0;
-//            }else{
-//                return 1;
-//            }
-//        }
-    
+
+    private static class comparar_por_nombre implements Comparator<Jugador> {
+
+        @Override
+        public int compare(Jugador j1, Jugador j2) {
+           return j1.getNombre().compareTo(j2.getNombre());
+        }
+    }
 }
