@@ -26,4 +26,4 @@ El Programa te permite realizar las siguientes funciones:
     - Usar las pistas 
 
 >[!NOTE]
->Por palabra acertada se suma puntos, y dependiendo del tipo de pista que se seleccione de esos puntos se restan puntos.
+>Por palabra acertada se sumaN puntos, y dependiendo del tipo de pista que se seleccione de esos puntos se restan puntos.
